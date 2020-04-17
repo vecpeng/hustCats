@@ -1,0 +1,84 @@
+/**index.wxss**/
+.topbar{
+  width:90%;
+  padding: 10px 0;
+  position: fixed; /*固定在顶部*/
+  top: 0px;/*离顶部的距离为0*/
+  background-color: #F8F8F8;
+  z-index: 1000;
+}
+.searchLabel{
+  line-height: 50rpx;
+  margin: 15rpx 30rpx 0 20rpx;
+  height: 40rpx;
+  width: 40rpx;
+}
+.search{
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  width: 85%;
+  display: inline-block;
+}
+.searchInput{
+  height: 50rpx;
+  min-height: 50rpx;
+  border-radius: 5px;
+  display: inline-block;
+}
+.searchPlaceholder{
+  font-size: 10px;
+}
+
+.filter{
+  display: inline-block;
+  width: 15%;
+  text-align: center;
+}
+.filterImg{
+  margin-left: auto;
+  margin-right: auto;
+  color: #ffffff;
+  line-height: 50rpx;
+  height: 40rpx;
+  width: 40rpx;
+}
+
+
+.body{
+  margin-top: -80rpx;
+}
+.cat{
+  width: 600rpx;
+  margin: 0 auto 0 auto;
+  border-radius: 3%;
+  box-shadow: darkgrey 0px 0px 5px 2px;
+  background-color: #ffffff;
+}
+.catImg{
+  border-top-left-radius: 3%;
+  border-top-right-radius: 3%;
+  width: 600rpx;
+}
+.catImgUploader{
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(0 , 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  top: -25px;
+}
+.catInfo{
+  width: 500rpx;
+  margin: 20rpx auto 0 auto;
+}
+.sex{
+  height: 40rpx;
+  width: 40rpx;
+  color: pink;
+}
+.catsInfo{
+  margin: 20px 0;
+}

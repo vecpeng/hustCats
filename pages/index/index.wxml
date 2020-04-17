@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="topbar">
+    <view class="search" id="search">
+      <form bindsubmit="searchSubmit">
+        <image class="searchLabel" src="/img/search.png"></image>
+        <input class="searchInput" name="searchName" type="text" placeholder-class="searchPlaceholder" placeholder="输入猫咪名字可搜索喵~o( =∩ω∩= )m" confirm-type="search" bindconfirm="searchSubmit"></input>
+      </form>
+    </view>
+    <view class="filter">
+      <image src="/img/filter.png" class="filterImg" bindtap=""></image>
+    </view>
+  </view>
+  <view class="body">
+    <view wx:for="{{catsInfo}}" class="catsInfo" wx:key="*this">
+      <view class="cat" data-id="{{item.Id}}" bindtap="jumpto">
+        <image class="catImg" src="{{item.avatar}}" mode="widthFix"></image>
+        <text class="catImgUploader">uploaded by: ufatfat</text>
+        <view class="catInfo">
+          <text>{{item.name}}</text>          
+          <image class="sex" src="/img/female.png"></image>
+          <view class="fish" style="float: right;">
+            <image class="sex" src="/img/fish.png"></image>
+            <text>(123)</text>
+          </view>
+          <view>
+            <image class="sex" src="/img/birthday.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

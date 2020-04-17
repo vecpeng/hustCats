@@ -1,0 +1,23 @@
+<view class="container">
+      <swiper previous-margin="50px" next-margin="50px" bindtouchstart="handletouchstart" bindtouchend="handletouchend" bindchange="getCurrentIndex">
+          <swiper-item>
+            <image class="swiperItem swiperImg" src="{{catSwiperImgs[0].img}}"></image>
+          </swiper-item>
+      </swiper>
+      <view class="catInfo">
+        <view id="title">
+          <text id="name">{{catInfo.name}}</text>
+          <image id="sex" src="/img/female.png"></image>
+          <image id="fish" src="/img/fish.png"></image>
+        </view>
+        <view id="tags">
+          <text class="tag">未绝育</text>
+        </view>
+        <view id="info">
+          <view class="info">
+            <text class="infoTitle">昵称</text>
+            <text class="infoContent">神神道道</text>
+          </view>
+        </view>
+      </view>
+</view>
