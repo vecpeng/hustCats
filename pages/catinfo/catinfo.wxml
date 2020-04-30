@@ -1,23 +1,110 @@
-<view class="container">
-      <swiper previous-margin="50px" next-margin="50px" bindtouchstart="handletouchstart" bindtouchend="handletouchend" bindchange="getCurrentIndex">
-          <swiper-item>
-            <image class="swiperItem swiperImg" src="{{catSwiperImgs[0].img}}"></image>
-          </swiper-item>
-      </swiper>
-      <view class="catInfo">
-        <view id="title">
-          <text id="name">{{catInfo.name}}</text>
-          <image id="sex" src="/img/female.png"></image>
-          <image id="fish" src="/img/fish.png"></image>
-        </view>
-        <view id="tags">
-          <text class="tag">未绝育</text>
-        </view>
-        <view id="info">
-          <view class="info">
-            <text class="infoTitle">昵称</text>
-            <text class="infoContent">神神道道</text>
-          </view>
+<view style="display: {{infoDisplay}};" class="container">
+  <swiper previous-margin="50px" next-margin="50px" bindchange="loadNew">
+    <block wx:for="{{catSwiperImgs}}" wx:key="*this">
+      <swiper-item>
+        <image class="swiperItem swiperImg" src="{{item.img}}" mode="center asoectFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="catInfo">
+    <view class="infoRow">
+      <view style="flex: 2.8">
+        <text id="name">{{catInfo.name}}</text>          
+        <image wx:if="{{catInfo.sex == 0}}" class="icon" src="/img/female.png"></image>
+        <image wx:elif="{{catInfo.sex == 1}}" class="icon" src="/img/male.png"></image>
+        <text wx:if="{{catInfo.dead == 1}}" class="deadLabel">返回喵星</text>
+      </view>
+      <!--<view style="flex: 1.2">
+        <image id="fish" src="/img/fish.png"></image>
+      </view>-->
+    </view>
+    <view id="tags">
+      <block wx:for="{{catInfo.tags}}">
+        <text class="tag">{{item}}</text>
+      </block>
+    </view>
+    <view id="info">
+      <view class="info">
+        <text class="infoTitle">出没地点</text>
+        <text class="infoContent">{{catInfo.location}}</text>
+      </view>
+      <view class="info">
+        <text class="infoTitle">生日</text>
+        <text class="infoContent">{{catInfo.birthday}}</text>
+      </view>
+      <view class="info">
+        <text class="infoTitle">爸爸</text>
+        <text class="infoContent">{{catInfo.father}}</text>
+      </view>
+      <view class="info">
+        <text class="infoTitle">妈妈</text>
+        <text class="infoContent">{{catInfo.mother}}</text>
+      </view>
+      <view class="info">
+        <text class="infoTitle">好友</text>
+        <text class="infoContent">{{catInfo.friends}}</text>
+      </view>
+      <view class="info">
+        <text class="infoTitle">性格</text>
+        <text class="infoContent">{{catInfo.nature}}</text>
+      </view>
+      <view class="info_full">
+        <text class="infoTitle">描述</text>
+        <text class="infoContent">{{catInfo.desc}}</text>
+      </view>
+      <view class="info_full">
+        <text class="infoTitle">撸猫指南</text>
+        <text class="infoContent">{{catInfo.guide}}</text>
+      </view>
+    </view>
+    <view class="btns">
+      <view class="btnAlbum" bindtap="changeTab" data-tab="album">
+        <view>
+          <text style="display: block;">相册</text>
+          <text style="display: block; color: gray; font-size: 0.8rem">共{{photoNum}}张相片</text>
         </view>
       </view>
+      <view class="btnRecord" bindtap="changeTab" data-tab="record" >
+        <view>
+          <text style="display: block;">目击记录</text>
+          <text style="display: block; color: gray; font-size: 0.8rem">共{{recordNum}}条目击记录</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{tab == 'album'}}" class="album">
+  <!--<view class="timeline">
+    <image src="/img/clock.png" class="icon infoIcon"></image>
+  </view>-->
+    <view class="albumContainer">
+    <block wx:for="{{catImgs}}" wx:key="*this">
+      <image src="{{item.img}}" data-id="{{index}}" bindtap="bigImg" mode="aspectFill" lazy-load="true" class="albumImg"></image>
+    </block>
+    </view>
+  </view>
+  <view wx:elif="{{tab == 'record'}}"class="album">    
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">我也看到了猫猫！</button>
+    <block wx:else>
+      <button bindtap="toggleDisplay">我也看到了猫猫！</button>
+      <view style="display: {{uploadContainerDisplay}}" class="({{uploadContainerDisplay=='block'}}?float:'')">
+        <image class="chooseImg" src="{{uploadImgUrl}}" mode="aspectFit" bindtap="chooseImg"></image>
+        <input class="inputDesc" bindinput="updateInput" placeholder="可以写一些信息嗷！"></input>
+        <button bindtap="uploadImg">提交！</button>
+      </view><block wx:for="{{records}}">
+      <view class="recordContainer">
+        <view class="userAvatarContainer">
+          <image class="userAvatar" lazy-load="true" mode="aspectFill" src="{{item.avatar}}"></image>
+        </view>
+        <view class="textContainer">
+          <view class="uploadTime">由{{item.nickname}}提交于：{{item.date}}</view>
+          <view class="desc"><block wx:if="{{item.gender == 0}}">她说：</block><block wx:elif="{{item.gender == 1}}">他说：</block><block wx:else>TA说：</block>{{item.desc}}</view>
+        </view>
+      </view>
+    </block>
+    </block>
+  </view>
+</view>
+<view style="display: {{bigImgDisplay}}; align-items:center; position:fixed; height:100vh; width: 100vw; top: 0; background-color: black; z-index: 1000;">
+  <image bindtap="closeImg" style="width: 100vw;" mode="widthFix" src="https://static.ufatfat.com/wxapi/cat/upload/2020/04/20200419184537133512.jpg"></image>
+  <view style="position: fixed; bottom: 0; width: 100vw; text-align: center; color: white;">asdasdasdasd</view>
 </view>

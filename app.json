@@ -1,16 +1,45 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/catinfo/catinfo"
+    "pages/random/random",
+   "pages/knowledge/knowledge",
+    "pages/catinfo/catinfo",
+    "pages/about/about"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "hustcats",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "onReachBottomDistance": 50
   },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "tabBar": {
+    "selectedColor": "#d81e06",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "",
+        "iconPath": "img/index.png",
+        "selectedIconPath": "img/index-active.png"
+      },
+      {
+        "pagePath": "pages/random/random",
+        "text": "",
+        "iconPath": "img/random.png",
+        "selectedIconPath": "img/random-active.png"
+      } ,{
+        "pagePath": "pages/knowledge/knowledge",
+        "text": "",
+        "iconPath": "img/knowledge.png",
+        "selectedIconPath": "img/knowledge-active.png"
+      },{
+        "pagePath": "pages/about/about",
+        "text": "",
+        "iconPath": "img/about.png",
+        "selectedIconPath": "img/about-active.png"
+      }
+    ],
+    "usingComponents": {}
+  },
+  "sitemapLocation": "sitemap73.json"
 }

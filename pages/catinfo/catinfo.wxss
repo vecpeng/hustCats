@@ -1,16 +1,36 @@
+.container{
+  background-color:#f9f5ef;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+Page{
+  background-color:#f9f5ef;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.float{
+  position:absolute;
+  bottom:100rpx;
+  left:10%;
+ 
+  background-color:white;
+}
+/* 目击记录提交 */
 swiper{
   width: 100%;
-  margin-top: -70px;
+  margin-top: 20px;
+  height: 350rpx;
 }
 .swiperImg{
-  width: 90%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 3%;
   position: relative;
   align-items: center;
   justify-content: center;
-  background-color: #1AAD19;
   color: #FFFFFF;
   font-size: 36rpx;
 }
@@ -26,10 +46,13 @@ swiper{
 #title{
   height: 30px;
   line-height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 #name{
-  font-size: 20px;
   bottom: 10px;
+  letter-spacing: .5rem;
 }
 #sex{
   width: 30px;
@@ -48,7 +71,7 @@ swiper{
   background-color: orange;
   color: black;
   border-radius: 10000px;
-  padding: 5px;
+  padding: 3px 8px;
   font-size: 12px;
   margin-right: 10px;
 }
@@ -67,4 +90,105 @@ swiper{
   display: block;
   font-size: 12px;
   margin-top: 5px;
+}
+.info_full{
+  width: 100%;
+  margin-top: 10px;
+}
+.btns{
+  width: 100%;
+  margin-top: 20px;
+}
+.btnAlbum{
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  padding: 20rpx 0 20rpx 0;
+}
+.btnRecord{
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  padding: 20rpx 0 20rpx 0;
+}
+.album{
+  width: 100vw;
+  margin-top: 20px;
+}
+.albumTitle{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.avatar{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 0.8rem;
+}
+.timeline{
+  width: 90%;
+  margin: 15px auto 15px auto;
+}
+.albumContainer{
+  width: 100%;
+}
+.albumImg{
+  width: 32vw;
+  height: 32vw;
+  margin-left: 1vw;
+}
+.chooseImg{
+  width: 50vw;
+  height: 50vw;
+  display: block;
+  margin: 10px auto 10px auto;
+  border: 1px solid black;
+  border-radius: 2%;
+}
+.inputDesc{
+  width: 80vw;
+  border: 1px solid black;
+  border-radius: 4%;
+  margin: 0 auto 0 auto;
+  display: block;
+}
+
+.recordContainer{
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  margin: 20rpx auto 0 auto;
+  border-radius: 3%;
+  box-shadow: darkgrey 0px 0px 5px 2px;
+  background-color: #ffffff;
+}
+.userAvatarContainer{
+  display: inline-block;
+  width: 20%;
+  height: 20vw;
+}
+.userAvatar{
+  display: block;
+  width: 18vw;
+  height: 18vw;
+  margin: 1vw;
+  border-radius: 50%;
+}
+.textContainer{
+  display: inline-block;
+  width: 70vw;
+  margin-left: 2vw;
+}
+.uploadTime{
+  display: block;
+  border-bottom: 1px solid gray;
+  font-size: 3.5vw;
+  padding: 1vw 0;
+}
+.desc{
+  display: block;
+  font-size: 3vw;
+  padding: 1vw 0;
 }

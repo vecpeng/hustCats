@@ -1,0 +1,13 @@
+<!--pages/success/success.wxml-->
+<view >
+   <view>
+   <image src="/img/successRemind.png" class="successRemind"></image>
+   </view>
+    <view class="toIndexContainer" hover-class="hover">
+   <image src="/img/navigateToIndex.png" class="toIndex" bindtap="navigateToIndex"></image>
+   </view>
+    <view class="seeCatsContainer" bindtap="seeCats">
+   <image src="/img/seeCats.png" class="seeCats" hover-class="hover"></image>
+   </view>
+
+</view>
