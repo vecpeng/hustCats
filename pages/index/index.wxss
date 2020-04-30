@@ -1,6 +1,9 @@
 /**index.wxss**/
 
 /* tab Index*/
+.body{
+  color:#333333
+}
 .container{
   background-color:#f9f5ef;
   width: 100%;
@@ -8,62 +11,26 @@
   margin:0;
   padding:0rpx;
 }
+
+
 Page{
   background-color:#f9f5ef;
   width: 100%;
   height: 100%;
 }
-.topbar{
-  width:100%;
-  margin:0;
-  padding:0;
-  
-  background-color: #f9f5ef;
-  z-index: 1000;
-}
-.searchLabel{
-  line-height: 50rpx;
-  margin: 15rpx 30rpx 0 20rpx;
-  height: 40rpx;
-  width: 40rpx;
-}
 
-.searchInput{
-  height: 50rpx;
-  min-height: 50rpx;
-  border-radius: 5px;
-  display: inline-block;
-}
-.searchPlaceholder{
-  font-size: 10px;
-}
-
-.filterIcon{
-  display: inline-block;
-  width: 15%;
-  text-align: center;
-}
-.filterImg{
-  margin-left: auto;
-  margin-right: auto;
-  color: #ffffff;
-  line-height: 50rpx;
-  height: 40rpx;
-  width: 40rpx;
-}
-
-
-.body{
+.body {
   margin-top: 10rpx;
-  margin-bottom: 8vh;
+  margin-bottom: 8vh
 }
+
 .catsInfo{
-  margin: 20px 0;
+  margin: 40rpx 0;
+
 }
 .catInfo{
-  width: 500rpx;
+  width: 80vw;
   margin: .5rem auto .5rem auto;
- 
 }
 .cat{
   width: 620rpx;
@@ -73,6 +40,7 @@ Page{
   background-color: #ffffff;
   padding-bottom: 1px;
 }
+
 .catImg{
   border-top-left-radius: 3%;
   border-top-right-radius: 3%;
@@ -94,10 +62,7 @@ Page{
   flex: 2.8;
   letter-spacing: .2rem;
 }
-.fish{
-  flex: 1.2;
-  font-size: 0.8rem;
-}
+
 .info{
   font-size: 0.5rem;
 }
@@ -117,24 +82,20 @@ Page{
   background-color: #f9f5ef;
 }
 .filterNav{
-  width: 25vw;
-  display: inline-block;
-  position: relative;
-  height: 25vh;
+      text-align: center;
 }
 .navOption{
-  display: block;
-  margin: 30rpx 40rpx 20rpx 20rpx;
-  padding: 5rpx 20rpx;
-  border-radius: 1000000px;
-  font-size: 25rpx;
+  display: inline-block;
+  margin:40rpx 60rpx;
+  padding:6rpx 20rpx;
+  border-radius: 20rpx;
+  background-color: #333333;
 }
 .chosen{
-  background-color: orange;
+  background-color: #f9ead2;
+  color:black;
 }
-.chosen::after{
-  content: ' >';
-}
+
 .filterList{
   width: 75vw;
   display: inline-block;
@@ -142,32 +103,44 @@ Page{
 }
 .filterOption{  
   display: inline-block;
-  margin: 30rpx 40rpx 20rpx 20rpx;
-  padding: 5rpx 20rpx;
+  width:220rpx;
+  margin:0;
+  padding:0;
+  text-align: center;
   border-radius: 1000000px;
-  font-size: 25rpx;
+  font-size: 32rpx;
   border: 2px solid transparent;
 }
 .filterChosen{
-  border: 2px solid orange;
+  color:#333333;
+  font-weight: bold;
 }
 .btns{
-  padding-bottom: -10rpx;
+  text-align: center;
+  margin:50rpx 0;
+  margin-bottom:66rpx;
 }
 .btnReset{
   display: inline-block;
-  width: calc(50vw - 2px);
+  width:100rpx;
   text-align: center;
   border: 1px solid gray;
-  padding: 20rpx 0 20rpx 0;
+  margin-right:60rpx;
+  padding:10rpx 16rpx;
+  border-radius: 50rpx;
+  background-color: #ffe5b5;
+  color:black;
 }
 .btnDone{
   display: inline-block;
-  width: calc(50vw - 2px);
+  width: 100rpx;
   text-align: center;
   border: 1px solid gray;
-  padding: 20rpx 0 20rpx 0;
-  color: orange;
+  margin-left:60rpx;
+  padding:10rpx 16rpx;
+  border-radius: 50rpx;
+  background-color: #ffe5b5;
+  color:black;
 }
 
 
@@ -187,6 +160,33 @@ Page{
   display:inline-block;
   margin:12rpx;
 }
+/* .topbar{
+  width:100%;
+  margin:0;
+  padding:0;
+  
+  background-color: #f9f5ef;
+  z-index: 1000;
+} */
+/* search */
+.searchLabel{
+  line-height: 50rpx;
+  margin: 15rpx 30rpx 0 20rpx;
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.searchInput{
+  height: 54rpx;
+  min-height: 50rpx;
+  background-color: white;
+  width:360rpx;
+  margin:auto;
+  color:black
+}
+.searchPlaceholder{
+  font-size: 10px;
+}
 
 
 /* .species{
@@ -194,8 +194,8 @@ Page{
   border-right:1rpx solid #cdcdcd;
 } */
 .border{
-  margin-bottom:-6rpx;
-  margin-top:8rpx;
+  margin-bottom:-4rpx;
+  margin-top:0rpx;
   display: inline-block;
   width:1rpx;
   height:26rpx;
@@ -204,7 +204,7 @@ Page{
 
 .icon{
   position:relative;
-  top:10rpx;
+  top:6rpx;
 }
 .name{
   font-weight:bold;
@@ -228,20 +228,86 @@ Page{
   top:10rpx;
   margin:0;
   padding:0;
-  height:60rpx;
-  width:120rpx;
+  height:70rpx;
+  width:150rpx;
   border-radius:80rpx 0 0 80rpx;
-  background-color: #ffe5b5;
+  background-color: #877a66;
+  z-index:2;
+  opacity: 0.6;
 }
 
 
 .line{
   margin-left:16rpx;
   margin-top:10rpx;
-  width:4rpx;
-  height:36rpx;
+  width:3rpx;
+  height:50rpx;
   display:inline-block;
   background-color: white;
+}
+.searchBox{
+    width:480rpx;
+    
+    background-color:#666666;
+    position:fixed;
+    padding-bottom:100rpx;
+    padding:0;
+    right:8vw;
+    top:10px;
+    color:rgb(242, 233, 233);
+    font-size:32rpx;
+    z-index:1;
+    opacity:0.8
+}
+.searchCatsWords{
+   color:#fcf3e6;
+   font-size:36rpx;
+   margin:30rpx 60rpx;
+}
+
+.sortWayWords{
+  color:#fcf3e6;
+  font-size:36rpx;
+  margin:30rpx 0;
+  margin-right:216rpx;
+  padding-top:20rpx;
+
+}
+.catsFilterWords{
+  color:#fcf3e6;
+  font-size:36rpx;
+  margin-left:60rpx;
+  margin-top:30rpx;
+}
+
+.sortWay{
+  text-align:center;
+}
+
+.mostLike{
+  margin-right:34rpx;
+}
+.newestSubmit{
+  margin-left:34rpx;
+}
+.inlineBlock{
+  display:inline-block;
+}
+.lineInSearch{
+  width:1rpx;
+  height:30rpx;
+  background-color:#f9ead2;
+  margin-bottom:-6rpx;
+}
+
+.getUserInfoButton{
+  position:fixed;
+  right:0rpx;
+  top:10rpx;
+  width:50rpx;
+  height:50rpx;
+  margin-left:16rpx;margin-top:14rpx;
+  opacity: 0;
 }
 /*tab Guide*/
 

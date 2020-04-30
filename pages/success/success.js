@@ -1,4 +1,4 @@
-// pages/random/random.js
+// pages/success/success.js
 Page({
 
   /**
@@ -8,6 +8,28 @@ Page({
 
   },
 
+
+  navigateToIndex:function(){
+    wx.navigateBack({
+      delta:2,
+      complete: (res) => {},
+    })
+  },
+
+  seeCats:function(){
+    wx.getStorage({
+      key: 'catId',
+      success:res=>{
+        wx.navigateTo({
+          url: '/pages/catinfo/catinfo?id=' + res.data,
+        })
+        wx.clearStorage({
+          complete: (res) => {},
+        })
+      }
+    })
+  
+  },
   /**
    * 生命周期函数--监听页面加载
    */

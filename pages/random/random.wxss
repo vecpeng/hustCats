@@ -1,1 +1,60 @@
 /* pages/random/random.wxss */
+page{
+  background-color: #f9f5ef;
+}
+.container{
+  background-color:#f9f5ef ;
+  height:100vh;
+}
+.catImgContainer{
+  margin-top:20rpx;
+  margin-left: 10rpx;
+  margin-right:10rpx;
+  width:700rpx;
+  height:70vh;
+  border-radius: 10rpx;
+  background-color: #736357;
+ 
+  display:flex;
+  justify-content: center;
+align-items: center;
+}
+
+.centerImg{
+  height:600rpx;
+  width:600rpx;
+}
+
+.buttonFix{
+  display: flex;
+  height:30vh;
+  align-items: center;
+}
+.buttonContainer{
+  display:flex;
+  justify-content: space-around;
+  
+  width:700rpx;
+  
+margin-top:100rpx;
+  background-color:#f9f5ef  ;
+  
+}
+.label{
+
+  width:50rpx;
+  height:220rpx;
+  margin-top: -40rpx;
+  
+}
+.button{
+
+  height:160rpx;
+  width:160rpx;
+
+}
+
+
+.hover{
+  opacity:0.7
+}

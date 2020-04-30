@@ -4,7 +4,9 @@
     "pages/random/random",
    "pages/knowledge/knowledge",
     "pages/catinfo/catinfo",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/addCats/addCats",
+    "pages/success/success"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,7 +41,12 @@
         "selectedIconPath": "img/about-active.png"
       }
     ],
-    "usingComponents": {}
+    
+      "usingComponents": {
+        "mp-msg": "../components/msg/msg"
+      },
+      "navigationBarTitleText": "UI组件库"
+    
   },
   "sitemapLocation": "sitemap73.json"
 }

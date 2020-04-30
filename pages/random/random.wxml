@@ -1,2 +1,17 @@
 <!--pages/random/random.wxml-->
-<text>pages/random/random.wxml</text>
+
+<view class="container">
+  <view class="catImgContainer">
+  <image src="{{ImgSrc}}" class="centerImg" bindtap="navigateToCat" mode="aspectFill"></image>
+  </view>
+  <view class="buttonFix">
+  <view class="buttonContainer">
+    <image src="/img/label.png" class="label" bindtap="labelButton" mode="widthFix"></image>
+    <view hover-class="hover"><image src="/img/changecats.png" class="button" bindtap="changeCatImg"  ></image></view>
+      <view hover-class="hover"> <image src="/img/save.png" class="button" bindtap="saveImg" ></image> </view>
+  </view>
+</view>
+
+
+
+</view>
