@@ -215,67 +215,96 @@ Page({
  })
 }else{
   console.log(globalData.openid)
-    wx.request({
-      url: "https://wxapi.ufatfat.com/hustcats/cat/addCat",
-      method: "POST",
-      data: {
-        openid: globalData.openid,
-        name: e.detail.value.name,
-        sex: e.detail.value.sex,
-        location:e.detail.value.location,
-        birthday: e.detail.value.birthday,
-        species: e.detail.value.species,
-        nature: e.detail.value.nature,
-        father: e.detail.value.father,
-        mother: e.detail.value.mother,
-        guide: e.detail.value.guide,
-        desc: e.detail.value.desc,
-        friends:'',
-        tags:'',
-        
-      
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        console.log(res.data)
+
+
+  wx.uploadFile({
+    url: 'https://api2.ufatfat.com/ai/checkUploadImg', 
+    filePath: that.data.uploadImgUrl,
+    name: 'uploadImg',
+    success:res=>{
+      console.log(res.data)
+      if(res.data==1)
+      {
         wx.navigateTo({
-            url:"/pages/success/success",
-           
-        })
-        wx.setStorage({
-          key:'catId',
-          data:res.data.errcode
-        })
-        console.log(that.data.uploadImgUrl)
-        console.log(res.data.errcode)
-        wx.uploadFile({
-          url: 'https://wxapi.ufatfat.com/hustcats/cat/uploadCatPhotos', 
-          filePath: that.data.uploadImgUrl,
-          name: 'uploadImg',
-          formData:{
-            openid:globalData.openid,
-            index:0,
-            isIndex:1,
-            catid:res.data.errcode,
+          url:"/pages/success/success",
+         
+      })
+      wx.setStorage({
+        key:'catId',
+        data:res.data.errcode
+      })
+      wx.request({
+        url: "https://wxapi.ufatfat.com/hustcats/cat/addCat",
+        method: "POST",
+        data: {
+          openid: globalData.openid,
+          name: e.detail.value.name,
+          sex: e.detail.value.sex,
+          location:e.detail.value.location,
+          birthday: e.detail.value.birthday,
+          species: e.detail.value.species,
+          nature: e.detail.value.nature,
+          father: e.detail.value.father,
+          mother: e.detail.value.mother,
+          guide: e.detail.value.guide,
+          desc: e.detail.value.desc,
+          friends:'',
+          tags:'',
+          
         
-           
-            desc:''
-          },
-          success (res){
-              
-            console.log(res.data)
-           
-          }
-        })
+        },
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        success: function (res) {
+          console.log(res.data)
+         
+          console.log(that.data.uploadImgUrl)
+          console.log(res.data.errcode)
+          wx.uploadFile({
+            url: 'https://wxapi.ufatfat.com/hustcats/cat/uploadCatPhotos', 
+            filePath: that.data.uploadImgUrl,
+            name: 'uploadImg',
+            formData:{
+              openid:globalData.openid,
+              index:0,
+              isIndex:1,
+              catid:res.data.errcode,
+          
+              verified:1,
+              desc:''
+            },
+            success (res){
+                
+              console.log(res.data)
+             
+            }
+          })
+       
+        },
+        err: function(err){
+          console.log(err)
+        }
+         })
+      
     
-      },
-      err: function(err){
-        console.log(err)
+
+      }else{
+        wx.showToast({
+          title: "请上传猫图!",
+          image:'/img/errRemind.png',
+          duration: 2000
+        })
       }
-       })
+    }
+  })
+
+
+  
+   
       }
+
+      
       if(this.data.submitIf==false)
       {
         wx.showToast({

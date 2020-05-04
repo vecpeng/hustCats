@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/random/random",
+   "pages/feature/feature",
    "pages/knowledge/knowledge",
     "pages/catinfo/catinfo",
     "pages/about/about",
     "pages/addCats/addCats",
-    "pages/success/success"
+    "pages/success/success",
+    "pages/random/random",
+    "pages/identify/identify"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,10 +27,10 @@
         "selectedIconPath": "img/index-active.png"
       },
       {
-        "pagePath": "pages/random/random",
+        "pagePath":  "pages/feature/feature",
         "text": "",
-        "iconPath": "img/random.png",
-        "selectedIconPath": "img/random-active.png"
+        "iconPath": "img/feature.png",
+        "selectedIconPath": "img/feature-active.png"
       } ,{
         "pagePath": "pages/knowledge/knowledge",
         "text": "",

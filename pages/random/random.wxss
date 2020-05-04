@@ -1,60 +1,68 @@
 /* pages/random/random.wxss */
 page{
-  background-color: #f9f5ef;
+  background-color: rgb(51,51,51);
 }
 .container{
-  background-color:#f9f5ef ;
+  background-color:rgb(51,51,51) ;
   height:100vh;
 }
 .catImgContainer{
   margin-top:20rpx;
   margin-left: 10rpx;
   margin-right:10rpx;
-  width:700rpx;
-  height:70vh;
+  width:500rpx;
+  height:50vh;
   border-radius: 10rpx;
-  background-color: #736357;
+ 
  
   display:flex;
   justify-content: center;
 align-items: center;
 }
 
-.centerImg{
-  height:600rpx;
-  width:600rpx;
+.circleContainer{
+  height:375rpx;
+  width:100%;
 }
-
-.buttonFix{
+.circle{
+  height:375rpx;
+  width:100%;
+  border-radius: 750rpx 750rpx 0 0;
+  background-color: rgb(26,26,26);
   display: flex;
-  height:30vh;
+  justify-content: center;
   align-items: center;
 }
-.buttonContainer{
-  display:flex;
-  justify-content: space-around;
-  
-  width:700rpx;
-  
-margin-top:100rpx;
-  background-color:#f9f5ef  ;
-  
+
+.hideImg{
+    width:90rpx;
+    height:70rpx;
+    position: fixed;
+    bottom:300rpx;
+    left:130rpx;
 }
-.label{
-
-  width:50rpx;
-  height:220rpx;
-  margin-top: -40rpx;
-  
-}
-.button{
-
-  height:160rpx;
-  width:160rpx;
-
+.noHideImg{
+  width:80rpx;
+  height:80rpx;
+  position: fixed;
+  bottom:310rpx;
+  left:130rpx;
 }
 
-
-.hover{
-  opacity:0.7
+.saveImg{
+  height:150rpx;
+  width:150rpx;
+  margin-right:30rpx;
+  margin-top:30rpx
 }
+
+.changeCatImg{
+  height:150rpx;
+  width:150rpx;
+  margin-left:30rpx;
+  margin-top:30rpx
+}
+
+
+
+

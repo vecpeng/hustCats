@@ -5,7 +5,7 @@
   color:#333333
 }
 .container{
-  background-color:#f9f5ef;
+  background-color:#333333;
   width: 100%;
   height: 100%;
   margin:0;
@@ -14,7 +14,7 @@
 
 
 Page{
-  background-color:#f9f5ef;
+  background-color:#333333;
   width: 100%;
   height: 100%;
 }
@@ -36,7 +36,7 @@ Page{
   width: 620rpx;
   margin: 0 auto 0 auto;
   border-radius: 3%;
-  box-shadow: darkgrey 0px 0px 5px 2px;
+  box-shadow: #333333 3px 3px 5px 2px;
   background-color: #ffffff;
   padding-bottom: 1px;
 }

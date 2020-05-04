@@ -1,0 +1,12 @@
+<!--pages/feature/feature.wxml-->
+<view class="header">
+    <view class="random" bindtap="randomTap" hover-class="random-hover" > 
+      <view class="randomIcon" hover-class="randomHover" ></view>
+    
+    </view>
+    <view class="identify" bindtap="identifyTap" hover-class="identify-hover" >
+      <view class="identifyIcon"  hover-class="identifyHover"></view>
+    
+    </view>
+
+</view>

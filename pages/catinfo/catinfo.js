@@ -515,6 +515,14 @@ Page({
     })
     console.log(globalData.openid)
     for (let i = 0; i < imgs.length; i++) {
+
+      wx.uploadFile({
+        url: 'https://api2.ufatfat.com/ai/checkUploadImg', 
+        filePath: imgs[i].img,
+        name: 'uploadImg',
+        success:res=>{
+          console.log(res.data)
+          if(res.data==1){
       wx.uploadFile({
         filePath: imgs[i].img,
         name: 'uploadImg',
@@ -524,6 +532,7 @@ Page({
           catid: id,
           index: i,
           isIndex: 0,
+          verified:1,
         },
         url: 'https://wxapi.ufatfat.com/hustcats/cat/uploadCatPhotos',
         success: res => {
@@ -542,6 +551,16 @@ Page({
             })
           }
         }
+      })
+    }
+    else{
+      wx.showToast({
+        title: `第${i+1}张不是猫图`,
+        duration:1000,
+        image:'/img/errRemind.png',
+      })
+    }
+    }
       })
     }
   },

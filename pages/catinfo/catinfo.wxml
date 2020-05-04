@@ -1,4 +1,4 @@
-<view style="margin-top:-140rpx;">
+<view style="margin-top:-100rpx;">
 <view style="display: {{infoDisplay}};" class="container">
 	<view class="flexCenter">
 		<swiper mode="center" indicator-dots="true" indicator-color="#534741" indicator-active-color="black" autoplay="true" interval="3000" duration="500" circular="true">
