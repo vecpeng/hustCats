@@ -1,27 +1,27 @@
 <view style="display:flex">
-<view style="width: 60px; display: inline-block;">
-<scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;">
-  <view style="width: 48px; margin: 0 auto;">
-    <view style="padding: 20rpx 0; text-align: center;">
-      <image bindtap="toggleSearchBar" src="/img/{{search}}" style="width: 24px;" mode="widthFix"></image>
-    </view>
-    <view class="searchBar {{searchBarDisplay}}">
-      <input style="width: 100%;"></input>
-    </view>
-    <view style="height: 1px; background-color: #f2f2f2;"></view>
-    <block wx:for="{{category}}" wx:for-index='i' wx:key="id">
-    <view style="padding: 20rpx 0; text-align: center;">
-      <view data-index="{{i}}" bindtap="changeIndex" style="padding: 20rpx 0;{{i==index?'color: #EDA2A2;':'color: #808080;'}}">{{item.categoryName}}</view>
-    </view>
-    <view style="height: 1px; background-color: #f2f2f2;"></view>
-    </block>
-  </view>
-</scroll-view>
-</view>
-<view style="display: inline-block; width: calc(100vw - 60px); background-color: #F9F5EF;">
-<scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;">
-  <view style="padding: 20rpx 0;">
-    <!--<view style="width: 90%; padding: 20rpx 0; margin: 0 auto; background-color: white; border-radius: 10px; {{index==1?'display: block;':'display: none;'}}">
+	<view style="width: 60px; display: inline-block;">
+		<scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;">
+			<view style="width: 48px; margin: 0 auto;">
+				<view style="padding: 20rpx 0; text-align: center;">
+					<image bindtap="toggleSearchBar" src="/img/{{search}}" style="width: 24px;" mode="widthFix"></image>
+				</view>
+				<view class="searchBar {{searchBarDisplay}}">
+					<input style="width: 100%;"></input>
+				</view>
+				<view style="height: 1px; background-color: #f2f2f2;"></view>
+				<block wx:for="{{category}}" wx:for-index='i' wx:key="id">
+					<view style="padding: 20rpx 0; text-align: center;">
+						<view data-index="{{i}}" bindtap="changeIndex" style="padding: 20rpx 0;{{i==index?'color: #EDA2A2;':'color: #808080;'}}">{{item.categoryName}}</view>
+					</view>
+					<view style="height: 1px; background-color: #f2f2f2;"></view>
+				</block>
+			</view>
+		</scroll-view>
+	</view>
+	<view style="display: inline-block; width: calc(100vw - 60px); background-color: rgb(51,51,51);">
+		<scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;{{proDisplay=='none'?'display:block':'display:none'}}">
+			<view style="padding: 20rpx 0;">
+				<!--<view style="width: 90%; padding: 20rpx 0; margin: 0 auto; background-color: white; border-radius: 10px; {{index==1?'display: block;':'display: none;'}}">
       <view style="margin: 0 5%;">
         <view style="display: flex;">
           <view style="width: 30%; display: inline-block;">
@@ -57,10 +57,11 @@
         </view>
         <view style="background-color: #f2f2f2; margin: 30rpx 0; height: 1px;"></view>
         <view>
-          <view style="font-size: 1.2rem; color: #EDA2A2; text-align: center;">
+          <view style="font-size: 1.1rem; color: #EDA2A2; text-align: center;">
             <view>猫没有九条命！</view>
             <view>猫没有九条命！</view>
             <view>猫没有九条命！</view>
+						<view style="font-size: .0rem;">1</view>
           </view>
         </view>
       </view>
@@ -70,13 +71,13 @@
 
 
 
-    <!-- <scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;">
+				<!-- <scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;">
   <view style="padding-top:20rpx ;">
         <view style="width: 90%; margin: 0 auto; background-color: white; border-radius: 10px; {{index==1?'display: block;':'display: none;'}}">
         <view style="width:80%;padding-left:10%;padding-top:50rpx">
           <view>
-         <view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-          <view style="display:inline-block">猫猫贪睡</view>
+         <view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+          <view style="display:inline-block;color:#333333;font-size: .9rem">猫猫贪睡</view>
           <view style="font-size: .8rem; color: #808080;line-height:2rem">
           <view >猫猫在一天中有14～15小时在睡眠中度过。但是猫是狩猎动物，为了能敏锐地感觉到外界的一切动静，它睡得不是很死，因此猫只有4～5小时是真睡，大多数时间应该算是在“假寐”或者叫做闭目养神。</view>
           <view>但从小和人类待惯的猫睡的比较死，睡的时间比较长。</view>
@@ -87,12 +88,11 @@
 
           <view style="width:80%;padding-left:10%;padding-top:50rpx">
           <view>
-          <view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-          <view style="display:inline-block">猫猫任性</view>
+          <view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+          <view style="display:inline-block;color:#333333;font-size: .9rem">猫猫任性</view>
           <view style="font-size: .8rem; color: #808080;line-height:2rem">
           <view >猫是喜欢单独行动的动物，与狗狗不同。</view>
           <view>猫和主人并不是主从关系，把它们看成平等的朋友关系会更好一些。</view>
-         
           </view>
           </view>
         </view>
@@ -100,8 +100,8 @@
 
           <view style="width:80%;padding-left:10%;padding-top:50rpx">
           <view>
-        <view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-          <view style="display:inline-block">猫猫有洁癖</view>
+        <view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+          <view style="display:inline-block;color:#333333;font-size: .9rem">猫猫有洁癖</view>
           <view style="font-size: .8rem; color: #808080;line-height:2rem">
           <view >猫经常清理自己的毛。</view>
           <view>猫的舌头上有许多粗糙的小突起，这是除去脏污最合适不过的工具。</view>
@@ -113,12 +113,13 @@
 
  <view style="width:80%;padding-left:10%;padding-top:50rpx">
           <view>
-          <view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
+          <view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
           <view style="display:inline-block">猫猫的情绪</view>
           <view style="font-size: .8rem; color: #808080;line-height:2rem">
           <view >猫在高兴时，尾巴会竖起来，或者发出呼噜呼噜的声音。</view>
           <view>猫生气的时候，会使劲地摇尾巴。</view>
           <view >如果你惹它生气了，它有可能会猛地扑向你。</view>
+				
        
           </view>
           </view>
@@ -130,265 +131,598 @@
    
 </scroll-view> -->
 
-<!-- 进阶 -->
-<view bindtap="toggleFoldDisplayA" style="margin-bottom:20rpx;display:{{advanceDisplay}}" >
-				<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white; border-radius: 20rpx;color:#666666;display:flex;justify-content:space-between">
+				<!-- 进阶 -->
+				<view bindtap="toggleFoldDisplayA" style="margin-bottom:20rpx;display:{{advanceDisplay}}">
+					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
 
-					<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block"> 撸猫的注意事项</view>
-					<image src="/img/fold.png" style="width:60rpx;height:30rpx;margin-top:20rpx;margin-right:20rpx;" class="foldA"></image>
+						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem;"> 撸猫的注意事项</view>
+						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldA"></image>
+					</view>
 				</view>
-			</view>
-<!-- 注意事项 -->
-<view style="background-color:#f7f7f7;width:90%;margin:auto;display:{{displayA}}">
-			<view style="width:80%;padding-left:10%;padding-top:20rpx;">
-				<view style="border-bottom:1rpx solid #666666">
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">野猫</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+				<!-- 注意事项 -->
+				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayA}}">
+					<view style="width:80%;padding-left:10%;padding-top:20rpx;">
+						<view style="border-bottom:1rpx solid #666666">
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">野猫</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-						<view style="display:inline-block;margin-bottom:40rpx;" >遇到流浪猫不要想当然的以为猫咪都是可爱的，要循序渐进，消除敌意，不要一开始就上去喂养或者抚摸，城市的流浪猫基本上都是家猫，敌意一般情况下很容易消除，但不可操之过急。 <view style="color:#4d4d4d;display:inline-block">野猫有风险，撸猫需谨慎！！</view>
+								<view style="display:inline-block;margin-bottom:40rpx;">遇到流浪猫不要想当然的以为猫咪都是可爱的，要循序渐进，消除敌意，不要一开始就上去喂养或者抚摸，城市的流浪猫基本上都是家猫，敌意一般情况下很容易消除，但不可操之过急。 <view style="color:#4d4d4d;font-weight:bold;display:inline-block">野猫有风险，撸猫需谨慎！！</view>
+								</view>
+
+							</view>
 						</view>
-           
+					</view>
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">过度的撸猫</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">虽然猫猫很喜欢按摩，有时还会主动靠近求抚摸，但这并不代表它愿意被你狂撸。
+									当猫猫每次靠近的时候，千万不要一见到它就抱起来一顿吸，这对猫猫来说是很痛苦的，久而久之，它会慢慢远离你。
+								</view>
+
+							</view>
+						</view>
+					</view>
+
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">打扰猫猫睡觉</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">猫猫也有脾气的，尤其在它深度睡眠的时候不要去打扰它，这可能会让猫猫讨厌你！</view>
+								<view>要不咱换位思考一下……？</view>
+							</view>
+						</view>
+					</view>
+
+
+
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">身上有异味</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">猫咪对气味是特别敏感，尤其是一些刺激性的气味会让它超级反感，比如：橘子、柠檬、化妆品、汗味、风油精……</view>
+							</view>
+						</view>
+					</view>
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">全身乱抚摸</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">如果不想被拍一爪子的话，猫猫的肚子、爪子、屁股、牙齿等敏感部位不建议碰，除非你和猫猫很熟。每一只猫猫敏感的部位会有一点差别，要注意猫猫的反应。</view>
+								<view style="font-size: .0rem;">1</view>
+							</view>
+						</view>
+					</view>
+
+
+				</view>
+				<!-- 注意事项 -->
+
+				<view bindtap="toggleFoldDisplayB" style="margin-bottom:20rpx;margin-top:40rpx;display:{{advanceDisplay}}">
+					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
+
+						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem;"> 猫猫的叫声（仅供参考）</view>
+						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldB"></image>
+					</view>
+
+				</view>
+				<!-- 猫猫叫声 -->
+				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayB}}">
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">突然叫了一声</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">猫猫突然叫了一声后不叫了，是猫的礼貌。这是在向你打招呼。
+								</view>
+
+							</view>
+						</view>
+					</view>
+
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">咕噜咕噜叫</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">猫猫觉得放松或者喜欢你时会发出咕噜咕噜的声音，像一台小型马达。</view>
+
+							</view>
+						</view>
+					</view>
+
+
+
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">低沉而温柔的叫</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">一般发出这种声音代表着猫猫有求于你，尤其是一边盯着你看时。</view>
+							</view>
+						</view>
+					</view>
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">老吴~</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">这是猫猫遇到威胁或者感到害怕时候发出的声音，更进一步可能会哈人，这个情况下就不要接触了。</view>
+							</view>
+						</view>
+					</view>
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">又急又快的叫声</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">这是猫猫表示不安的声音，新抱回家的猫经常发出这种声音。这时不要过分打扰它，要让它先熟悉环境。</view>
+							</view>
+						</view>
+					</view>
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">惨烈、像婴儿哭的声音</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block;margin-bottom:50rpx">春夏季是猫猫发情的季节，发出这种声音也是它们发情的表现。</view>
+							</view>
+						</view>
+					</view>
+
+
+				</view>
+
+
+				<!-- 猫猫叫声 -->
+
+
+
+
+
+				<view bindtap="toggleFoldDisplayC" style="margin-bottom:20rpx;margin-top:40rpx;display:{{advanceDisplay}}">
+					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
+
+						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem;">猫猫的智商</view>
+						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldC"></image>
+					</view>
+
+				</view>
+				<!-- 猫猫智商 -->
+				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayC}}">
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view style="font-size: .8rem; color: #808080;line-height:1.8rem">猫的智商一般相当于人在2~3岁时的智商。</view>
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">有的猫可以理解复杂的条件</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">在一些人的观念中，狗很听从主人的命令，同时它还会进行很多高技巧的表演，所以它们的智商比较高；他们认为猫从不听从人类的命令，也是没有什么表演技能的，所以它们的智商比较低。
+									实际上是动物是否会表演技能，是由它们各自的习性决定的，与他们的智商的高低无关。
+								</view>
+							</view>
+						</view>
+					</view>
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">猫咪的脑部结构和人类相同</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">无论是猫脑还是人脑，其内部构造都是基本相同的。差别在于人脑新皮质的极其发达，这是猫脑无法比拟的。无论是狗和猫或者其他的哺乳类动物，它们的大脑新皮质的发达程度并没有什么大的差别。</view>
+							</view>
+						</view>
+					</view>
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">猫咪身体会一直成长</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block;margin-bottom:50rpx">对于猫猫而言，说它们是在用头脑思考，还不如说它们是在利用视觉、气味和嘴来认识东西的。
+									随着时间推移，猫猫对于世界的认知会越来越完全。
+								</view>
+							</view>
+						</view>
 					</view>
 				</view>
+
+
+				<!-- 进阶 -->
+
+
+
+
+
+
+
+
+
+				<block wx:for="{{content}}" wx:key="id" style="display:{{contentDisplay}}">
+					<rich-text nodes="{{item.content}}"></rich-text>
+				</block>
 			</view>
+		</scroll-view>
 
 
 
-			<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">过度的撸猫</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-						<view style="display:inline-block">虽然猫猫很喜欢按摩，有时还会主动靠近求抚摸，但这并不代表它愿意被你狂撸。
-							当猫猫每次靠近的时候，千万不要一见到它就抱起来一顿吸，这对猫猫来说是很痛苦的，久而久之，它会慢慢远离你。
+
+		<!-- 专家 -->
+		<scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;display:{{proDisplay}}">
+			<view style="padding: 20rpx 0;">
+				<view bindtap="toggleFoldDisplayA" style="margin-bottom:20rpx;display:{{proDisplay}}">
+					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:17rpx;color:#666666;display:flex;justify-content:space-between">
+
+						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem"> 猫猫的疫苗</view>
+						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldA"></image>
+					</view>
+				</view>
+				<!-- 注意事项 -->
+				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayA}}">
+
+					<view style="width:90%;padding-left:5%;padding-top:20rpx;font-size: .9rem">
+						<view style="font-weight:bold;color: #666666">正常发育的情况下45天~ 2个月可接种疫苗</view>
+						<view style="margin-top:40rpx;color: #666666">刚刚接回家的小猫不能马上打疫苗!</view>
+						<view style="margin-top:40rpx;color: #666666">等它适应了新环境之后再去，防止产生应激反应</view>
+
+						<view style="width:90%;padding-left:5%;padding-top:20rpx">
+							<view>
+								<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+								<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">猫三联</view>
+								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+									<view style="display:inline-block"><text style="color:#c7b299">预防:</text>猫瘟、猫鼻气管炎、猫卡里西病
+									</view>
+
+								</view>
+
+								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+									<view style="display:inline-block"><text style="color:#c7b299">注射时间:</text>首注射2~3针;以后每年需要再注射1针 </view>
+								</view>
+								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+									<view style="display:inline-block"><text style="color:#c7b299">注意事项:  </text>
+
+										<view>猫咪要在健康的时候打疫苗，如果猫咪有拉稀、呕吐、打喷嚏等症状，要等猫咪恢复后再去打疫苗。疫苗前一周不要洗澡。</view>
+										<view>疫苗后敬遵医嘱，- 周内不要洗澡，不要出门。</view>
+										<view>怀孕期间的猫咪不可以打疫苗!</view>
+									</view>
+
+								</view>
+							</view>
 						</view>
 
+
+
+
+
+
+						<view style="width:90%;padding-left:5%;padding-top:20rpx">
+							<view>
+								<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+								<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">狂犬疫苗 <text style="color:#444444;font-weight:normal">此种疫苗争议较大</text></view>
+								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+									<view style="display:inline-block"><text style="color:#c7b299">预防:</text>狂犬病
+									</view>
+
+								</view>
+
+
+								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+									<view style="display:inline-block"><text style="color:#c7b299">注射时间:</text>每年同一时间注射
+									</view>
+
+								</view>
+
+
+								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+									<view style="display:inline-block"><text style="color:#c7b299">注意事项:  </text>
+
+										<view>狂犬疫苗有副作用，注射需铲屎官斟酌。</view>
+										<view style="padding-bottom:50rpx;">若是担心猫抓自己后有感染的可能性，建议注射。</view>
+
+									</view>
+								</view>
+							</view>
+						</view>
+
+
+
+
+
+
+					</view>
+
+				</view>
+
+
+
+				<view bindtap="toggleFoldDisplayB" style="margin-bottom:20rpx;margin-top:40rpx;display:{{proDisplay}}">
+					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
+
+						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem"> 养猫必备物品</view>
+						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldB"></image>
+					</view>
+
+				</view>
+				<!-- 猫猫叫声 -->
+				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayB}}">
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">生活用品</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">猫抓板、梳子、猫床、猫食盆、猫水盆、逗猫棒、外出箱或者航空箱
+								</view>
+
+							</view>
+						</view>
+					</view>
+
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">饮食</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">猫粮、猫罐头、猫零食等</view>
+								<view style="display:inline-block"><text style="color:pink">*</text>作为铲屎官一定要看成分认真选择猫猫的食物!</view>
+							</view>
+						</view>
+					</view>
+
+
+
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">健康</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">体内驱虫药、体外驱虫药、常备肠胃宝、妈咪爱、感冒药</view>
+							</view>
+						</view>
+					</view>
+
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">玩耍</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="padding-bottom:50rpx;">猫猫有把一切东西变成玩具的能力 </view>
+							</view>
+						</view>
+					</view>
+
+
+
+
+				</view>
+
+
+				<!-- 猫猫叫声 -->
+
+
+
+
+
+				<view bindtap="toggleFoldDisplayC" style="margin-top:40rpx;display:{{proDisplay}}">
+					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
+
+						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem">猫猫的清洁</view>
+						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldC"></image>
+					</view>
+
+				</view>
+				<!-- 猫猫智商 -->
+				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:20rpx;margin:auto;display:{{displayC}}">
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view style="font-size: .8rem; color: #808080;line-height:1.8rem">猫猫是很爱干净的动物，它们平时会通过舔毛来进行自我清洁，但有时也需要铲屎官帮忙。</view>
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">剪指甲</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">最好每隔半个月到一个月剪一次指甲，防止与猫猫玩耍时被抓伤。
+								</view>
+
+								<view style="display:inline-block">修剪时需要注意不要剪太多，会让猫猫感到疼。
+								</view>
+							</view>
+						</view>
+					</view>
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">驱虫</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">即使猫不出门，也有可能感染上寄生虫，一年2~4次即可。</view>
+							</view>
+						</view>
+					</view>
+
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">刷牙</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">猫咪长期不刷牙可能会导致口臭、口炎。
+								</view>
+
+								<view style="display:inline-block">频率最好为每周三次，平时可以用洁牙棒。
+								</view>
+							</view>
+						</view>
+					</view>
+
+
+
+
+			
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">查耳朵</view>
+							<view style="font-size:.8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">由于猫猫自己无法清洁到耳朵，作为铲屎官需要定期查看有无耳螨或发炎情况。</view>
+								<view >如果猫猫很频繁地抓耳朵，或有臭味等不健康的情况，需要去医院检查。</view>
+							</view>
+						</view>
+					</view>
+
+
+
+						<view style="width:80%;padding-left:10%;padding-top:20rpx">
+					<view>
+						<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+						<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">梳毛</view>
+						<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+							<view style="display:inline-block">定期梳毛可以减少猫猫掉在环境中的毛，也可以增减感情~</view>
+						</view>
 					</view>
 				</view>
-			</view>
 
 
 
+				<view style="width:80%;padding-left:10%;padding-top:20rpx">
+					<view>
+						<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+						<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">摸下巴</view>
+						<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-			<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">打扰猫猫睡觉</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">猫猫也有脾气的，尤其在它深度睡眠的时候不要去打扰它，这可能会让猫猫讨厌你！</view>
-						<view>要不咱换位思考一下……？</view>
+							<view style="display:inline-block">要定期检查猫猫有没有黑下巴噢</view>
+						</view>
 					</view>
 				</view>
-			</view>
+
+
+
+				<view style="width:80%;padding-left:10%;padding-top:20rpx">
+					<view>
+						<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+						<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">洗澡</view>
+						<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+							<view style="display:inline-block">猫猫不太脏的话不用经常洗澡，双方都累。</view>
+							<view style="display:inline-block;padding-bottom:50rpx;">如果猫不是脏到想丢的话，半年左右洗一次可以了，如果自己没有把握的话可以带去宠物店。
+
+							</view>
+						</view>
+					</view>
+				</view>
+
+				</view>
+
+
+
 
 
 			
 
 
 
-			<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">身上有异味</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-						<view style="display:inline-block">猫咪对气味是特别敏感，尤其是一些刺激性的气味会让它超级反感，比如：橘子、柠檬、化妆品、汗味、风油精……</view>
+
+
+
+				<view bindtap="toggleFoldDisplayD" style="margin-bottom:20rpx;margin-top:40rpx;display:{{proDisplay}}">
+					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
+
+						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem">环境的清洁</view>
+						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldD"></image>
 					</view>
-				</view>
-			</view>
 
-
-
-			<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">全身乱抚摸</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">如果不想被拍一爪子的话，猫猫的肚子、爪子、屁股、牙齿等敏感部位不建议碰，除非你和猫猫很熟。每一只猫猫敏感的部位会有一点差别，要注意猫猫的反应。</view>
-					</view>
-				</view>
-			</view>
-
-
-</view>
-<!-- 注意事项 -->
-
-			<view bindtap="toggleFoldDisplayB" style="margin-bottom:20rpx;margin-top:40rpx;display:{{advanceDisplay}}">
-				<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white; border-radius: 20rpx;color:#666666;display:flex;justify-content:space-between">
-
-					<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block"> 猫猫的叫声（仅供参考）</view>
-					<image src="/img/fold.png" style="width:60rpx;height:30rpx;margin-top:20rpx;margin-right:20rpx;" class="foldB"></image>
 				</view>
 
-			</view>
-<!-- 猫猫叫声 -->
-<view style="background-color:#f7f7f7;width:90%;margin:auto;display:{{displayB}}">
 
 
 
-			<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">突然叫了一声</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">猫猫突然叫了一声后不叫了，是猫的礼貌。这是在向你打招呼。
-						</view>
-
-					</view>
+				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayD}}">
+					<view style="padding-top:50rpx;margin-left:50rpx;padding-bottom:10rpx;color: #808080;font-size: .8rem">1.经常清洁地板卫生、家具表面、卫生死角。</view>
+					<view style="margin-left:50rpx;padding-bottom:10rpx;color: #808080;font-size: .8rem">2.猫猫的用品经常洗晒。</view>
+					<view style="margin-left:50rpx;padding-bottom:10rpx;color: #808080;font-size: .8rem">3.定期给环境消毒。</view>
+					<view style="margin-left:50rpx;padding-bottom:10rpx;color: #808080;font-size: .8rem">4.最好每天清洗猫碗</view>
+					<view style="margin-left:50rpx;padding-bottom:50rpx;color: #808080;font-size: .8rem">5.经常铲屎，1~2周洗一次猫厕所。</view>
 				</view>
+				<!-- 专家 -->
 			</view>
 
-
-
-
-			<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">咕噜咕噜叫</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">猫猫觉得放松或者喜欢你时会发出咕噜咕噜的声音，像一台小型马达。</view>
-						
-					</view>
-				</view>
-			</view>
-
-
-			
-
-
-
-			<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">低沉而温柔的叫</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">一般发出这种声音代表着猫猫有求于你，尤其是一边盯着你看时。</view>
-					</view>
-				</view>
-			</view>
-
-
-
-			<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">老吴~</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">这是猫猫遇到威胁或者感到害怕时候发出的声音，更进一步可能会哈人，这个情况下就不要接触了。</view>
-					</view>
-				</view>
-			</view>
-
-      	<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">又急又快的叫声</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">这是猫猫表示不安的声音，新抱回家的猫经常发出这种声音。这时不要过分打扰它，要让它先熟悉环境。</view>
-					</view>
-				</view>
-			</view>
-
-
-      	<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">惨烈、像婴儿哭的声音</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">春夏季是猫猫发情的季节，发出这种声音也是它们发情的表现。</view>
-					</view>
-				</view>
-			</view>
-
-
-</view>
-
-		
-<!-- 猫猫叫声 -->
-
-
-
-
-
-			<view bindtap="toggleFoldDisplayC" style="margin-bottom:20rpx;margin-top:40rpx;display:{{advanceDisplay}}">
-				<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white; border-radius: 20rpx;color:#666666;display:flex;justify-content:space-between">
-
-					<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block">猫猫的智商</view>
-					<image src="/img/fold.png" style="width:60rpx;height:30rpx;margin-top:20rpx;margin-right:20rpx;" class="foldC"></image>
-				</view>
-
-			</view>
-<!-- 猫猫智商 -->
-<view style="background-color:#f7f7f7;width:90%;margin:auto;display:{{displayC}}">
-
-
-	<view style="width:80%;padding-left:10%;padding-top:20rpx">
-  <view style="font-size: .8rem; color: #808080;line-height:1.8rem">猫的智商一般相当于人在2~3岁时的智商。</view>
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">有的猫可以理解复杂的条件</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">在一些人的观念中，狗很听从主人的命令，同时它还会进行很多高技巧的表演，所以它们的智商比较高；他们认为猫从不听从人类的命令，也是没有什么表演技能的，所以它们的智商比较低。
-实际上是动物是否会表演技能，是由它们各自的习性决定的，与他们的智商的高低无关。
-</view>
-					</view>
-				</view>
-			</view>
-
-
-      	<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">猫咪的脑部结构和人类相同</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">无论是猫脑还是人脑，其内部构造都是基本相同的。差别在于人脑新皮质的极其发达，这是猫脑无法比拟的。无论是狗和猫或者其他的哺乳类动物，它们的大脑新皮质的发达程度并没有什么大的差别。</view>
-					</view>
-				</view>
-			</view>
-
-
-      	<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">猫咪身体会一直成长</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">对于猫猫而言，说它们是在用头脑思考，还不如说它们是在利用视觉、气味和嘴来认识东西的。
-随着时间推移，猫猫对于世界的认知会越来越完全。
-</view>
-					</view>
-				</view>
-			</view>
-
-
-      	<view style="width:80%;padding-left:10%;padding-top:20rpx">
-				<view>
-					<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;background-color:pink;display:inline-block"></view>
-					<view style="display:inline-block;color:#4d4d4d">又急又快的叫声</view>
-					<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-						<view style="display:inline-block">这是猫猫表示不安的声音，新抱回家的猫经常发出这种声音。这时不要过分打扰它，要让它先熟悉环境。</view>
-					</view>
-				</view>
-			</view>
-</view>
-<!-- 进阶 -->
-    <block wx:for="{{content}}" wx:key="id" style="display:{{contentDisplay}}">
-      <rich-text nodes="{{item.content}}"></rich-text>
-    </block>
-  </view>
-</scroll-view>
-</view>
+		</scroll-view>
+	</view>
 </view>

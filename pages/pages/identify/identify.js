@@ -94,9 +94,8 @@ Page({
        let result=JSON.parse(res.data).result
        
        for(let i=0;i<result.length;i++)
-       {result[i].score = result[i].score.slice(0,6)*100
-        result[i].score =parseFloat(result[i].score).toFixed(2)
-       }
+       result[i].score = result[i].score.slice(0,6)*100
+    
         this.setData({
           identifyResult:result,
           resultDisplay:"block"

@@ -1,0 +1,98 @@
+<!--index.wxml-->
+<block wx:if="{{tab == 'index'}}">
+	<view class="container">
+	
+			<view class="searchOrAdd">
+				<image bindtap="toggleSearch" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:4rpx;" class="searchButton" src="/img/search.png"></image>
+				<view class="line"></view>
+			<image bindtap="jumpToAdd" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:4rpx;" class="add" src="/img/addCats.png"><button  class="getUserInfoButton" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button></image> 
+			</view>
+			<view class="searchBox" style="display:{{displaySearchBox}};opacity:1">
+				<view class="searchCatsWords">搜索猫猫</view>
+				<form>
+					<input bindblur="searchSubmit" class="searchInput" name="searchName" type="text" placeholder-class="searchPlaceholder" placeholder="输入猫咪名字可搜索喵~o( =∩ω∩= )m" >{{searchInput}}</input>
+				</form>
+				<!-- <view class="sortWay">
+					<view class="sortWayWords">排序方式(暂未开放）</view>
+					<view class="mostLike  inlineBlock">最多赞数</view>
+					<view class="lineInSearch inlineBlock"></view>
+					<view class="newestSubmit  inlineBlock">最新上传</view>
+				</view> -->
+
+				<view class="catsFilter">
+					<view class="catsFilterWords">猫猫筛选</view>
+					<scroll-view class="filterNav">
+						<text class="navOption {{locationChosen}}" bindtap="locationChosen">地点</text>
+						<text class="navOption {{speciesChosen}}" bindtap="speciesChosen">毛色</text>
+					</scroll-view>
+					<view style="display: {{locationDisplay}};">
+						<block wx:for="{{locationFilters}}">
+							<text style="font-size:26rpx" class="filterOption {{locationFiltersChosen[index]}}" bindtap="toggleLocationFilter" data-id="{{item.id}}">{{item.locationName}}</text>
+						</block>
+					</view>
+					<view style="display: {{speciesDisplay}};">
+						<block wx:for="{{speciesFilters}}">
+							<text class="filterOption {{speciesFiltersChosen[index]}}" bindtap="toggleSpeciesFilter" data-id="{{item.id}}">{{item.speciesName}}</text>
+						</block>
+					</view>
+					<view class="btns">
+						<view class="btnReset" bindtap="btnReset">重置</view>
+						<view class="btnDone" bindtap="btnDone">搜索</view>
+					</view>
+				</view>
+
+
+		
+
+
+
+		</view>
+		<view class="body">
+			<view wx:for="{{catsInfo}}" wx:for-index="i" class="catsInfo" wx:key="*this">
+				<view class="cat" data-index="{{i}}" data-id="{{item.id}}" bindtap="jumpto">
+					<image class="catImg dead{{item.dead}}" src="{{item.indexImg}}" lazy-load="true" mode="aspectFill"></image>
+					<!--<text class="catImgUploader">uploaded by: ufatfat</text>-->
+					<view class="catInfo">
+						<view class="infoRow">
+							<view class="name">
+								<text>{{item.name}}</text>
+								<image wx:if="{{item.sex == 0}}" class="icon" src="/img/female-icon.png"></image>
+								<image wx:elif="{{item.sex == 1}}" class="icon" src="/img/male-icon.png"></image>
+								<image wx:else class="icon" src="/img/unknown.png"></image>
+								<text wx:if="{{item.dead == 1}}" class="deadLabel">返回喵星</text>
+							</view>
+							<!--<view class="fish">
+              <image class="icon iconInfo" src="/img/fish.png"></image>
+              <text>(123)</text>
+            </view>-->
+						</view>
+						<!-- <view class="infoRow">
+            <image class="icon infoIcon" src="/img/birthday.png"></image>
+            <text class="info">{{item.birthday}}</text>
+          </view> -->
+						<view class="infoRow species">
+							<!-- <image class="icon infoIcon" src="/img/cat.png"></image> -->
+							<text class="info" style="position:relative;bottom:3rpx">{{item.species}}</text>
+						</view>
+						<view class="border"></view>
+
+						<!-- <view class="infoRow">
+            <image class="icon infoIcon" src="/img/heart.png"></image>
+            <text class="info">{{item.nature}}</text>
+          </view> -->
+						<view class="infoRow">
+							<!-- <image class="icon infoIcon" src="/img/map.png"></image> -->
+							<text class="info" style="position:relative;bottom:3rpx">{{item.location}}</text>
+						</view>
+						<view class="like">
+							<image class="icon" wx:if="{{item.thumbup==1}}" src="/img/areadyLike.png"></image>
+					<image class="icon" wx:else src="/img/like.png"></image>
+						
+							<view class="likeNum icon">{{item.thumbupnum}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</block>

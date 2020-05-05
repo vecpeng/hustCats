@@ -26,12 +26,11 @@ Page{
 
 .catsInfo{
   margin: 40rpx 0;
-  box-shadow: 5px 5px 20px black;
+
 }
 .catInfo{
   width: 80vw;
   margin: .5rem auto .5rem auto;
- 
 }
 .cat{
   width: 620rpx;
@@ -45,7 +44,6 @@ Page{
 .catImg{
   border-top-left-radius: 3%;
   border-top-right-radius: 3%;
- 
   width: 620rpx;
   height: 400rpx;
 }

@@ -30,7 +30,7 @@
 </view>
 <view style="width: 90vw; margin: 0 5vw 0 5vw;">
   <view style="color:#cccccc;  font-size:1rem;margin: 60rpx 0 20rpx 1.0rem">联系我们</view>
-  <view style="border-radius: 20rpx; box-shadow: 5px 5px 20px black; padding: 50rpx; background-color: white;margin-bottom:100rpx;">
+  <view style="border-radius: 20rpx; box-shadow: 5px 5px 20px black; padding: 50rpx; background-color: white;">
     <view style="font-size: 0.9rem;color: #444444;" class="center;">反馈QQ群：935623923</view>
   </view>
 </view>
