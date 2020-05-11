@@ -30,10 +30,15 @@ Page({
     searchInput:''
    
   },
+  onShareAppMessage: function () {
+
+  },
   searchSubmit: function(e){
+   
+   
     page =1
-    console.log(e.detail.value)
- 
+   if(e.detail.value!=' ')
+ {
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
       data: {
@@ -44,14 +49,21 @@ Page({
         page:page
        
       },
-      success:(res)=>{     //利用箭头函数替换原来的that=this
-        
+      success:(res)=>{ 
+            //利用箭头函数替换原来的that=this
+        let cat = res.data
+       
+        for (let i = 0; i < cat.length; i++) {
+      
+         cat[i].indexImg =cat[i].indexImg.slice(0,52)+'compressed_'+cat[i].indexImg.slice(52)
+         }
         this.setData({
-          catsInfo: res.data
+          catsInfo: cat
         })
-        console.log(res.data)
+       
       }
     })
+  }
   },
   jumpto: function(e){
     
@@ -67,18 +79,18 @@ Page({
           this.setData({
             catsInfo: catsInfo
           })
-          console.log(this.data.catsInfo)
+        
         }
       }
     })
   },
-  jumpToAdd: function(){
-    wx.navigateTo({
-      url:"/pages/addCats/addCats",
+  // jumpToAdd: function(){
+  //   wx.navigateTo({
+  //     url:"/pages/addCats/addCats",
       
-    })
-    console.log("jump")
-  },
+  //   })
+  //   .log("jump")
+  // },
   locationChosen: function(){
     if(!this.data.locationChosen){
       this.setData({
@@ -128,11 +140,8 @@ Page({
     }
   },
   toggleLocationFilter: function(e){
-    console.log(e)
-    console.log(this.data)
     let data = this.data.locationFiltersChosen
     var index;
-    console.log(data)
     for(let i=0; i<this.data.locationFilters.length;i++)
     {
       if(this.data.locationFilters[i].id==e.currentTarget.dataset.id){
@@ -140,7 +149,6 @@ Page({
       break;
     }
     }
-    console.log(index)
     data[index] = data[index] ? null : 'filterChosen'
     if(data.indexOf('filterChosen') == -1)
       this.setData({
@@ -220,7 +228,7 @@ Page({
     let locationFilter = this.data.locationFilter ? this.data.locationFilter.join(',').replace(/,{2,}/g, ',').substr(1) : ''
     let speciesFilter = this.data.speciesFilter ? this.data.speciesFilter.join(',').replace(/,{2,}/g, ',').substr(1) : ''
     page = 1
-    console.log(global.openid)
+   
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
       data: {
@@ -235,7 +243,7 @@ Page({
        this.setData({
          catsInfo:res.data
        })
-       console.log(res.data)
+    
           filterDisplay: 'none'
       },
     })
@@ -250,7 +258,7 @@ Page({
        
         if (res.code) {
           //发起网络请求
-        
+        if(globalData.openid==""){
           wx.request({
             
             url: 'https://wxapi.ufatfat.com/hustcats/user/getopenid',
@@ -260,8 +268,7 @@ Page({
             success:(res)=>{
            
            globalData.openid = res.data
-           console.log("openid")
-           console.log(globalData.openid)
+            
            wx.request({
              url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
              data: {
@@ -273,29 +280,55 @@ Page({
              },
             
              success:res=>{        
+              let cat = res.data
+       
+              for (let i = 0; i < cat.length; i++) {
+            
+               cat[i].indexImg =cat[i].indexImg.slice(0,52)+'compressed_'+cat[i].indexImg.slice(52)
+               }
                that.setData({
-                 catsInfo: res.data,
+                 catsInfo: cat,
                
                })        
-               console.log(res.data)
+               console.log(cat)
+              
              
              },
            })
-          
+           
+            
             },
            fail:(res)=>{
             
              
             },
           },
-          )
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
-        }
+          )}else{
+            wx.request({
+              url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
+              data: {
+                openid:globalData.openid,
+                name:'',
+                page: page,
+                locationFilter: that.data.locationFilter.join(','),
+                speciesFilter:that.data.speciesFilter.join(',')
+              },
+             
+              success:res=>{        
+                that.setData({
+                  catsInfo: res.data,
+                
+                })        
+               
+              
+              },
+            })
+          }
+        } 
       }
     });
    
-    console.log(this.data);
+ 
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getFilters',
       success:res=>{
@@ -307,12 +340,12 @@ Page({
     })
     wx.getSetting({
       success (res){
-        console.log("getsetting")
+    
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.getUserInfo({
             success: function(res) {
-              console.log(res.userInfo)
+        
               wx.request({
                 url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
                 method:'POST',
@@ -334,16 +367,16 @@ Page({
 
 onShow(){
   var that=this
-  console.log(this.data.catsInfo)
+ 
   wx.getStorage({
     key: 'thumbup',
     success (res) {
       var i=that.data.nowId-1
-      console.log(i)
+     
       if(i>=0){
       var thumbupTemp=`catsInfo[${i}].thumbup`
-      console.log(thumbupTemp)
-      console.log(res.data)
+    
+     
      that.setData({
         [thumbupTemp]:res.data
      })
@@ -355,11 +388,10 @@ onShow(){
     key: 'thumbupnum',
     success (res) {
       var i=that.data.nowId-1
-      console.log(i)
+   
       if(i>=0){
       var thumbupTempnum=`catsInfo[${i}].thumupnum`
-      console.log(thumbupTempnum)
-      console.log(res.data)
+     
      that.setData({
         [thumbupTempnum]:res.data
      })
@@ -385,6 +417,13 @@ onShow(){
       },
       success:res=>{    
         if(res.data){
+          let cat = res.data
+       
+          for (let i = 0; i < cat.length; i++) {
+        
+           cat[i].indexImg =cat[i].indexImg.slice(0,52)+'compressed_'+cat[i].indexImg.slice(52)
+           }
+           console.log(cat)
           this.setData({
             catsInfo: this.data.catsInfo.concat(res.data)
           })        
@@ -409,11 +448,10 @@ onShow(){
     this.setData({
       tab: thatTab
     })
-    console.log(this.data)
+   
   },
   bindGetUserInfo (e) {
-    console.log("dfdf")
-    console.log(e.detail.userInfo)
+   
     wx.request({
       url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
       
@@ -424,7 +462,7 @@ onShow(){
         openid:globalData.openid
       },
       success:res=>{
-        console.log('getUserInfoSuccess')
+      
       }
     })
   }

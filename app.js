@@ -16,7 +16,8 @@ App({
     wx.login({
       
       success: function(res) {
-       if(that.globalData.openid)
+        console.log(that.globalData.openid)
+       if(that.globalData.openid=='')
        { if (res.code) {
           //发起网络请求
         
@@ -27,9 +28,17 @@ App({
               jscode: res.code
             },
             success:(res)=>{
-            console.log(res.data)
-           that.globalData.openid = res.data
           
+           that.globalData.openid = res.data
+            wx.request({
+              url:"https://wxapi.ufatfat.com/hustcats/user/userInfo",
+              data:{
+                openid:that.globalData.openid,
+                avatar:'',
+                nickname:'',
+                gender:''
+              }
+            })
             },
            fail:(res)=>{
             
@@ -38,7 +47,7 @@ App({
           },
           )
         } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
+         
         }
       }
     }
@@ -49,13 +58,13 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        console.log("get")
-        console.log(res.authSetting['scope.userInfo'])
+      
+ 
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              console.log("ok")
+        
               // 可以将 res 发送给后台解码出 unionId
              that.globalData.userInfo = res.userInfo
           
@@ -64,7 +73,7 @@ App({
               if (that.userInfoReadyCallback) {
                 that.userInfoReadyCallback(res)
               }
-              console.log(that.globalData.userInfo)
+        
               wx.request({
                 url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
                 method:'POST',
@@ -77,20 +86,20 @@ App({
               })
             },
              fail:(res)=>{
-          console.log(res.data)
+        
         }
        })
       }else 
        {
-         console.log("no")
+      
           wx.authorize({
             scope: 'scope.userInfo',
             success () {
-              console.log("okok")
+            
               // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
               wx.getUserInfo({
                 success: res => {
-                  console.log("ok")
+          
                   // 可以将 res 发送给后台解码出 unionId
                  that.globalData.userInfo = res.userInfo
               
@@ -99,10 +108,10 @@ App({
                   if (that.userInfoReadyCallback) {
                     that.userInfoReadyCallback(res)
                   }
-                  console.log(that.globalData.userInfo)
+             
                 },
                  fail:(res)=>{
-              console.log(res.data)
+          
             }
            })
             }

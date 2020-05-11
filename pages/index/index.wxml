@@ -3,9 +3,9 @@
 	<view class="container">
 	
 			<view class="searchOrAdd">
-				<image bindtap="toggleSearch" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:4rpx;" class="searchButton" src="/img/search.png"></image>
-				<view class="line"></view>
-			<image bindtap="jumpToAdd" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:4rpx;" class="add" src="/img/addCats.png"><button  class="getUserInfoButton" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button></image> 
+				<image bindtap="toggleSearch" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-top:16rpx;" class="searchButton" src="/img/search.png"></image>
+				<!-- <view class="line"></view>
+			<image bindtap="jumpToAdd" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:4rpx;" class="add" src="/img/addCats.png"><button  class="getUserInfoButton" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button></image>  -->
 			</view>
 			<view class="searchBox" style="display:{{displaySearchBox}};opacity:1">
 				<view class="searchCatsWords">搜索猫猫</view>
@@ -82,7 +82,7 @@
           </view> -->
 						<view class="infoRow">
 							<!-- <image class="icon infoIcon" src="/img/map.png"></image> -->
-							<text class="info" style="position:relative;bottom:3rpx">{{item.location}}</text>
+							<text class="info" style="position:relative;bottom:3rpx">{{item.location==''||item.location==null?"未知":item.location}}</text>
 						</view>
 						<view class="like">
 							<image class="icon" wx:if="{{item.thumbup==1}}" src="/img/areadyLike.png"></image>
@@ -94,5 +94,16 @@
 				</view>
 			</view>
 		</view>
+
+<view style="width:70%;height:250rpx;background-color:white;border:2rpx solid white; border-radius:10rpx;  box-shadow: 5px 5px 20px black;margin-bottom:30rpx;font-size:0.8rem;padding:40rpx 50rpx;color:#666666;text-align:center;">
+		<view style="line-height:60rpx;">没有找到想要的猫猫？</view>
+		<view style="line-height:60rpx;">长按复制下列链接在浏览器中打开↓</view>
+
+		<text style="font-size:25rpx;height:60rpx;line-height:60rpx;display:inline-block" selectable='true'>wxapi.ufatfat.com/hustcats/admin/addCat</text>
+				<view style="line-height:60rpx;">试试自己添加猫猫吧┏ (゜ω゜)=☞</view>
 	</view>
+
+	</view>
+
+	
 </block>

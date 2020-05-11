@@ -5,8 +5,6 @@
    "pages/knowledge/knowledge",
     "pages/catinfo/catinfo",
     "pages/about/about",
-    "pages/addCats/addCats",
-    "pages/success/success",
     "pages/random/random",
     "pages/identify/identify"
   ],

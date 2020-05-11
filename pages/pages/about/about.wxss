@@ -1,4 +1,0 @@
-/* pages/about/about.wxss */
-page{
-  background-color:rgb(51,51,51);
-}

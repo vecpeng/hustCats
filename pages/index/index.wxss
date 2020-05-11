@@ -1,13 +1,11 @@
 /**index.wxss**/
 
 /* tab Index*/
-.body{
-  color:#333333
-}
+
 .container{
   background-color:#333333;
   width: 100%;
-  height: 100%;
+
   margin:0;
   padding:0rpx;
 }
@@ -21,7 +19,8 @@ Page{
 
 .body {
   margin-top: 10rpx;
-  margin-bottom: 8vh
+  color:#333333
+
 }
 
 .catsInfo{
@@ -127,7 +126,7 @@ Page{
   width:100rpx;
   text-align: center;
   border: 1px solid gray;
-  margin-right:60rpx;
+  margin-right:42rpx;
   padding:10rpx 16rpx;
   border-radius: 50rpx;
   background-color: #ffe5b5;
@@ -138,7 +137,7 @@ Page{
   width: 100rpx;
   text-align: center;
   border: 1px solid gray;
-  margin-left:60rpx;
+  margin-left:45rpx;
   padding:10rpx 16rpx;
   border-radius: 50rpx;
   background-color: #ffe5b5;
@@ -184,7 +183,9 @@ Page{
   background-color: white;
   width:360rpx;
   margin:auto;
-  color:black
+  color:black;
+  border-radius: 10rpx;
+  padding-left:10px;
 }
 .searchPlaceholder{
   font-size: 10px;
@@ -231,7 +232,7 @@ Page{
   margin:0;
   padding:0;
   height:70rpx;
-  width:150rpx;
+  width:75rpx;
   border-radius:80rpx 0 0 80rpx;
   background-color: #877a66;
   z-index:2;
@@ -249,7 +250,8 @@ Page{
 }
 .searchBox{
     width:480rpx;
-    
+    border-radius: 5%;
+    box-shadow: 0 0 20px #666666;
     background-color:#666666;
     position:fixed;
     padding-bottom:100rpx;

@@ -28,7 +28,7 @@
 </view>
 </view>
 
-<view class="identifyWord" style="font-size: .9rem ">点击上方空白处上传猫猫图片</view>
+<view class="identifyWord" style="font-size: .9rem;color:#999999 ">点击上方空白处上传猫猫图片</view>
 
 
 <view class="circleBackgroundContainer">

@@ -19,6 +19,9 @@ Page({
     contentDisplay: 'block',
     displayD:"none"
   },
+  onShareAppMessage: function () {
+
+  },
   onLoad: function (options) {
 
 
@@ -70,7 +73,7 @@ Page({
 
 
   toggleFoldDisplayD: function () {
-    console.log("ok")
+   
     if (foldD) {
       this.setData({
         displayD: 'block'
@@ -116,7 +119,7 @@ Page({
   },
 
   toggleFoldDisplayB: function () {
-    console.log("ok")
+   
     if (foldB) {
 
       foldB = false
@@ -165,7 +168,7 @@ Page({
 
 
   toggleFoldDisplayC: function () {
-    console.log("ok")
+   
     if (foldC) {
       this.setData({
         displayC: 'block'
@@ -212,7 +215,7 @@ Page({
 
 
   toggleFoldDisplayA: function () {
-    console.log("ok")
+   
     if (foldA) {
 
       foldA = false
@@ -260,7 +263,7 @@ Page({
 
   changeIndex: function (e) {
     let index = e.currentTarget.dataset.index
-    console.log(index)
+   
     if (index == 3) {
       this.setData({
         advanceDisplay: 'block',
@@ -362,6 +365,6 @@ Page({
         })
       }
     })
-    console.log(this.data)
+   
   }
 })

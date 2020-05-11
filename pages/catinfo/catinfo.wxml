@@ -44,24 +44,24 @@
 				<image class="front" src="/img/front.png"></image>
 				<text class="infoTitle">出没地点</text>
 				<!-- <image src="/img/mapButton.png" class="mapButton" bindtap="mapButton"></image> -->
-				<text class="infoContent">{{catInfo.location}}</text>
+				<text class="infoContent">{{catInfo.location==''||catInfo.location==null?"未知":catInfo.location}}</text>
 			</view>
 			<view class="info birthday">
 				<image class="front" src="/img/front.png"></image>
 				<text class="infoTitle">生日</text>
-				<text class="infoContent" wx:if="{{catInfo.birthday!=null}}">{{catInfo.birthday}} </text>
+				<text class="infoContent" wx:if="{{catInfo.birthday!=null}}">{{catInfo.birthday==''||catInfo.birthday==null?"未知":catInfo.birthday}} </text>
 				<text class="infoContent" wx:else >未知</text>
 			</view>
 			<view class="info father">
 				<image class="front" src="/img/front.png"></image>
 				<text class="infoTitle">爸爸</text>
-				<text class="infoContent" wx:if="{{catInfo.father!=null}}">{{catInfo.father}} </text>
+				<text class="infoContent" wx:if="{{catInfo.father!=null}}">{{catInfo.father==''||catInfo.father==null?"未知":catInfo.father}} </text>
 				<text class="infoContent" wx:else >未知</text>
 			</view>
 			<view class="info mother">
 				<image class="front" src="/img/front.png"></image>
 				<text class="infoTitle">妈妈</text>
-				<text class="infoContent" wx:if="{{catInfo.mother!=null}}">{{catInfo.mother}} </text>
+				<text class="infoContent" wx:if="{{catInfo.mother!=null}}">{{catInfo.mother==''||catInfo.mother==null?"未知":catInfo.mother}} </text>
 				<text class="infoContent" wx:else >未知</text>
 			</view>
 			<!-- <view class="info">
@@ -71,17 +71,17 @@
 			<view class="info_full">
 				<image class="front" src="/img/front.png"></image>
 				<text class="infoTitle">性格</text>
-				<text class="infoContent">{{catInfo.nature}}</text>
+				<text class="infoContent">{{catInfo.nature==''||catInfo.nature==null?"未知":catInfo.nature}}</text>
 			</view>
 			<view class="info_full">
 				<image class="front" src="/img/front.png"></image>
 				<text class="infoTitle">描述</text>
-				<text class="infoContent">{{catInfo.desc}}</text>
+				<text class="infoContent">{{catInfo.desc==''||catInfo.desc==null?"未知":catInfo.desc}}</text>
 			</view>
 			<view class="info_full">
 				<image class="front" src="/img/front.png"></image>
 				<text class="infoTitle">撸猫指南</text>
-				<text class="infoContent">{{catInfo.guide}}</text>
+				<text class="infoContent">{{catInfo.guide==''?"未知":catInfo.guide}}</text>
 			</view>
 
 
@@ -90,7 +90,7 @@
 			<view class="borderBottom"></view>
 
 			<view class="submitedInfo">
-				<text>本猫猫由{{nickname}}添加于{{date}}</text>
+				<text>本猫猫由 {{nickname}} 添加于 {{date}}</text>
 			</view>
 
 
@@ -120,13 +120,13 @@
 <view class="album">
 		<view class="albumContainer">
 			<block wx:for="{{catImgs}}" wx:key="*this">
-			<view style="width: 44vw; height: 32vw; margin-left: 4vw; display: inline-block;">
+			<scroll-view style="width: 44vw; height: 32vw; margin-left: 4vw; display: inline-block;">
 				<image src="{{item.img}}" data-id="{{index}}" bindtap="bigImg" mode="aspectFill" lazy-load="true" style="width: 44vw; height: 32vw; display: block;"></image>
-			</view>
+			</scroll-view>
 			</block>
-			<!-- <view style="width: 44vw; height: 32vw; margin-left: 4vw; display: {{uploadBtn<10?'inline-block':'none'}};">
+			<view style="width: 44vw; height: 32vw; margin-left: 4vw; display: {{uploadBtn<10?'inline-block':'none'}};">
 				<image src="/img/uploadButton.png" bindtap="chooseImg" mode="aspectFit" lazy-load="true" style="width: 44vw; height: 32vw; display: block;"></image>
-			</view> -->
+			</view>
 		</view>
 		<view style="width: 100%;display: {{!upload?'none':'flex'}}; align-items: center; margin: 30rpx 0;" class="scrollTop">
 			<view style="width: 100%; height: 1px; background-color: #808080; flex: 1.5;"></view>
@@ -147,21 +147,21 @@
 	</view>
 </view>
 
-<view class="shadow" style="display:{{swiperDisplay}}"></view>
-<image src="/img/close.png" class="close" style="display:{{swiperDisplay}}" bindtap="closeSwiper"></image>
+<view class="shadow" style="display:{{swiperDisplay}}" bindtap="closeSwiper"></view>
 
 
+<view class="clickClose" style="display:{{swiperDisplay}};z-index:2000" bindtap="closeSwiper"></view>
 <view class="swiperAll" style="display:{{swiperDisplay}}; z-index: 1000;">		
 				<swiper current="{{itemid}}" id="swiper" onchange="swiperChange" circular="true" style="height:800rpx !important;" previous-margin="88rpx"  next-margin="88rpx">
 					<block wx:for="{{catImgs}}" wx:for-index="i" class="block">
-						<swiper-item style="margin:auto;overflow:visible!important;" >
+						<swiper-item style="margin:auto;overflow:visible!important;height:auto !important;" >
 						    <view>
 								<view class="flex {{i==index?'active':'deactive'}}" >							
 								<image   style="width:450rpx !important;height:330rpx !important;" src="{{item.img}}" mode="aspectFill" data-index="{{index}}" bindtap="previewImg">								
 								</image>
 								<view  class="comment">								 
-										<text class="descCats">{{item.desc}}</text>
-										<text class="submitInfo">—— {{item.nickname}} {{item.date}}</text>
+										<text class="descCats">{{item.desc==null?'':item.desc}}</text>
+										<text class="submitInfo"> {{item.nickname==null?'':'—— '+item.nickname}} {{item.date==null?'':item.date}}</text>
 										</view>						
 								</view>
 								</view>							

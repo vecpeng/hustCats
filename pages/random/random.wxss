@@ -23,6 +23,8 @@ align-items: center;
 .circleContainer{
   height:375rpx;
   width:100%;
+  position:fixed;
+  bottom:0
 }
 .circle{
   height:375rpx;
@@ -38,8 +40,8 @@ align-items: center;
     width:90rpx;
     height:70rpx;
     position: fixed;
-    bottom:300rpx;
-    left:130rpx;
+    bottom:282rpx;
+    left:124rpx;
 }
 
 
@@ -50,8 +52,8 @@ align-items: center;
   width:80rpx;
   height:80rpx;
   position: fixed;
-  bottom:310rpx;
-  left:130rpx;
+  bottom:284rpx;
+  left:120rpx;
 }
 
 .saveImg{

@@ -23,7 +23,7 @@ page{
   height:28vh;
   background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/randCatPhoto_selected.png");
   background-position: center;
-  background-size: 50%;
+  background-size: 60%;
   background-repeat: no-repeat;
  
 }
@@ -35,8 +35,11 @@ page{
 
   background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/randCatPhoto.png");
   background-position: center;
-  background-size: 50%;
+  background-size: 60%;
   background-repeat: no-repeat;
+  border-radius:3%;
+  box-shadow: 5px 5px 15px #111111 ;
+
  
 }
 
@@ -57,6 +60,7 @@ page{
 
 .identify-hover{
   background-color: #f9f5ef;
+ 
 }
 .identifyIcon{
   width:34vw;
@@ -64,7 +68,7 @@ page{
 
   background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/catIdentify.png") ;
   background-position: center;
-  background-size: 50%;
+  background-size: 60%;
   background-repeat: no-repeat;
 }
 
@@ -72,8 +76,10 @@ page{
   background-color: #f9f5ef;
   background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/catIdentify_selected.png");
   background-position: center;
-  background-size: 50%;
+  background-size: 60%;
   background-repeat: no-repeat;
- 
+  border-radius:3%;
+  box-shadow: 5px 5px 15px #111111 ;
+
   
 }

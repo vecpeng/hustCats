@@ -86,7 +86,9 @@ swiper{
 }
 .swiperItem{
   display: block;
-  height: 100%;
+  height:100%
+
+  
 
 }
 
@@ -257,6 +259,9 @@ swiper{
 .likeNum{
   display:inline-block;
   font-size:40rpx;
+  position:relative;
+  bottom:10rpx;
+   
    color:#666666;
 
 }
@@ -297,7 +302,7 @@ margin-top:0rpx;
 .submitedInfo{
  display: flex;
  justify-content: center;
-  
+  font-size: 0.75rem;
   color:#666666;
   margin-top:10rpx;
 }
@@ -354,6 +359,7 @@ margin-top:0rpx;
   background-color: white;
  font-size:18rpx;
   margin-top:-12rpx;
+  position: relative;
 
 }
 
@@ -365,9 +371,9 @@ margin-top:0rpx;
 }
 .submitInfo{
   display:block;
-  position:relative;
-  top:30rpx;
-  margin-left:200rpx;
+  position:absolute;
+  top:50rpx;
+  right:10rpx;
 }
 
 .swiperAll{
@@ -384,6 +390,14 @@ margin-top:0rpx;
   background-color:#333333;
   opacity:0.5;
   float:left;
+  position:fixed;
+  top:0rpx;
+}
+
+.clickClose{
+  width:100%;
+  height:32%;
+  visibility: none;
   position:fixed;
   top:0rpx;
 }
@@ -409,7 +423,7 @@ margin-top:0rpx;
   text-align: center;
   line-height: 60rpx;
   background-color: #666666;
-  box-shadow: 5px 5px 10px;
+  box-shadow: 0px 0px 4px #666666;
   color:white;
 }
 .uploadBtnActive{

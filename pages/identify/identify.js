@@ -68,11 +68,12 @@ Page({
 
   uploadImg:function(){
    wx.chooseImage({
+     count:1,
      success:res=>{
        this.setData({
          uploadImg:res.tempFilePaths
        })
-       console.log("success")
+    
      }
    })
   },
@@ -90,7 +91,7 @@ Page({
       name: 'uploadImg',
       url:"https://api2.ufatfat.com/ai/identifyAnimalSpecies",
       success:res=>{
-        console.log(res.data)
+      
        let result=JSON.parse(res.data).result
        
        for(let i=0;i<result.length;i++)
@@ -109,7 +110,7 @@ Page({
   }
   },
   closeImg:function(){
-    console.log("close")
+   
       this.setData({
         resultDisplay:'none',
         uploadImg:''
