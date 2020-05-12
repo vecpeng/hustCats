@@ -142,7 +142,7 @@
 				<!-- 注意事项 -->
 				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayA}}">
 					<view style="width:80%;padding-left:10%;padding-top:20rpx;">
-						<view style="border-bottom:1rpx solid #666666">
+						<view style="border-bottom:0.5rpx solid #666666">
 							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">野猫</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">

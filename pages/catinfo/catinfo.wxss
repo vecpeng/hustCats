@@ -267,6 +267,7 @@ swiper{
 }
 .border{
 height:1rpx;
+opacity: 0.5;
   border-bottom: 1rpx solid #333333;
   width:600rpx;
   background-color:#f9f5ef;
@@ -277,8 +278,9 @@ margin-top:0rpx;
 }
 
 .borderBottom{
-  height:2rpx;
+  height:1rpx;
   width:600rpx;
+  opacity: 0.5;
   background-color:#666666;
   display:inline-block
 }

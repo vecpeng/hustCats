@@ -25,12 +25,13 @@
 						<text class="navOption {{locationChosen}}" bindtap="locationChosen">地点</text>
 						<text class="navOption {{speciesChosen}}" bindtap="speciesChosen">毛色</text>
 					</scroll-view>
-					<view style="display: {{locationDisplay}};">
+					<view style="display: {{locationDisplay}};margin-left:20rpx;margin-right:10rpx;position:relative" class="locationLine">
 						<block wx:for="{{locationFilters}}">
-							<text style="font-size:26rpx" class="filterOption {{locationFiltersChosen[index]}}" bindtap="toggleLocationFilter" data-id="{{item.id}}">{{item.locationName}}</text>
+							<text  class="filterOption {{locationFiltersChosen[index]}}" bindtap="toggleLocationFilter" data-id="{{item.id}}">{{item.locationName}}</text>
 						</block>
 					</view>
-					<view style="display: {{speciesDisplay}};">
+					<view style="display: {{speciesDisplay}};margin-left:20rpx;margin-right:10rpx;position:relative"  class="speciesLine">
+					
 						<block wx:for="{{speciesFilters}}">
 							<text class="filterOption {{speciesFiltersChosen[index]}}" bindtap="toggleSpeciesFilter" data-id="{{item.id}}">{{item.speciesName}}</text>
 						</block>

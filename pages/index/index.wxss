@@ -102,9 +102,30 @@ Page{
   display: inline-block;
   height: 25vh;
 }
+
+.speciesLine::before{
+  position:absolute;
+  left:220rpx;
+  width:1rpx;
+  top:16rpx;
+  opacity:0.5;
+  height:176rpx;
+ content:'';
+  background-color: white;
+}
+.locationLine::before{
+  position:absolute;
+  left:220rpx;
+  width:1rpx;
+  top:15rpx;
+  opacity:0.5;
+  height:85rpx;
+ content:'';
+  background-color: white;
+}
 .filterOption{  
   display: inline-block;
-  width:220rpx;
+  width:48%;
   margin:0;
   padding:0;
   text-align: center;

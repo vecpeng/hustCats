@@ -159,7 +159,8 @@ Page({
         locationAll: ''
       })
     let filters = this.data.locationFilter
-    filters[e.currentTarget.dataset.id] = !filters[e.currentTarget.dataset.id] ? e.currentTarget.dataset.id : null
+   
+    filters[e.currentTarget.dataset.id ] = !filters[e.currentTarget.dataset.id ] ? e.currentTarget.dataset.id : null
     this.setData({
       locationFilter: filters,
       locationFiltersChosen: data
@@ -167,6 +168,7 @@ Page({
    
   },
   toggleSpeciesFilter: function(e){
+    console.log(e)
     if(e.currentTarget.dataset.id == 'all'){
       this.setData({
         speciesAll: 'filterChosen',
@@ -175,7 +177,15 @@ Page({
       return
     }
     let data = this.data.speciesFiltersChosen
-    data[e.currentTarget.dataset.id-1] = data[e.currentTarget.dataset.id-1] ? null : 'filterChosen'
+    var index;
+    for(let i=0; i<this.data.speciesFilters.length;i++)
+    {
+      if(this.data.speciesFilters[i].id==e.currentTarget.dataset.id){
+      index=i
+      break;
+    }
+    }
+    data[index] = data[index] ? null : 'filterChosen'
     if(data.indexOf('filterChosen') == -1)
       this.setData({
         speciesAll: 'filterChosen'
@@ -185,7 +195,8 @@ Page({
         speciesAll: ''
       })
     let filters = this.data.speciesFilter
-    filters[e.currentTarget.dataset.id] = !filters[e.currentTarget.dataset.id] ? e.currentTarget.dataset.id : null
+    
+    filters[index] = !filters[index] ? e.currentTarget.dataset.id : null
     this.setData({
       speciesFilter: filters,
       speciesFiltersChosen: data
@@ -228,6 +239,7 @@ Page({
     let locationFilter = this.data.locationFilter ? this.data.locationFilter.join(',').replace(/,{2,}/g, ',').substr(1) : ''
     let speciesFilter = this.data.speciesFilter ? this.data.speciesFilter.join(',').replace(/,{2,}/g, ',').substr(1) : ''
     page = 1
+    
    
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
