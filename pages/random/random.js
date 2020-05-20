@@ -1,6 +1,9 @@
 // pages/random/random.js
 let save = false
 let randomId=0
+const app = getApp()
+const beta = app.globalData.beta
+
 Page({
 
   /**
@@ -18,6 +21,13 @@ Page({
   onLoad: function (options) {
     wx.request({
       url:"https://wxapi.ufatfat.com/hustcats/random/randomCatPhoto",
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
+      data:{
+        beta:beta
+      },
       success:res=>{
         
          randomId=res.data.id,
@@ -113,6 +123,13 @@ Page({
     })
         wx.request({
           url:"https://wxapi.ufatfat.com/hustcats/random/randomCatPhoto",
+          method:"POST",
+          header:{
+            'content-type':'application/x-www-form-urlencoded'
+          },
+          data:{
+            beta:beta
+          },
           success:res=>{
              
              randomId=res.data.id,

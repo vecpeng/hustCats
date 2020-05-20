@@ -7,6 +7,7 @@ let currentDate = ''
 let lastDate = ''
 let imgsPage = 1
 const globalData = app.globalData;
+const beta=app.globalData.beta
 
 let inputDesc = ''
 let recordPage = 1
@@ -18,6 +19,13 @@ const avatar = app.globalData.userInfo.avatarUrl
 
 Page({
   data: {
+    tags:[],
+    albumChoose:"choosed",
+    commentChoose:"noChoose",
+    albumDisplay:"",
+    commentDisplay:"none",
+    a:'',
+    newComment:'',
     test: "helloworld",
     catSwiperImgs: [],
     catInfo: {},
@@ -51,7 +59,7 @@ Page({
 
 
   onLoad: function (option) {
-
+   
     imgsPage=1
     // console.log(option.query)
     // const eventChannel = this.getOpenerEventChannel()
@@ -78,11 +86,17 @@ Page({
     }
     let self = this
     id = option.id
+    
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatSwiperImgsById',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
         catid: id,
         page: 1,
+        beta:beta
 
       },
       success(res) {
@@ -92,7 +106,7 @@ Page({
       
          cat[i].img =cat[i].img.slice(0,52)+'compressed_'+cat[i].img.slice(52)
          }
-      console.log(cat)
+     
         self.setData({
           catSwiperImgs:cat
         })
@@ -101,8 +115,13 @@ Page({
     })
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatPhotoNumById',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
         catid: id,
+        beta:beta
       },
 
       success(res) {
@@ -113,20 +132,71 @@ Page({
 
     })
     wx.request({
+      url:"https://wxapi.ufatfat.com/hustcats/cat/getA",
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
+      data: {
+        
+        beta:beta
+      },
+      success:res=>{
+        let a=(res.data==0?"none":"block")
+        console.log(a)
+        this.setData({
+          a:a
+        })
+       
+      }
+    })
+    wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatInfoById',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
         catid: option.id,
         openid: globalData.openid,
+        beta:beta
         
       },
       success(res) {
+        console.log(res.data)
         self.setData({
           catInfo: res.data,
           thumbUpNum: res.data.thumbupnum,
           thumbUp: res.data.thumbup,
           nickname:res.data.nickname==null?"刘老师":res.data.nickname,
-          date:res.data.date==null?"2020-05-05":res.data.date
+          date:res.data.date==null?"2020-05-05":res.data.date,
+         
         })
+        let tags=res.data.tags
+        console.log(tags)
+        for(let i = 0;i<tags.length;i++)
+        {
+          if(tags[i]=="已绝育")
+          {tags[i]=0}
+          else if(tags[i]=="已领养")
+          {
+            tags[i]=1
+          }
+          else if(tags[i]=="未领养")
+          {
+            tags[i]=2
+          }
+          else if(tags[i]=="未绝育")
+          {
+            tags[i]=3
+          }
+
+        }
+        console.log(tags)
+        self.setData({
+          tags:tags
+        })
+        console.log(res.data)
        
 
       }
@@ -134,9 +204,14 @@ Page({
     })
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatPhotosById',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
         catid: option.id,
-        page: 1
+        page: 1,
+        beta:beta
       },
       success(res) {
        
@@ -158,34 +233,16 @@ Page({
       }
 
     })
-    // wx.request({
-    //   url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatRecordNumById',
-    //   data: {
-    //     catid: id,
-    //   },
-    //   success(res) {
-    //     self.setData({
-    //       recordNum: res.data
-    //     })
-    //   }
-    // })
-    // wx.request({
-    //   url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatRecordsById',
-    //   data: {
-    //     catid: id,
-    //     page: recordPage
-    //   },
-    //   success(res) {
-    //     self.setData({
-    //       records: res.data
-    //     })
-    //   }
-    // })
+   
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getIndexPhotoById',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
         catid: id,
-
+        beta:beta
       },
       success: (res) => {
         
@@ -198,9 +255,88 @@ Page({
     })
 
 
+    // 获取评论
+    wx.request({
+      url:"https://wxapi.ufatfat.com/hustcats/comment/getCommentsById",
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
+      data:{
+        catid:id,
+        order:'',
+        beta:beta
+      },
+      success:res=>{
+        console.log(res.data)
+        this.setData({
+          comments:res.data,
+        
+        })
+      }
+    })
+
   },
-
-
+  // 发送评论
+  commentSubmit:function(e){
+      wx.request({
+        url:"https://wxapi.ufatfat.com/hustcats/comment/writeComment",
+        method:"POST",
+        header:{
+          'content-type':'application/x-www-form-urlencoded'
+        },
+        data:{
+          catid:id,
+          openid:globalData.openid,
+          content:e.detail.value.comment,
+          replyTo:0,
+          beta:beta
+        },
+        success:res=>{
+          wx.showToast({
+            title: '发送成功',
+            icon:'success',
+          })
+          wx.request({
+            url:"https://wxapi.ufatfat.com/hustcats/comment/getCommentsById",
+            method:"POST",
+            header:{
+              'content-type':'application/x-www-form-urlencoded'
+            },
+            data:{
+              catid:id,
+              order:'',
+              beta:beta
+            },
+            success:res=>{
+              console.log(res.data)
+              this.setData({
+                comments:res.data,
+                newComment:''
+              })
+            }
+          })
+          
+        }
+      })
+  },
+  chooseAlbum:function(){
+      this.setData({
+        albumChoose:"choosed",
+        albumDisplay:"",
+        commentDisplay:"none",
+        commentChoose:"noChoose"
+      })
+  },
+  chooseComment:function(){
+    this.setData({
+      commentChoose:"choosed",
+      albumChoose:"noChoose",
+      albumDisplay:"none",
+      commentDisplay:""
+    })
+  
+  },
   previewImg: function(e){
     wx.previewImage({
       urls: [this.data.catImgs[e.currentTarget.dataset.index].img],
@@ -211,12 +347,16 @@ Page({
  
     wx.request({
       url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
-      
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data:{
         avatar:e.detail.userInfo.avatarUrl,
         nickname:e.detail.userInfo.nickName,
         gender:e.detail.userInfo.gender,
-        openid:globalData.openid
+        openid:globalData.openid,
+        beta:beta
       },
       success:res=>{
        
@@ -267,9 +407,15 @@ Page({
       swiperImgPage++
       wx.request({
         url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatSwiperImgsById',
+        method:"POST",
+        header:{
+          'content-type':'application/x-www-form-urlencoded'
+        },
         data: {
           catid: id,
-          page: swiperImgPage
+          page: swiperImgPage,
+            
+          beta:beta
         },
         success(res) {
           if (res.data) {
@@ -287,9 +433,15 @@ Page({
       imgsPage++
       wx.request({
         url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatPhotosById',
+        method:"POST",
+        header:{
+          'content-type':'application/x-www-form-urlencoded'
+        },
         data: {
           catid: id,
-          page: imgsPage
+          page: imgsPage,
+            
+          beta:beta
         },
         success(res) {
           if(res.data){
@@ -509,7 +661,8 @@ Page({
             success: function (res) {
               that.setData({
                 nickName: res.userInfo.nickName,
-                avatarUrl: res.userInfo.avatarUrl
+                avatarUrl: res.userInfo.avatarUrl,
+                beta:beta
               })
             }
           })
@@ -536,6 +689,7 @@ Page({
           index: i,
           isIndex: 0,
           verified:1,
+          beta:beta
         },
         url: 'https://wxapi.ufatfat.com/hustcats/cat/uploadCatPhotos',
         success: res => {
@@ -582,6 +736,7 @@ Page({
               imgs: [],
               upload: 0,
               uploadBtn: 1,
+           
             })
           }
         }
@@ -652,8 +807,7 @@ Page({
       
                   
                  
-                
-              
+  
               that.setData({
                 nickName: res.userInfo.nickName,
                 avatarUrl: res.userInfo.avatarUrl
@@ -663,14 +817,20 @@ Page({
         }
       }
     })
+  
     wx.request({
       url: "https://wxapi.ufatfat.com/hustcats/cat/toggleThumbUp",
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
         openid: globalData.openid,
         catid: id,
+        beta:beta,
       },
       success: res => {
-       
+        console.log(res.data)
         this.setData({
           thumbUp: res.data.thumbUp,
           thumbUpNum: res.data.thumbUpNum,

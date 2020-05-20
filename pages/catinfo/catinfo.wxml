@@ -1,179 +1,226 @@
-<view style="margin-top:-100rpx;">
-<view style="display: {{infoDisplay}};" class="container">
-	<view class="flexCenter">
-		<swiper mode="center" indicator-dots="true" indicator-color="#534741" indicator-active-color="black" autoplay="true" interval="3000" duration="500" circular="true">
-			<block wx:for="{{catSwiperImgs}}" wx:key="*this">
-				<swiper-item>
-					<image class="swiperItem swiperImg" src="{{item.img}}" mode="aspectFill"></image>
-				</swiper-item>
-			</block>
-		</swiper>
-	</view>
-	<view class="catInfo">
-		<view class="infoRow">
-			<view style="display:flex;align-items:center;justify-content:space-between;width:600rpx;">
-				<view> <text id="name" class="catInfoName">{{catInfo.name}}</text>
-					<image wx:if="{{catInfo.sex == 0}}" class="icon" src="/img/female-icon.png"></image>
-					<image wx:elif="{{catInfo.sex == 1}}" class="icon" src="/img/male-icon.png"></image>
-					<image wx:elif="{{catInfo.sex == 2}}" class="icon" src="/img/unknown.png"></image>
-					<image wx:else class="icon" src="/img/unknown.png"></image>
+<view class="all">
+	<view style="display: {{infoDisplay}};" class="container">
+		<view>
+			<view class="tagContainer">
+				<view wx:for="{{tags}}" wx:key="*this" style="display:inline-block;">
+					<view wx:if="{{item == 0}}" style="background-color:#FFCF8F;color:#FFFFFF" class="tag">
+						已绝育 
+					</view>
+					<view wx:if="{{item == 1}}" style="background-color:#FFE4C0;color:#FFFFFF" class="tag">
+						已领养
+					</view>
+					<view wx:if="{{item == 2}}" style="background-color:#DCDCDC;color:#FFFFFF" class="tag">
+						未领养
+					</view>
+					<view wx:if="{{item == 3}}" style="background-color:#D4D4D4;color:#FFFFFF" class="tag">
+						未绝育
+					</view>
 				</view>
-				<!-- <text wx:if="{{catInfo.dead == 1}}" class="deadLabel">返回喵星</text> -->
-<view>
-		
-				<image class="likeIcon" wx:if="{{thumbUp==1}}" src="/img/areadyLike.png" bindtap="toggleThumbUp"></image>
-				<image class="likeIcon" wx:else src="/img/like.png" bindtap="toggleThumbUp"></image>
-				<view class="likeNum">{{thumbUpNum}}</view>
-		<button class="likeButton"  bindtap="toggleThumbUp" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">></button>
-</view>
 			</view>
-			<!--<view style="flex: 1.2">
+			<swiper mode="center" indicator-dots="true" indicator-color="#534741" indicator-active-color="black" autoplay="true" interval="3000" duration="500" circular="true">
+				<block wx:for="{{catSwiperImgs}}" wx:key="*this">
+					<swiper-item>
+						<image class="swiperItem swiperImg" src="{{item.img}}" mode="aspectFill"></image>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+		<view class="catInfo">
+			<view class="infoRow">
+				<view style="display:flex;align-items:center;justify-content:space-between;width:600rpx;">
+					<view> <text id="name" class="catInfoName">{{catInfo.name}}</text>
+						<image wx:if="{{catInfo.sex == 0}}" class="icon" src="/img/female-icon.png"></image>
+						<image wx:elif="{{catInfo.sex == 1}}" class="icon" src="/img/male-icon.png"></image>
+						<image wx:elif="{{catInfo.sex == 2}}" class="icon" src="/img/unknown.png"></image>
+						<image wx:else class="icon" src="/img/unknown.png"></image>
+					</view>
+					<!-- <text wx:if="{{catInfo.dead == 1}}" class="deadLabel">返回喵星</text> -->
+					<view>
+
+						<image class="likeIcon" wx:if="{{thumbUp==1}}" src="/img/areadyLike.png" bindtap="toggleThumbUp"></image>
+						<image class="likeIcon" wx:else src="/img/like.png" bindtap="toggleThumbUp"></image>
+						<view class="likeNum">{{thumbUpNum}}</view>
+						<button class="likeButton" bindtap="toggleThumbUp" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">></button>
+					</view>
+				</view>
+				<!--<view style="flex: 1.2">
         <image id="fish" src="/img/fish.png"></image>
       </view>-->
-		</view>
-		<!-- <view id="tags">
+			</view>
+			<!-- <view id="tags">
 			<block wx:for="{{catInfo.tags}}">
 				<text class="tag">{{item}}</text>
 			</block>
 		</view> -->
 
-		<view class="border"></view>
+			<view class="border"></view>
 
-		<view id="info">
-			<view class="info location">
-				<image class="front" src="/img/front.png"></image>
-				<text class="infoTitle">出没地点</text>
-				<!-- <image src="/img/mapButton.png" class="mapButton" bindtap="mapButton"></image> -->
-				<text class="infoContent">{{catInfo.location==''||catInfo.location==null?"未知":catInfo.location}}</text>
-			</view>
-			<view class="info birthday">
-				<image class="front" src="/img/front.png"></image>
-				<text class="infoTitle">生日</text>
-				<text class="infoContent" wx:if="{{catInfo.birthday!=null}}">{{catInfo.birthday==''||catInfo.birthday==null?"未知":catInfo.birthday}} </text>
-				<text class="infoContent" wx:else >未知</text>
-			</view>
-			<view class="info father">
-				<image class="front" src="/img/front.png"></image>
-				<text class="infoTitle">爸爸</text>
-				<text class="infoContent" wx:if="{{catInfo.father!=null}}">{{catInfo.father==''||catInfo.father==null?"未知":catInfo.father}} </text>
-				<text class="infoContent" wx:else >未知</text>
-			</view>
-			<view class="info mother">
-				<image class="front" src="/img/front.png"></image>
-				<text class="infoTitle">妈妈</text>
-				<text class="infoContent" wx:if="{{catInfo.mother!=null}}">{{catInfo.mother==''||catInfo.mother==null?"未知":catInfo.mother}} </text>
-				<text class="infoContent" wx:else >未知</text>
-			</view>
-			<!-- <view class="info">
+			<view id="info">
+				<view class="info location">
+					<image class="front" src="/img/front.png"></image>
+					<text class="infoTitle">出没地点</text>
+					<!-- <image src="/img/mapButton.png" class="mapButton" bindtap="mapButton"></image> -->
+					<text class="infoContent">{{catInfo.location==''||catInfo.location==null?"未知":catInfo.location}}</text>
+				</view>
+				<view class="info birthday">
+					<image class="front" src="/img/front.png"></image>
+					<text class="infoTitle">生日</text>
+					<text class="infoContent" wx:if="{{catInfo.birthday!=null}}">{{catInfo.birthday==''||catInfo.birthday==null?"未知":catInfo.birthday}} </text>
+					<text class="infoContent" wx:else >未知</text>
+				</view>
+				<view class="info father">
+					<image class="front" src="/img/front.png"></image>
+					<text class="infoTitle">爸爸</text>
+					<text class="infoContent" wx:if="{{catInfo.father!=null}}">{{catInfo.father==''||catInfo.father==null?"未知":catInfo.father}} </text>
+					<text class="infoContent" wx:else >未知</text>
+				</view>
+				<view class="info mother">
+					<image class="front" src="/img/front.png"></image>
+					<text class="infoTitle">妈妈</text>
+					<text class="infoContent" wx:if="{{catInfo.mother!=null}}">{{catInfo.mother==''||catInfo.mother==null?"未知":catInfo.mother}} </text>
+					<text class="infoContent" wx:else >未知</text>
+				</view>
+				<!-- <view class="info">
 				<text class="infoTitle">好友</text>
 				<text class="infoContent">{{catInfo.friends}}</text>
 			</view> -->
-			<view class="info_full">
-				<image class="front" src="/img/front.png"></image>
-				<text class="infoTitle">性格</text>
-				<text class="infoContent">{{catInfo.nature==''||catInfo.nature==null?"未知":catInfo.nature}}</text>
+				<view class="info_full">
+					<image class="front" src="/img/front.png"></image>
+					<text class="infoTitle">性格</text>
+					<text class="infoContent">{{catInfo.nature==''||catInfo.nature==null?"未知":catInfo.nature}}</text>
+				</view>
+				<view class="info_full">
+					<image class="front" src="/img/front.png"></image>
+					<text class="infoTitle">描述</text>
+					<text class="infoContent">{{catInfo.desc==''||catInfo.desc==null?"未知":catInfo.desc}}</text>
+				</view>
+				<view class="info_full">
+					<image class="front" src="/img/front.png"></image>
+					<text class="infoTitle">撸猫指南</text>
+					<text class="infoContent">{{catInfo.guide==''?"未知":catInfo.guide}}</text>
+				</view>
+
+
+
+
+				<view class="borderBottom"></view>
+
+				<view class="submitedInfo">
+					<text>本猫猫由 {{nickname}} 添加于 {{date}}</text>
+				</view>
+
+
+				<!-- 相册/评论 -->
+				<view class="albumAndComment" style="display:{{a=='none'?'none':''}}" >
+					<view class="chooseAlbum" bindtap="chooseAlbum">
+						<view class="{{albumChoose}}">相册</view>
+					</view>
+					<view class="chooseComment" bindtap="chooseComment">
+						<view class="{{commentChoose}}">评论</view>
+					</view>
+				</view>
+
+				<!-- 评论 -->
+				<view class="commentContent" style="display:{{commentDisplay}}">
+					<view class="commentContainer" wx:for="{{comments}}" wx:key="*this">
+					 <view style="width:98%">
+						<text style="color:#999999;" space="nbsp">{{item.userInfo.nickname}}:  <text style="word-wrap:break-word;color:#333333;position:relative;" space="nbsp">{{item.content}}</text> </text>
+						
+						</view>
+
+					</view>
+
+					<view class='addComment'>
+						<image src="/img/addComment.png" style="width:50rpx;height:50rpx;margin-right:20rpx;vertical-align:top"></image>
+						<form bindsubmit="commentSubmit">
+							<textarea cursor-spacing='100' name="comment" value="{{newComment}}" confirm-type="send" show-confirm-bar="{{false}}" style="padding:10rpx;width:430rpx;height:160rpx;background-color:#F2F2F2;display:inline-block;border-radius:10rpx;border:1rpx solid #999999"></textarea>
+
+							<button class="addCommentBtn" hover-class="btnHover" form-type="submit">发送</button>
+						</form>
+					</view>
+
+				</view>
+
+				<view class="indexPhotoContainer" style="display:{{albumDisplay}}">
+					<image src="{{indexPhoto}}" class="indexPhoto" mode="aspectFill"></image>
+				</view>
+
 			</view>
-			<view class="info_full">
-				<image class="front" src="/img/front.png"></image>
-				<text class="infoTitle">描述</text>
-				<text class="infoContent">{{catInfo.desc==''||catInfo.desc==null?"未知":catInfo.desc}}</text>
+
+
+			<view class="albumDesc" style="margin-bottom:0rpx;display:{{albumDisplay}}">
+				<text>{{catInfo.name}}的相册</text>
 			</view>
-			<view class="info_full">
-				<image class="front" src="/img/front.png"></image>
-				<text class="infoTitle">撸猫指南</text>
-				<text class="infoContent">{{catInfo.guide==''?"未知":catInfo.guide}}</text>
+			<view class="albumDesc" style="display:{{albumDisplay}}">
+				<text style="display: block; color: gray; font-size: 0.8rem">共{{photoNum}}张照片</text>
 			</view>
 
 
-
-
-			<view class="borderBottom"></view>
-
-			<view class="submitedInfo">
-				<text>本猫猫由 {{nickname}} 添加于 {{date}}</text>
-			</view>
-
-
-			<view class="indexPhotoContainer">
-				<image src="{{indexPhoto}}" class="indexPhoto" mode="aspectFill"></image>
-			</view>
-
-		</view>
-
-
-		<view class="albumDesc" style="margin-bottom:0rpx;">
-			<text>{{catInfo.name}}的相册</text>
-		</view>
-		<view class="albumDesc">
-			<text style="display: block; color: gray; font-size: 0.8rem">共{{photoNum}}张照片</text>
-		</view>
-
-
-		<!-- <view class="btnRecord" bindtap="changeTab" data-tab="record">
+			<!-- <view class="btnRecord" bindtap="changeTab" data-tab="record">
 				<view>
 					<text style="display: block;">目击记录</text>
 					<text style="display: block; color: gray; font-size: 0.8rem">共{{recordNum}}条目击记录</text>
 				</view>
 			</view> -->
 
-	</view>
-<view class="album">
-		<view class="albumContainer">
-			<block wx:for="{{catImgs}}" wx:key="*this">
-			<scroll-view style="width: 44vw; height: 32vw; margin-left: 4vw; display: inline-block;">
-				<image src="{{item.img}}" data-id="{{index}}" bindtap="bigImg" mode="aspectFill" lazy-load="true" style="width: 44vw; height: 32vw; display: block;"></image>
-			</scroll-view>
-			</block>
-			<view style="width: 44vw; height: 32vw; margin-left: 4vw; display: {{uploadBtn<10?'inline-block':'none'}};">
-				<image src="/img/uploadButton.png" bindtap="chooseImg" mode="aspectFit" lazy-load="true" style="width: 44vw; height: 32vw; display: block;"></image>
-			</view>
 		</view>
-		<view style="width: 100%;display: {{!upload?'none':'flex'}}; align-items: center; margin: 30rpx 0;" class="scrollTop">
-			<view style="width: 100%; height: 1px; background-color: #808080; flex: 1.5;"></view>
-				<view style="color: #808080; margin: 0 auto; z-index: 20; width: 100%; flex: 2; text-align: center;">以下是选中的照片：</view>
-			<view style="width: 100%; height: 1px; background-color: #808080; flex: 1.5;"></view>
-		</view>
-		<view class="albumContainer">
-			<block wx:for="{{imgs}}">
-			<view style="display: inline-block; width: 44vw; height: 32vw; margin-left: 4vw; margin-bottom: 40rpx;">
-				<image src="{{item.img}}" style="width: 44vw; height: 32vw; display: block;" mode="aspectFill"></image>
-				<view style="width: 44vw; height: 32vw; background-color: #333333; opacity: 0.6; position: relative; margin-top: -32vw;">
-					<input bindtap="clearph" bindblur="addph" data-id="{{index}}" placeholder="{{item.ph}}" style="color: #f2f2f2; position:relative; top: 16vw; transform: translate(0,-50%); text-align；center;" placeholder-style="text-align: center; color: #f2f2f2;"></input>
-      		<image bindtap="deleteChosenImg" data-index="{{index}}" src="/img/close.png" style="width: 40rpx; padding: 10rpx; border-radius: 50%; box-shadow: 5px 5px 10px; position: relative; left: calc(44vw - 40rpx); top: -70rpx;  background-color: black;" mode="widthFix"></image>
+		<view class="album" style="display:{{albumDisplay}}">
+			<view class="albumContainer">
+				<block wx:for="{{catImgs}}" wx:key="*this">
+					<scroll-view style="width:39vw;height:28vw; margin-left: 4vw; display: inline-block;">
+						<image src="{{item.img}}" data-id="{{index}}" bindtap="bigImg" mode="aspectFill" lazy-load="true" style="width:39vw;height:28vw; display: block;"></image>
+					</scroll-view>
+				</block>
+				<view style="width: 39vw; height: 28vw; margin-left: 4vw; display: {{uploadBtn<10?'inline-block':'none'}};">
+					<image src="/img/uploadButton.png" bindtap="chooseImg" mode="aspectFit" lazy-load="true" style="width: 39vw; height: 28vw;display:{{a}} "></image>
 				</view>
 			</view>
-			</block>
+			<view style="width: 100%;display: {{!upload?'none':'flex'}}; align-items: center; margin: 30rpx 0;" class="scrollTop">
+				<view style="width: 100%; height: 1px; background-color: #808080; flex: 1.5;"></view>
+				<view style="color: #808080; margin: 0 auto; z-index: 20; width: 100%; flex: 2; text-align: center;">以下是选中的照片：</view>
+				<view style="width: 100%; height: 1px; background-color: #808080; flex: 1.5;"></view>
+			</view>
+			<view class="albumContainer">
+				<block wx:for="{{imgs}}">
+					<view style="display: inline-block; width:39vw;height:28vw; margin-left: 4vw; margin-bottom: 40rpx;">
+						<image src="{{item.img}}" style="width:39vw;height:28vw; display: block;" mode="aspectFill"></image>
+						<view style="width: 44vw; height: 32vw; background-color: #333333; opacity: 0.6; position: relative; margin-top: -32vw;">
+							<input bindtap="clearph" bindblur="addph" data-id="{{index}}" placeholder="{{item.ph}}" style="color: #f2f2f2; position:relative; top: 16vw; transform: translate(0,-50%); text-align；center;" placeholder-style="text-align: center; color: #f2f2f2;"></input>
+							<image bindtap="deleteChosenImg" data-index="{{index}}" src="/img/close.png" style="width: 40rpx; padding: 10rpx; border-radius: 50%; box-shadow: 5px 5px 10px; position: relative; left: calc(44vw - 40rpx); top: -70rpx;  background-color: black;" mode="widthFix"></image>
+						</view>
+					</view>
+				</block>
+			</view>
 		</view>
 	</view>
+
+	<view class="shadow" style="display:{{swiperDisplay}}" bindtap="closeSwiper"></view>
+
+
+	<view class="clickClose" style="display:{{swiperDisplay}};z-index:2000" bindtap="closeSwiper"></view>
+	<view class="swiperAll" style="display:{{swiperDisplay}}; z-index: 1000;">
+		<swiper current="{{itemid}}" id="swiper" onchange="swiperChange" circular="true" style="height:800rpx !important;" previous-margin="100rpx" next-margin="40rpx">
+			<block wx:for="{{catImgs}}" wx:for-index="i" class="block">
+				<swiper-item style="margin:auto;overflow:visible!important;height:auto !important;">
+					<view>
+						<view class="flex {{i==index?'active':'deactive'}}">
+							<image style="width:450rpx !important;height:330rpx !important;" src="{{item.img}}" mode="aspectFill" data-index="{{index}}" bindtap="previewImg">
+							</image>
+							<view class="comment">
+								<text class="descCats">{{item.desc==null?'':item.desc}}</text>
+								<text class="submitInfo"> {{item.nickname==null?'':'—— '+item.nickname}} {{item.date==null?'':item.date}}</text>
+							</view>
+						</view>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+
+	<button bindtap="uploadImg" class="uploadBtn{{!upload?' uploadBtnDeactive':' uploadBtnActive'}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+		上传图片
+	</button>
 </view>
-
-<view class="shadow" style="display:{{swiperDisplay}}" bindtap="closeSwiper"></view>
-
-
-<view class="clickClose" style="display:{{swiperDisplay}};z-index:2000" bindtap="closeSwiper"></view>
-<view class="swiperAll" style="display:{{swiperDisplay}}; z-index: 1000;">		
-				<swiper current="{{itemid}}" id="swiper" onchange="swiperChange" circular="true" style="height:800rpx !important;" previous-margin="88rpx"  next-margin="88rpx">
-					<block wx:for="{{catImgs}}" wx:for-index="i" class="block">
-						<swiper-item style="margin:auto;overflow:visible!important;height:auto !important;" >
-						    <view>
-								<view class="flex {{i==index?'active':'deactive'}}" >							
-								<image   style="width:450rpx !important;height:330rpx !important;" src="{{item.img}}" mode="aspectFill" data-index="{{index}}" bindtap="previewImg">								
-								</image>
-								<view  class="comment">								 
-										<text class="descCats">{{item.desc==null?'':item.desc}}</text>
-										<text class="submitInfo"> {{item.nickname==null?'':'—— '+item.nickname}} {{item.date==null?'':item.date}}</text>
-										</view>						
-								</view>
-								</view>							
-						</swiper-item>
-					</block>
-				</swiper>		
-			</view>
-
-			<button bindtap="uploadImg" class="uploadBtn{{!upload?' uploadBtnDeactive':' uploadBtnActive'}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-				上传图片
-			</button>
-		</view>
 <!-- <view class="album">
 		<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">我也看到了猫猫！</button>
 		<block wx:else>

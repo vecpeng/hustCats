@@ -1,0 +1,12 @@
+/**index.wxss**/
+.tab{
+  display: flex;
+  justify-content: space-around;
+  width:100%;
+  background-color: white;
+  height:100rpx;
+  position:fixed;
+  top:0;
+  line-height: 100rpx;
+  color:#555555
+}

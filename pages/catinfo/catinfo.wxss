@@ -1,40 +1,122 @@
 
+.albumAndComment{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100rpx;
+}
+
+.tagContainer{
+  position:absolute;
+  top:90rpx;
+  right:70rpx;
+  z-index:3;
+ 
+}
+.btnHover{
+  opacity: 0.5;
+}
+.tag{
+  text-align: center;
+  display: inline-block;
+  width:80rpx;
+  height:28rpx;
+  opacity:0.9;
+  line-height: 28rpx;
+  border-radius: 20rpx;
+}
+.addCommentBtn{
+  margin-left:400rpx;
+  width:100rpx;
+  background-color: #999999;
+  border-radius: 20rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  font-size:0.8rem;
+  padding:0;
+  color:white;
+  box-shadow: 2px 2px 2px #666666;
+  margin-top:20rpx;
+  margin-bottom:50rpx;
+}
+.commentContainer{
+  margin-left:10rpx;
+   font-size:1rem;
+}
+.addComment{
+  margin-left:10rpx;
+  margin-top:100rpx;
+}
+.noChoose{
+  /* border:10rpx solid #F8F8F8; */
+    border-bottom:1rpx solid #cccccc;
+   width:80rpx;
+   height:60rpx;
+  position:relative;
+  top:-15rpx;
+   padding:25rpx 20rpx 0rpx 30rpx;
+   display:inline-block;
+}
+.choosed{
+  background-color: #e6e6e6;
+  display: inline-block;
+ 
+  padding:15rpx 15rpx 0rpx 30rpx;
+  width:80rpx;
+  height:55rpx;
+  border-bottom: 10rpx solid #cccccc;
+  font-weight: bold;
+}
+.chooseAlbum{
+  height:100rpx;
+  display: inline-block;
+}
+.chooseComment{
+  height:100rpx;
+  display: inline-block;
+}
 .catInfoName{
   color:#333333;
   font-size:50rpx;
- 
+  
 
 }
 .active{
-  transform: scale(1);
+  transform: scale(1.2);
   animation: active 0.5s forwards;
 }
 .deactive{
-  transform: scale(1.2);
+  transform: scale(1.4);
   animation: deactive 0.5s forwards;
 }
 @keyframes active{
   form{
-    transform: scale(1);
+    transform: scale(1.2);
   }
   to{
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
 }
 @keyframes deactive{
   form{
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
   to{
-    transform: scale(1);
+    transform: scale(1.2);
   }
 }
 
+.all{
+  /* position:relative;
+  top:50rpx; */
+  margin-top:20rpx;
+  margin-bottom:50rpx;
+}
 .album{
+  
   margin-bottom: 100rpx;
   background-color: white;
-  border:2rpx 2rpx 0rpx 2rpxsolid white;
-  width: 100vw;
+  border:2rpx 2rpx 0rpx 2rpx solid white;
+  width:100%;
   margin-top: 100px;
   margin:0rpx;
   border-radius: 10rpx;
@@ -45,23 +127,22 @@
 }
 .container{
  
-  transform: scale(0.9);
+  /* transform: scale(0.9); */
   border:0rpx 2rpx 2rpx 2rpx solid white;
   background-color:white;
-  width: 100%;
+  width: 90%;
+  margin:auto;
   height:130%;
   z-index: -1;
-  box-shadow:  10px 5px 5px rgb(73, 70, 70) ;
+
+   box-shadow:  10px 5px 10px rgb(75, 71, 71) ; 
   border-radius: 10rpx;
 }
 
 
 Page{
   background-color:#333333;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  padding: 0rpx;
+  
 }
 /* .float{
   position:absolute;
@@ -105,7 +186,7 @@ swiper{
 }
 #name{
   bottom: 10px;
-  letter-spacing: .2rem;
+  letter-spacing: .1rem;
 }
 #sex{
   width: 30px;
@@ -180,11 +261,11 @@ swiper{
   margin: 15px auto 15px auto;
 }
 .albumContainer{
-  width: 100%;
+  width:100%;
 }
 .albumImg{
   width: 44%;
-  height: 32vw;
+  height: 28vw;
   margin-left: 4vw;
 }
 .chooseImg{
@@ -267,9 +348,9 @@ swiper{
 }
 .border{
 height:1rpx;
-opacity: 0.5;
+opacity: 0.3;
   border-bottom: 1rpx solid #333333;
-  width:600rpx;
+  width:540rpx;
   background-color:#f9f5ef;
   display: block;
 margin-top:0rpx;
@@ -279,8 +360,8 @@ margin-top:0rpx;
 
 .borderBottom{
   height:1rpx;
-  width:600rpx;
-  opacity: 0.5;
+  width:540rpx;
+  opacity: 0.3;
   background-color:#666666;
   display:inline-block
 }
@@ -390,7 +471,7 @@ margin-top:0rpx;
   width:100%;
   height:1000vh;
   background-color:#333333;
-  opacity:0.5;
+  opacity:0.8;
   float:left;
   position:fixed;
   top:0rpx;

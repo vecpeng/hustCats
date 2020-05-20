@@ -1,0 +1,10 @@
+<map
+ id="myMap"
+ style="width: 100%; height:100vh;"
+ longitude="{{longitude}}" latitude="{{latitude}}" 
+ scale='{{scale}}' 
+ subkey="5DLBZ-XIJWW-L5YRF-RH2G4-7VBT2-G5FQ3" 
+ polyline="{{polyline}}"
+ markers="{{markers}}"
+ bindcallouttap="mapTap"
+ ></map>

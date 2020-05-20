@@ -4,11 +4,11 @@
 
  <view style="display:{{resultDisplay}};" class="renewIdentify">
         <view >识别结束</view>
-        <view>请点击右上角重新识别</view>
+        <view>点击任意处关闭</view>
     </view>
 
 
-<view class="shadow" style="display:{{resultDisplay}}"></view>
+<view class="shadow" style="display:{{resultDisplay}}" bindtap="closeImg"></view>
 
 
 <image src="/img/close.png" class="close" style="display:{{resultDisplay}}"  bindtap="closeImg"></image>

@@ -3,6 +3,7 @@ let foldA = true
 let foldB = true
 let foldC = true
 let foldD = true
+const beta = app.globalData.beta
 Page({
   data: {
     height: 0,
@@ -28,8 +29,13 @@ Page({
 
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/wiki/getContent',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
-        cid: 1
+        cid: 1,
+        beta:beta
       },
       success: (res) => {
         this.setData({
@@ -48,6 +54,13 @@ Page({
     })
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/wiki/getCategory',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
+      data:{
+        beta:beta
+      },
       success: (res) => {
         let data = res.data
         this.setData({
@@ -355,13 +368,19 @@ Page({
     }
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/wiki/getContent',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
-        cid: index + 1
+        cid: index + 1,
+        beta:beta
       },
       success: (res) => {
         this.setData({
           index: e.currentTarget.dataset.index,
-          content: res.data
+          content: res.data,
+          
         })
       }
     })

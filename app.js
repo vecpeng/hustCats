@@ -3,7 +3,8 @@ App({
 
   globalData:{
     openid:'',
-    userInfo:''
+    userInfo:'',
+    beta:1.18
   },
  
   onLaunch: function () {
@@ -24,19 +25,29 @@ App({
           wx.request({
             
             url: 'https://wxapi.ufatfat.com/hustcats/user/getopenid',
+            method:"POST",
+            header:{
+              'content-type':'application/x-www-form-urlencoded'
+            },
             data: {
-              jscode: res.code
+              jscode: res.code,
+              beta:that.globalData.beta
             },
             success:(res)=>{
           
            that.globalData.openid = res.data
             wx.request({
               url:"https://wxapi.ufatfat.com/hustcats/user/userInfo",
+              method:"POST",
+              header:{
+                'content-type':'application/x-www-form-urlencoded'
+              },
               data:{
                 openid:that.globalData.openid,
                 avatar:'',
                 nickname:'',
-                gender:''
+                gender:'',
+                beta:that.globalData.beta
               }
             })
             },
@@ -77,11 +88,15 @@ App({
               wx.request({
                 url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
                 method:'POST',
+                header:{
+                  'content-type':'application/x-www-form-urlencoded'
+                },
                 data:{
                   avatar:that.globalData.userInfo.avatarUrl,
                   nickname:that.globalData.userInfo.nickName,
                   gender:that.globalData.userInfo.gender,
-                  openid:that.globalData.openid
+                  openid:that.globalData.openid,
+                  beta:beta
                 }
               })
             },

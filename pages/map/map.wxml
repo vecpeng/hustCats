@@ -1,0 +1,58 @@
+<!-- <map
+id="myMap"
+style="width: 100%; height:100vh;"
+longitude="114.402400" latitude="30.511501"
+scale='18'
+subkey="5DLBZ-XIJWW-L5YRF-RH2G4-7VBT2-G5FQ3"
+polyline="{{polyline}}"
+markers="{{markers}}"
+></map> -->
+            
+
+<!-- <map
+id="myMap"
+style="width: 100%; height:100vh;"
+longitude="114.433193" latitude="30.514899"
+scale='18'
+subkey="5DLBZ-XIJWW-L5YRF-RH2G4-7VBT2-G5FQ3"
+polyline="{{polyline}}"
+markers="{{markers}}"
+></map> -->
+
+
+
+<!-- <map
+id="myMap"
+style="width: 100%; height:100vh;"
+longitude="114.421922" latitude="30.510216"
+scale='18'
+subkey="5DLBZ-XIJWW-L5YRF-RH2G4-7VBT2-G5FQ3"
+polyline="{{polyline}}"
+markers="{{markers}}"
+></map> -->
+
+
+<my_map
+id="myMap"
+
+
+
+
+
+/>
+<!-- <my_map  
+id="my_map"
+scale='{{scale}}'
+
+subkey="5DLBZ-XIJWW-L5YRF-RH2G4-7VBT2-G5FQ3"
+markers="{{markers}}"
+bindcallouttap="mapTap"
+/> -->
+<view class='tab'>
+<text style="font-weight:{{fontWeightYunyuan}}" bindtap="yunyuanTap">韵苑</text>
+<text style="font-weight:{{fontWeightZisong}}" bindtap="zisongTap">紫菘</text>
+<text style="font-weight:{{fontWeightAll}}" bindtap="allTap">全部</text>
+<text  style="font-weight:{{fontWeightQinyuan}}" bindtap="qinyuanTap">沁苑</text>
+<text  style="font-weight:{{fontWeightJimao}}" bindtap="jimaoTap">集贸</text>
+
+</view>

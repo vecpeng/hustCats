@@ -1,0 +1,7 @@
+
+{
+  "usingComponents": {
+    "my_map": "/components/my_map"
+  },
+  "navigationBarTitleText": "猫猫地图"
+}

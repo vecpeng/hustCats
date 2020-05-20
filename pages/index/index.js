@@ -4,6 +4,7 @@ const app = getApp()
 let page = 1
 let thisPage = 'index'
 const globalData=app.globalData
+const beta =app.globalData.beta
 Page({
   data: {
     test:0,
@@ -27,7 +28,8 @@ Page({
     thumbup:0,
     thumbupnum:0,
     nowId:0,
-    searchInput:''
+    searchInput:'',
+    a:'none'
    
   },
   onShareAppMessage: function () {
@@ -41,18 +43,23 @@ Page({
  {
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
         name:e.detail.value,
         locationFilter:'',
         speciesFilter: '',
         openid:globalData.openid,
-        page:page
+        page:page,
+        beta:beta
        
       },
       success:(res)=>{ 
             //利用箭头函数替换原来的that=this
         let cat = res.data
-       
+        console.log(cat)
         for (let i = 0; i < cat.length; i++) {
       
          cat[i].indexImg =cat[i].indexImg.slice(0,52)+'compressed_'+cat[i].indexImg.slice(52)
@@ -243,12 +250,17 @@ Page({
    
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
         openid:globalData.openid,
         name:'',
        page:page,
         locationFilter: locationFilter,
-        speciesFilter: speciesFilter 
+        speciesFilter: speciesFilter ,
+        beta:beta
       },
       
       success:res=>{        
@@ -263,6 +275,24 @@ Page({
   },
   onLoad: function(){
     wx.stopPullDownRefresh()
+    wx.request({
+      url:"https://wxapi.ufatfat.com/hustcats/cat/getA",
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
+      data:{
+        beta:beta
+      },
+      success:res=>{
+        let a=(res.data==0?"none":"block")
+        console.log(a)
+        this.setData({
+          a:a
+        })
+       
+      }
+    })
     let that=this
     wx.login({
       
@@ -274,8 +304,13 @@ Page({
           wx.request({
             
             url: 'https://wxapi.ufatfat.com/hustcats/user/getopenid',
+            method:"POST",
+            header:{
+              'content-type':'application/x-www-form-urlencoded'
+            },
             data: {
-              jscode: res.code
+              jscode: res.code,
+              beta:beta
             },
             success:(res)=>{
            
@@ -283,17 +318,22 @@ Page({
             
            wx.request({
              url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
+             method:"POST",
+             header:{
+              'content-type':'application/x-www-form-urlencoded'
+            },
              data: {
                openid:globalData.openid,
                name:'',
                page: page,
                locationFilter: that.data.locationFilter.join(','),
-               speciesFilter:that.data.speciesFilter.join(',')
+               speciesFilter:that.data.speciesFilter.join(','),
+               beta:beta
              },
             
              success:res=>{        
               let cat = res.data
-       
+             console.log(cat)
               for (let i = 0; i < cat.length; i++) {
             
                cat[i].indexImg =cat[i].indexImg.slice(0,52)+'compressed_'+cat[i].indexImg.slice(52)
@@ -302,7 +342,7 @@ Page({
                  catsInfo: cat,
                
                })        
-               console.log(cat)
+              
               
              
              },
@@ -318,12 +358,17 @@ Page({
           )}else{
             wx.request({
               url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
+              method:"POST",
+              header:{
+                'content-type':'application/x-www-form-urlencoded'
+              },
               data: {
                 openid:globalData.openid,
                 name:'',
                 page: page,
                 locationFilter: that.data.locationFilter.join(','),
-                speciesFilter:that.data.speciesFilter.join(',')
+                speciesFilter:that.data.speciesFilter.join(','),
+                beta:beta
               },
              
               success:res=>{        
@@ -331,7 +376,7 @@ Page({
                   catsInfo: res.data,
                 
                 })        
-               
+                console.log(res.data)
               
               },
             })
@@ -343,6 +388,13 @@ Page({
  
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getFilters',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
+      data:{
+        beta:beta
+      },
       success:res=>{
         this.setData({
           locationFilters: res.data.locationFilters,
@@ -361,10 +413,14 @@ Page({
               wx.request({
                 url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
                 method:'POST',
+                header:{
+                  'content-type':'application/x-www-form-urlencoded'
+                },
                 data:{
                   avatar:res.userInfo.avatarUrl,
                   nickname:res.userInfo.nickName,
                   gender:res.userInfo.gender,
+                  beta:beta
                 }
               })
 
@@ -419,13 +475,18 @@ onShow(){
  
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data: {
      
        openid: globalData.openid,
        name:'',
        page:page,
         locationFilter: this.data.locationFilter.join(','),
-        speciesFilter: this.data.speciesFilter.join(',')
+        speciesFilter: this.data.speciesFilter.join(','),
+        beta:beta
       },
       success:res=>{    
         if(res.data){
@@ -466,12 +527,16 @@ onShow(){
    
     wx.request({
       url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
-      
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
       data:{
         avatar:e.detail.userInfo.avatarUrl,
         nickname:e.detail.userInfo.nickName,
         gender:e.detail.userInfo.gender,
-        openid:globalData.openid
+        openid:globalData.openid,
+        beta:beta
       },
       success:res=>{
       

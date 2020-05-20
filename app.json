@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/index/index",
+    
    "pages/feature/feature",
    "pages/knowledge/knowledge",
     "pages/catinfo/catinfo",
     "pages/about/about",
     "pages/random/random",
-    "pages/identify/identify"
+    "pages/identify/identify",
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,11 +32,6 @@
         "iconPath": "img/feature.png",
         "selectedIconPath": "img/feature-active.png"
       } ,{
-        "pagePath": "pages/knowledge/knowledge",
-        "text": "",
-        "iconPath": "img/knowledge.png",
-        "selectedIconPath": "img/knowledge-active.png"
-      },{
         "pagePath": "pages/about/about",
         "text": "",
         "iconPath": "img/about.png",

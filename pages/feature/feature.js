@@ -5,8 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    randomIcon:'/img/random.png',
-    identifyIcon:'/img/identify.png'
+   
   },
 
   /**
@@ -65,19 +64,25 @@ Page({
 
   },
   randomTap:function(){
-    this.setData({
-      randomIcon:'/img/random-active.png'
-    })
     wx.navigateTo({
       url:"/pages/random/random"
     })
   },
   identifyTap:function(){
-    this.setData({
-      identifyIcon:'/img/identify-active.png'
-    })
     wx.navigateTo({
       url:"/pages/identify/identify"
     })
-  }
+  },
+  knowledgeTap:function(){
+   
+    wx.navigateTo({
+      url:"/pages/knowledge/knowledge"
+    })
+  },
+  mapTap:function(){
+   
+    wx.navigateTo({
+      url:"/pages/map/map"
+    })
+  },
 })
