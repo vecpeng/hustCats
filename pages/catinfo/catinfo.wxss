@@ -20,7 +20,7 @@
   display: inline-block;
   width:80rpx;
   height:28rpx;
-  opacity:0.9;
+
   line-height: 28rpx;
   border-radius: 20rpx;
 }
@@ -210,18 +210,20 @@ swiper{
   margin-right: 10px;
 }
 .info{
-  width: 50%;
+  width: 48%;
   margin-top: 20px;
   display: inline-block;
+  vertical-align: top;
 }
 
 .infoContent{
   display:block;
   font-size: 34rpx;
   margin-top: 24rpx;
-  margin-left:20rpx;
+  padding-left:20rpx;
   margin-bottom: 10rpx;
-  color:#333333
+  color:#333333;
+  padding-right:30rpx;
 }
 .info_full{
   width: 100%;

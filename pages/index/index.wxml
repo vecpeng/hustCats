@@ -1,4 +1,5 @@
 <!--index.wxml-->
+	<view class="closeSearch" bindtap="closeSearch" style="display:{{displaySearchBox}};opacity:1"></view>
 <block wx:if="{{tab == 'index'}}">
 	<view class="container">
 	
@@ -7,6 +8,7 @@
 				<!-- <view class="line"></view>
 			<image bindtap="jumpToAdd" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:4rpx;" class="add" src="/img/addCats.png"><button  class="getUserInfoButton" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button></image>  -->
 			</view>
+			
 			<view class="searchBox" style="display:{{displaySearchBox}};opacity:1">
 				<view class="searchCatsWords">搜索猫猫</view>
 				<form>

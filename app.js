@@ -4,7 +4,7 @@ App({
   globalData:{
     openid:'',
     userInfo:'',
-    beta:1.18
+    beta:1.110
   },
  
   onLaunch: function () {
@@ -96,7 +96,7 @@ App({
                   nickname:that.globalData.userInfo.nickName,
                   gender:that.globalData.userInfo.gender,
                   openid:that.globalData.openid,
-                  beta:beta
+                  beta:that.globalData.beta
                 }
               })
             },

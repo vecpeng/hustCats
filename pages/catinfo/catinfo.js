@@ -279,6 +279,13 @@ Page({
   },
   // 发送评论
   commentSubmit:function(e){
+    if(e.detail.value.comment.replace(/\s+/g, "").length ==0)
+    {
+      wx.showToast({
+        title: '评论不能为空',
+        image:'/img/cross.png',
+      })
+    }else{
       wx.request({
         url:"https://wxapi.ufatfat.com/hustcats/comment/writeComment",
         method:"POST",
@@ -319,6 +326,7 @@ Page({
           
         }
       })
+    }
   },
   chooseAlbum:function(){
       this.setData({

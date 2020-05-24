@@ -1,7 +1,15 @@
 /**index.wxss**/
 
 /* tab Index*/
-
+.closeSearch{
+  width: 100vh;
+  height:140vw;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1;
+  float:left;
+}
 .container{
   background-color:#333333;
   width: 100%;

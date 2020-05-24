@@ -6,7 +6,7 @@ Component({
     longitude: 114.419003,
     latitude: 30.513027,
   
-    scale: 13
+    scale: 13.9
   },
   methods: {
     onload: function () {

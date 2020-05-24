@@ -513,7 +513,11 @@ onShow(){
     page=1
   },
 
-
+  closeSearch:function(){
+      this.setData({
+        displaySearchBox:'none'
+      })
+  },
   changeTab: function(e){
     let thatTab = e.currentTarget.dataset.tab
     if(this.data.tab == thatTab)

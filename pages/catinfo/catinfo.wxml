@@ -3,16 +3,16 @@
 		<view>
 			<view class="tagContainer">
 				<view wx:for="{{tags}}" wx:key="*this" style="display:inline-block;">
-					<view wx:if="{{item == 0}}" style="background-color:#FFCF8F;color:#FFFFFF" class="tag">
+					<view wx:if="{{item == 0}}" style="background-color:#FFCF8F;color:#555555" class="tag">
 						已绝育 
 					</view>
-					<view wx:if="{{item == 1}}" style="background-color:#FFE4C0;color:#FFFFFF" class="tag">
+					<view wx:if="{{item == 1}}" style="background-color:#FFE4C0;color:#555555" class="tag">
 						已领养
 					</view>
-					<view wx:if="{{item == 2}}" style="background-color:#DCDCDC;color:#FFFFFF" class="tag">
+					<view wx:if="{{item == 2}}" style="background-color:#DCDCDC;color:#555555" class="tag">
 						未领养
 					</view>
-					<view wx:if="{{item == 3}}" style="background-color:#D4D4D4;color:#FFFFFF" class="tag">
+					<view wx:if="{{item == 3}}" style="background-color:#D4D4D4;color:#555555" class="tag">
 						未绝育
 					</view>
 				</view>

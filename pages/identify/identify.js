@@ -91,7 +91,7 @@ Page({
       name: 'uploadImg',
       url:"https://api2.ufatfat.com/ai/identifyAnimalSpecies",
       success:res=>{
-      
+       console.log(res.data)
        let result=JSON.parse(res.data).result
        
        for(let i=0;i<result.length;i++)
