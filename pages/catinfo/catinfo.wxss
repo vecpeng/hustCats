@@ -328,9 +328,9 @@ swiper{
   height:80rpx;
   width:70rpx;
   position:absolute;
-  top:440rpx;
+  top:460rpx;
   opacity: 0;
-  right:100rpx;
+  right:120rpx;
 }
 .likeIcon{
  
@@ -380,7 +380,8 @@ margin-top:0rpx;
 .mapButton{
  width:80rpx;
   height:50rpx;
-  margin-left:20rpx;
+  margin-left:10rpx;
+  vertical-align: text-top;
 }
 
 

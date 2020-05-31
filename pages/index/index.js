@@ -51,9 +51,9 @@ Page({
         name:e.detail.value,
         locationFilter:'',
         speciesFilter: '',
-        openid:globalData.openid,
+       
         page:page,
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
        
       },
       success:(res)=>{ 
@@ -255,12 +255,12 @@ Page({
         'content-type':'application/x-www-form-urlencoded'
       },
       data: {
-        openid:globalData.openid,
+       
         name:'',
        page:page,
         locationFilter: locationFilter,
         speciesFilter: speciesFilter ,
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       
       success:res=>{        
@@ -276,13 +276,13 @@ Page({
   onLoad: function(){
     wx.stopPullDownRefresh()
     wx.request({
-      url:"https://wxapi.ufatfat.com/hustcats/cat/getA",
+      url:"https://wxapi.ufatfat.com/hustcats/cat/getB",
       method:"POST",
       header:{
         'content-type':'application/x-www-form-urlencoded'
       },
       data:{
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success:res=>{
         let a=(res.data==0?"none":"block")
@@ -310,7 +310,7 @@ Page({
             },
             data: {
               jscode: res.code,
-              beta:beta
+              tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
             },
             success:(res)=>{
            
@@ -323,12 +323,12 @@ Page({
               'content-type':'application/x-www-form-urlencoded'
             },
              data: {
-               openid:globalData.openid,
+              
                name:'',
                page: page,
                locationFilter: that.data.locationFilter.join(','),
                speciesFilter:that.data.speciesFilter.join(','),
-               beta:beta
+               tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
              },
             
              success:res=>{        
@@ -363,12 +363,12 @@ Page({
                 'content-type':'application/x-www-form-urlencoded'
               },
               data: {
-                openid:globalData.openid,
+               
                 name:'',
                 page: page,
                 locationFilter: that.data.locationFilter.join(','),
                 speciesFilter:that.data.speciesFilter.join(','),
-                beta:beta
+                tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
               },
              
               success:res=>{        
@@ -393,7 +393,7 @@ Page({
         'content-type':'application/x-www-form-urlencoded'
       },
       data:{
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success:res=>{
         this.setData({
@@ -420,7 +420,7 @@ Page({
                   avatar:res.userInfo.avatarUrl,
                   nickname:res.userInfo.nickName,
                   gender:res.userInfo.gender,
-                  beta:beta
+                  tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
                 }
               })
 
@@ -481,12 +481,11 @@ onShow(){
       },
       data: {
      
-       openid: globalData.openid,
        name:'',
        page:page,
         locationFilter: this.data.locationFilter.join(','),
         speciesFilter: this.data.speciesFilter.join(','),
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success:res=>{    
         if(res.data){
@@ -540,7 +539,7 @@ onShow(){
         nickname:e.detail.userInfo.nickName,
         gender:e.detail.userInfo.gender,
         openid:globalData.openid,
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success:res=>{
       

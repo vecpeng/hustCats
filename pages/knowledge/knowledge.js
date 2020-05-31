@@ -35,7 +35,7 @@ Page({
       },
       data: {
         cid: 1,
-        beta:beta
+         tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success: (res) => {
         this.setData({
@@ -59,7 +59,7 @@ Page({
         'content-type':'application/x-www-form-urlencoded'
       },
       data:{
-        beta:beta
+         tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success: (res) => {
         let data = res.data
@@ -374,7 +374,7 @@ Page({
       },
       data: {
         cid: index + 1,
-        beta:beta
+         tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success: (res) => {
         this.setData({

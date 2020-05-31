@@ -12,8 +12,12 @@ Page({
   },
   //事件处理函数
  
-  onLoad: function () {
-    this.selectComponent('#myMap').onload()
+  onLoad: function (option) {
+    console.log(option.id)
+    this.setData({
+      fontWeightAll:'',
+    })
+    this.selectComponent('#myMap').onload(option)
     
   },
  

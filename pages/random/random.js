@@ -26,7 +26,7 @@ Page({
         'content-type':'application/x-www-form-urlencoded'
       },
       data:{
-        beta:beta
+         tsvc: app.getCode(),beta:beta
       },
       success:res=>{
         
@@ -128,7 +128,7 @@ Page({
             'content-type':'application/x-www-form-urlencoded'
           },
           data:{
-            beta:beta
+             tsvc: app.getCode(),beta:beta
           },
           success:res=>{
              

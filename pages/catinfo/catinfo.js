@@ -96,7 +96,7 @@ Page({
       data: {
         catid: id,
         page: 1,
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
 
       },
       success(res) {
@@ -121,7 +121,7 @@ Page({
       },
       data: {
         catid: id,
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
 
       success(res) {
@@ -132,16 +132,17 @@ Page({
 
     })
     wx.request({
-      url:"https://wxapi.ufatfat.com/hustcats/cat/getA",
+      url:"https://wxapi.ufatfat.com/hustcats/cat/getB",
       method:"POST",
       header:{
         'content-type':'application/x-www-form-urlencoded'
       },
       data: {
         
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success:res=>{
+        console.log(res.data)
         let a=(res.data==0?"none":"block")
         console.log(a)
         this.setData({
@@ -159,7 +160,7 @@ Page({
       data: {
         catid: option.id,
         openid: globalData.openid,
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
         
       },
       success(res) {
@@ -211,7 +212,7 @@ Page({
       data: {
         catid: option.id,
         page: 1,
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success(res) {
        
@@ -242,7 +243,7 @@ Page({
       },
       data: {
         catid: id,
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success: (res) => {
         
@@ -265,7 +266,7 @@ Page({
       data:{
         catid:id,
         order:'',
-        beta:beta
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success:res=>{
         console.log(res.data)
@@ -294,10 +295,10 @@ Page({
         },
         data:{
           catid:id,
-          openid:globalData.openid,
+         
           content:e.detail.value.comment,
           replyTo:0,
-          beta:beta
+          tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
         },
         success:res=>{
           wx.showToast({
@@ -313,7 +314,7 @@ Page({
             data:{
               catid:id,
               order:'',
-              beta:beta
+              tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
             },
             success:res=>{
               console.log(res.data)
@@ -327,6 +328,12 @@ Page({
         }
       })
     }
+  },
+  // 点击地图
+  mapButton:function(){
+      wx.navigateTo({
+        url: '/pages/map/map?id='+id,
+      })
   },
   chooseAlbum:function(){
       this.setData({
@@ -363,8 +370,8 @@ Page({
         avatar:e.detail.userInfo.avatarUrl,
         nickname:e.detail.userInfo.nickName,
         gender:e.detail.userInfo.gender,
-        openid:globalData.openid,
-        beta:beta
+        
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success:res=>{
        
@@ -423,7 +430,7 @@ Page({
           catid: id,
           page: swiperImgPage,
             
-          beta:beta
+          tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
         },
         success(res) {
           if (res.data) {
@@ -449,7 +456,7 @@ Page({
           catid: id,
           page: imgsPage,
             
-          beta:beta
+          tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
         },
         success(res) {
           if(res.data){
@@ -670,7 +677,7 @@ Page({
               that.setData({
                 nickName: res.userInfo.nickName,
                 avatarUrl: res.userInfo.avatarUrl,
-                beta:beta
+                tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
               })
             }
           })
@@ -692,12 +699,12 @@ Page({
         name: 'uploadImg',
         formData: {
           desc: imgs[i].desc,
-          openid: globalData.openid,
+          
           catid: id,
           index: i,
           isIndex: 0,
           verified:1,
-          beta:beta
+          tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
         },
         url: 'https://wxapi.ufatfat.com/hustcats/cat/uploadCatPhotos',
         success: res => {
@@ -833,9 +840,9 @@ Page({
         'content-type':'application/x-www-form-urlencoded'
       },
       data: {
-        openid: globalData.openid,
+        
         catid: id,
-        beta:beta,
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid,
       },
       success: res => {
         console.log(res.data)

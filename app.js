@@ -4,9 +4,13 @@ App({
   globalData:{
     openid:'',
     userInfo:'',
-    beta:1.110
+    beta:1.113
   },
- 
+  getCode: function(){
+    let tSlice = Math.floor(new Date().valueOf() / 30000);
+    let code =  Math.abs(Math.cos(tSlice)).toString().substr(2, 6);
+    return code;    
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -18,49 +22,73 @@ App({
       
       success: function(res) {
         console.log(that.globalData.openid)
-       if(that.globalData.openid=='')
-       { if (res.code) {
-          //发起网络请求
-        
-          wx.request({
+        wx.setStorage({
+          key:"openid",
+          data:that.globalData.openid
+        })
+        let jscode = res.code
+        if (res.code) {
+      wx.getStorage({
+        key: 'openid',
+        success:function(res)
+        {
+          console.log(res.data)
+          if(res.data=='')
+          {
             
-            url: 'https://wxapi.ufatfat.com/hustcats/user/getopenid',
-            method:"POST",
-            header:{
-              'content-type':'application/x-www-form-urlencoded'
-            },
-            data: {
-              jscode: res.code,
-              beta:that.globalData.beta
-            },
-            success:(res)=>{
-          
-           that.globalData.openid = res.data
-            wx.request({
-              url:"https://wxapi.ufatfat.com/hustcats/user/userInfo",
-              method:"POST",
-              header:{
-                'content-type':'application/x-www-form-urlencoded'
+              //发起网络请求
+            
+              wx.request({
+                
+                url: 'https://wxapi.ufatfat.com/hustcats/user/getopenid',
+                method:"POST",
+                header:{
+                  'content-type':'application/x-www-form-urlencoded'
+                },
+                data: {
+                  jscode: jscode,
+                  beta:that.globalData.beta, tsvc: that.getCode(),openid:that.globalData.openid
+                },
+                success:(res)=>{
+              console.log(res.data)
+               that.globalData.openid = res.data
+               wx.setStorage({
+                key:"openid",
+                data:res.data
+              })
+                wx.request({
+                  url:"https://wxapi.ufatfat.com/hustcats/user/userInfo",
+                  method:"POST",
+                  header:{
+                    'content-type':'application/x-www-form-urlencoded'
+                  },
+                  data:{
+                    
+                    avatar:'',
+                    nickname:'',
+                    gender:'',
+                    beta:that.globalData.beta, tsvc: that.getCode(),openid:that.globalData.openid
+                  }
+                })
+                },
+               fail:(res)=>{
+                
+                 
+                },
               },
-              data:{
-                openid:that.globalData.openid,
-                avatar:'',
-                nickname:'',
-                gender:'',
-                beta:that.globalData.beta
-              }
-            })
-            },
-           fail:(res)=>{
-            
-             
-            },
-          },
-          )
-        } else {
-         
+              )
+           
+          
+          }else{
+            that.globalData.openid = res.data
+            console.log(that.globalData.openid)
+          }
         }
-      }
+      })
+    } else {
+             
+    }
+      
     }
     });
   
@@ -95,8 +123,8 @@ App({
                   avatar:that.globalData.userInfo.avatarUrl,
                   nickname:that.globalData.userInfo.nickName,
                   gender:that.globalData.userInfo.gender,
-                  openid:that.globalData.openid,
-                  beta:that.globalData.beta
+                 
+                  beta:that.globalData.beta, tsvc:that.getCode(),openid:that.globalData.openid
                 }
               })
             },

@@ -59,8 +59,8 @@
 				<view class="info location">
 					<image class="front" src="/img/front.png"></image>
 					<text class="infoTitle">出没地点</text>
-					<!-- <image src="/img/mapButton.png" class="mapButton" bindtap="mapButton"></image> -->
-					<text class="infoContent">{{catInfo.location==''||catInfo.location==null?"未知":catInfo.location}}</text>
+					<image src="/img/mapButton.png" class="mapButton" bindtap="mapButton"></image>
+					<text class="infoContent" style="margin-top:17rpx">{{catInfo.location==''||catInfo.location==null?"未知":catInfo.location}}</text>
 				</view>
 				<view class="info birthday">
 					<image class="front" src="/img/front.png"></image>
@@ -115,7 +115,8 @@
 					<view class="chooseAlbum" bindtap="chooseAlbum">
 						<view class="{{albumChoose}}">相册</view>
 					</view>
-					<view class="chooseComment" bindtap="chooseComment">
+					<view class="chooseComment" bindtap="chooseComment" style="position:relative">
+					  <button style="width:100%;height:100%;position:absolute;opacity:0"></button>
 						<view class="{{commentChoose}}">评论</view>
 					</view>
 				</view>
