@@ -2,15 +2,11 @@
 //获取应用实例
 const app = getApp()
 let page = 1
-let thisPage = 'index'
 const globalData=app.globalData
 const beta =app.globalData.beta
 Page({
   data: {
-    test:0,
     catsInfo: {},
-    modelDisplay: 'none',
-    filterDisplay: 'none',
     locationChosen: '',
     speciesChosen: '',
     locationFilter: [],
@@ -91,13 +87,7 @@ Page({
       }
     })
   },
-  // jumpToAdd: function(){
-  //   wx.navigateTo({
-  //     url:"/pages/addCats/addCats",
-      
-  //   })
-  //   .log("jump")
-  // },
+  
   locationChosen: function(){
     if(!this.data.locationChosen){
       this.setData({
@@ -134,40 +124,31 @@ Page({
       }
   },
   toggleSearch:function(){
-    if(this.data.displaySearchBox=="none")
-    {
-      this.setData({
-        displaySearchBox:"block",
-      })
-    }
-    else{
-      this.setData({
-        displaySearchBox:"none"
-      })
-    }
+    // if(this.data.displaySearchBox=="none")
+    // {
+    //   this.setData({
+    //     displaySearchBox:"block",
+    //   })
+    // }
+    // else{
+    //   this.setData({
+    //     displaySearchBox:"none"
+    //   })
+    // }
+    this.setData({
+      displaySearchBox:this.data.displaySearchBox=="none"?"block":"none"
+    })
   },
   toggleLocationFilter: function(e){
+    console.log(e.currentTarget.dataset.id)
     let data = this.data.locationFiltersChosen
-    var index;
-    for(let i=0; i<this.data.locationFilters.length;i++)
-    {
-      if(this.data.locationFilters[i].id==e.currentTarget.dataset.id){
-      index=i
-      break;
-    }
-    }
+    var index = e.currentTarget.dataset.id;//被点击的地点的下标
+  
     data[index] = data[index] ? null : 'filterChosen'
-    if(data.indexOf('filterChosen') == -1)
-      this.setData({
-        locationAll: 'filterChosen'
-      })
-    else
-      this.setData({
-        locationAll: ''
-      })
+    
     let filters = this.data.locationFilter
-   
-    filters[e.currentTarget.dataset.id ] = !filters[e.currentTarget.dataset.id ] ? e.currentTarget.dataset.id : null
+   console.log(filters)
+    filters[index] = !filters[index] ? this.data.locationFilters.id: null
     this.setData({
       locationFilter: filters,
       locationFiltersChosen: data
@@ -210,25 +191,7 @@ Page({
     })
   
   },
-  toggleFilter: function(){
-    if(this.data.modelDisplay == 'none')
-      this.setData({
-        modelDisplay: 'block',
-      })
-    else
-      this.setData({
-        modelDisplay: 'none',
-      })
-      if(this.data.filterDisplay == 'none')
-        this.setData({
-          filterDisplay: 'block',
-        })
-      else
-        this.setData({
-          filterDisplay: 'none',
-        })
-      
-  },
+  
   btnReset: function(){
     this.setData({
       locationAll: 'filterChosen',
@@ -400,7 +363,9 @@ Page({
           locationFilters: res.data.locationFilters,
           speciesFilters: res.data.speciesFilters
         })
+        console.log(res.data)
       }
+     
     })
     wx.getSetting({
       success (res){

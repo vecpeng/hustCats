@@ -29,7 +29,7 @@
 					</scroll-view>
 					<view style="display: {{locationDisplay}};margin-left:20rpx;margin-right:10rpx;position:relative" class="locationLine">
 						<block wx:for="{{locationFilters}}">
-							<text  class="filterOption {{locationFiltersChosen[index]}}" bindtap="toggleLocationFilter" data-id="{{item.id}}">{{item.locationName}}</text>
+							<text  class="filterOption {{locationFiltersChosen[index]}}" bindtap="toggleLocationFilter" data-id="{{index}}">{{item.locationName}}</text>
 						</block>
 					</view>
 					<view style="display: {{speciesDisplay}};margin-left:20rpx;margin-right:10rpx;position:relative"  class="speciesLine">
