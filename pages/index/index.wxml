@@ -35,7 +35,7 @@
 					<view style="display: {{speciesDisplay}};margin-left:20rpx;margin-right:10rpx;position:relative"  class="speciesLine">
 					
 						<block wx:for="{{speciesFilters}}">
-							<text class="filterOption {{speciesFiltersChosen[index]}}" bindtap="toggleSpeciesFilter" data-id="{{item.id}}">{{item.speciesName}}</text>
+							<text class="filterOption {{speciesFiltersChosen[index]}}" bindtap="toggleSpeciesFilter" data-id="{{index}}">{{item.speciesName}}</text>
 						</block>
 					</view>
 					<view class="btns">

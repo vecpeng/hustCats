@@ -18,7 +18,7 @@ Page({
       fontWeightAll:'',
     })
     this.selectComponent('#myMap').onload(option)
-    
+   
   },
  
   yunyuanTap:function(){

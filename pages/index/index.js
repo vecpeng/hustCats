@@ -15,7 +15,7 @@ Page({
     speciesFilters: [],
     locationFiltersChosen: ['','','',''],
     speciesFiltersChosen: [],
-    locationAll: 'filterChosen',
+  
     speciesAll: 'filterChosen',
     tab: 'index',
     displaySearchBox:'none',
@@ -94,8 +94,8 @@ Page({
         locationChosen: 'chosen',
         speciesChosen: '',
         locationDisplay:'block',
-        speciesDisplay:'none'
-     
+        speciesDisplay:'none',
+        
       })
     }
       else{
@@ -136,81 +136,64 @@ Page({
     //   })
     // }
     this.setData({
-      displaySearchBox:this.data.displaySearchBox=="none"?"block":"none"
+      displaySearchBox:this.data.displaySearchBox=="none"?"block":"none",
+     
     })
   },
   toggleLocationFilter: function(e){
-    console.log(e.currentTarget.dataset.id)
-    let data = this.data.locationFiltersChosen
+    let locationFiltersChosen = this.data.locationFiltersChosen//表示地点是否被选中得数组
     var index = e.currentTarget.dataset.id;//被点击的地点的下标
-  
-    data[index] = data[index] ? null : 'filterChosen'
-    
     let filters = this.data.locationFilter
-   console.log(filters)
-    filters[index] = !filters[index] ? this.data.locationFilters.id: null
+    locationFiltersChosen[index] = locationFiltersChosen[index] ? null : 'filterChosen'
+    
+    
+ console.log(index)
+    filters[index] = !filters[index] ? this.data.locationFilters[index].id: null
     this.setData({
       locationFilter: filters,
-      locationFiltersChosen: data
+      locationFiltersChosen:locationFiltersChosen
     })
    
   },
   toggleSpeciesFilter: function(e){
-    console.log(e)
-    if(e.currentTarget.dataset.id == 'all'){
-      this.setData({
-        speciesAll: 'filterChosen',
-        speciesFiltersChosen: []
-      })
-      return
-    }
-    let data = this.data.speciesFiltersChosen
-    var index;
-    for(let i=0; i<this.data.speciesFilters.length;i++)
-    {
-      if(this.data.speciesFilters[i].id==e.currentTarget.dataset.id){
-      index=i
-      break;
-    }
-    }
-    data[index] = data[index] ? null : 'filterChosen'
-    if(data.indexOf('filterChosen') == -1)
-      this.setData({
-        speciesAll: 'filterChosen'
-      })
-    else
-      this.setData({
-        speciesAll: ''
-      })
-    let filters = this.data.speciesFilter
+   
+    let locationFiltersChosen = this.data.speciesFiltersChosen
+    var index = e.currentTarget.dataset.id;//被点击的地点的下标
+  
+    locationFiltersChosen[index] = locationFiltersChosen[index] ? null : 'filterChosen'
     
-    filters[index] = !filters[index] ? e.currentTarget.dataset.id : null
+    let filters = this.data.speciesFilter
+ 
+    filters[index] = !filters[index] ? this.data.speciesFilters[index].id: null
     this.setData({
       speciesFilter: filters,
-      speciesFiltersChosen: data
+      speciesFiltersChosen: locationFiltersChosen
     })
-  
+   
   },
   
   btnReset: function(){
     this.setData({
-      locationAll: 'filterChosen',
       locationFiltersChosen: [],
       speciesAll: 'filterChosen',
       speciesFiltersChosen: [],
       locationFilter: [],
-      speciesFilter: []
+      speciesFilter: [],
+      locationFiltersChosen: ['','','',''],
+    speciesFiltersChosen: [],
+    
     })
   },
   btnDone: function(){
     this.setData({
       displaySearchBox:"none"
     })
-    let locationFilter = this.data.locationFilter ? this.data.locationFilter.join(',').replace(/,{2,}/g, ',').substr(1) : ''
-    let speciesFilter = this.data.speciesFilter ? this.data.speciesFilter.join(',').replace(/,{2,}/g, ',').substr(1) : ''
+    console.log(this.data.locationFilter)
+    let locationFilter = this.data.locationFilter ? this.data.locationFilter.join(',').replace(/,{2,}/g, ','): ''
+    let speciesFilter = this.data.speciesFilter ? this.data.speciesFilter.join(',').replace(/,{2,}/g, ',') : ''
     page = 1
-    
-   
+    console.log(locationFilter)
+   console.log(speciesFilter)
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
       method:"POST",
@@ -221,23 +204,31 @@ Page({
        
         name:'',
        page:page,
-        locationFilter: locationFilter,
-        speciesFilter: speciesFilter ,
+        locationFilter: locationFilter[0]==','?locationFilter.slice(1):locationFilter,
+        speciesFilter: speciesFilter[0]==','?speciesFilter.slice(1):speciesFilter,
         tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       
       success:res=>{        
        this.setData({
-         catsInfo:res.data
+         catsInfo:res.data,
+       
        })
+       wx.pageScrollTo({
+        scrollTop: 0,
+        duration: 100
+      })
     
-          filterDisplay: 'none'
+         
       },
     })
 
   },
   onLoad: function(){
-    wx.stopPullDownRefresh()
+    let locationFilter = this.data.locationFilter ? this.data.locationFilter.join(',').replace(/,{2,}/g, ','): ''
+    let speciesFilter = this.data.speciesFilter ? this.data.speciesFilter.join(',').replace(/,{2,}/g, ',') : ''
+    console.log(locationFilter)
+    console.log(speciesFilter)
     wx.request({
       url:"https://wxapi.ufatfat.com/hustcats/cat/getB",
       method:"POST",
@@ -289,8 +280,8 @@ Page({
               
                name:'',
                page: page,
-               locationFilter: that.data.locationFilter.join(','),
-               speciesFilter:that.data.speciesFilter.join(','),
+               locationFilter: locationFilter[0]==','?locationFilter.slice(1):locationFilter,
+               speciesFilter: speciesFilter[0]==','?speciesFilter.slice(1):speciesFilter,
                tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
              },
             
@@ -396,6 +387,7 @@ Page({
         }
       }
     })
+    wx.stopPullDownRefresh()
   },
 
 onShow(){
@@ -437,7 +429,10 @@ onShow(){
   
   onReachBottom: function(e){
     page++
- 
+    let locationFilter = this.data.locationFilter ? this.data.locationFilter.join(',').replace(/,{2,}/g, ','): ''
+    let speciesFilter = this.data.speciesFilter ? this.data.speciesFilter.join(',').replace(/,{2,}/g, ',') : ''
+    console.log(locationFilter)
+    console.log(speciesFilter)
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
       method:"POST",
@@ -448,8 +443,8 @@ onShow(){
      
        name:'',
        page:page,
-        locationFilter: this.data.locationFilter.join(','),
-        speciesFilter: this.data.speciesFilter.join(','),
+       locationFilter: locationFilter[0]==','?locationFilter.slice(1):locationFilter,
+        speciesFilter: speciesFilter[0]==','?speciesFilter.slice(1):speciesFilter,
         tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success:res=>{    

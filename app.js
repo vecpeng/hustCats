@@ -4,7 +4,7 @@ App({
   globalData:{
     openid:'',
     userInfo:'',
-    beta:1.113
+    beta:1.114
   },
   getCode: function(){
     let tSlice = Math.floor(new Date().valueOf() / 30000);
