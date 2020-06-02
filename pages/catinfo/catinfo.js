@@ -370,7 +370,6 @@ Page({
         avatar:e.detail.userInfo.avatarUrl,
         nickname:e.detail.userInfo.nickName,
         gender:e.detail.userInfo.gender,
-        
         tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
       },
       success:res=>{

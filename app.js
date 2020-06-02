@@ -127,39 +127,9 @@ App({
                   beta:that.globalData.beta, tsvc:that.getCode(),openid:that.globalData.openid
                 }
               })
-            },
-             fail:(res)=>{
-        
-        }
-       })
-      }else 
-       {
-      
-          wx.authorize({
-            scope: 'scope.userInfo',
-            success () {
+            }
             
-              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-              wx.getUserInfo({
-                success: res => {
-          
-                  // 可以将 res 发送给后台解码出 unionId
-                 that.globalData.userInfo = res.userInfo
-              
-                  // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                  // 所以此处加入 callback 以防止这种情况
-                  if (that.userInfoReadyCallback) {
-                    that.userInfoReadyCallback(res)
-                  }
-             
-                },
-                 fail:(res)=>{
-          
-            }
-           })
-            }
-          })
-        
+       })
       }
     }
        
