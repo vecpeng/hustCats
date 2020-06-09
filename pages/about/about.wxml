@@ -9,7 +9,7 @@
 		<view style="color:#cccccc;  font-size: 1rem;margin: 60rpx 0 20rpx 1.0rem">更新记录</view>
 		<view style="border-radius: 20rpx; box-shadow: 5px 5px 20px black; padding: 50rpx; background-color: white;">
 
-		<view style="color: #808080; margin-bottom: 20rpx;">2020-06-03 V1.1.3</view>
+		<view style="color: #808080; margin-bottom: 20rpx;">2020-06-03 V1.1.4</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">1.修复搜索界面显示错误的bug</view>
 				<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">2.地图页新增华中科技大学边界线</view>
 			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>

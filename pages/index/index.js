@@ -190,45 +190,47 @@ Page({
       }
     })
     let that = this
-    wx.login({
+    that.getCatsInfo('', page, locationFilter, speciesFilter)
+   
+    // wx.login({
 
-      success: function (res) {
+    //   success: function (res) {
 
-        if (res.code) {
-          //发起网络请求
-          if (globalData.openid == "") {
-            wx.request({
+    //     if (res.code) {
+    //       //发起网络请求
+    //       if (globalData.openid == "") {
+    //         wx.request({
 
-              url: 'https://wxapi.ufatfat.com/hustcats/user/getopenid',
-              method: "POST",
-              header: {
-                'content-type': 'application/x-www-form-urlencoded'
-              },
-              data: {
-                jscode: res.code,
-                tsvc: app.getCode(),
-                beta: beta,
-                openid: app.globalData.openid
-              },
-              success: (res) => {
+    //           url: 'https://wxapi.ufatfat.com/hustcats/user/getopenid',
+    //           method: "POST",
+    //           header: {
+    //             'content-type': 'application/x-www-form-urlencoded'
+    //           },
+    //           data: {
+    //             jscode: res.code,
+    //             tsvc: app.getCode(),
+    //             beta: beta,
+    //             openid: app.globalData.openid
+    //           },
+    //           success: (res) => {
 
-                app.globalData.openid = res.data
+    //             app.globalData.openid = res.data
 
-                that.getCatsInfo('', page, locationFilter, speciesFilter)
-
-
-              },
-              fail: (res) => {
+               
 
 
-              },
-            }, )
-          } else {
-            that.getCatsInfo('', page, locationFilter, speciesFilter)
-          }
-        }
-      }
-    });
+    //           },
+    //           fail: (res) => {
+
+
+    //           },
+    //         }, )
+    //       } else {
+    //           console.log(app.globalData.openid)
+    //       }
+    //     }
+    //   }
+    // });
 
 
     wx.request({
@@ -251,7 +253,37 @@ Page({
       }
 
     })
-    
+    // wx.getSetting({
+    //   success(res) {
+
+    //     if (res.authSetting['scope.userInfo']) {
+    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+    //       wx.getUserInfo({
+    //         success: function (res) {
+
+    //           wx.request({
+    //             url: 'https://wxapi.ufatfat.com/hustcats/user/userInfo',
+    //             method: 'POST',
+    //             header: {
+    //               'content-type': 'application/x-www-form-urlencoded'
+    //             },
+    //             data: {
+    //               avatar: res.userInfo.avatarUrl,
+    //               nickname: res.userInfo.nickName,
+    //               gender: res.userInfo.gender,
+    //               tsvc: app.getCode(),
+    //               beta: beta,
+    //               openid: app.globalData.openid
+    //             }
+    //           })
+
+
+    //         }
+
+    //       })
+    //     }
+    //   }
+    // })
     wx.stopPullDownRefresh()
   },
 
@@ -289,7 +321,16 @@ Page({
         }
       }
     })
-    wx.clearStorage()
+    wx.removeStorage({
+      key: 'thumbupnum',
+      success (res) {
+      }
+    })
+    wx.removeStorage({
+      key: 'thumbup',
+      success (res) {
+      }
+    })
   },
 
   onReachBottom: function (e) {

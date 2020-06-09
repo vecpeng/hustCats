@@ -257,7 +257,7 @@ Component({
       console.log(parseFloat(this.data.latitude).toFixed(6))
     },
     allTap: function () {
-      if (this.data.scale != 16) {
+      if (this.data.scale != 13) {
         setTimeout(
           function () {
             that.setData({
@@ -268,7 +268,7 @@ Component({
 
         )
       }
-
+ console.log(this.data.scale)
       let longitude = (114.419003 - parseFloat(this.data.longitude).toFixed(6)) / 10
       let latitude = (30.513027 - parseFloat(this.data.latitude).toFixed(6)) / 10
       let that = this

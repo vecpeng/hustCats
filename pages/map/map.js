@@ -14,9 +14,9 @@ Page({
  
   onLoad: function (option) {
     console.log(option.id)
-    this.setData({
-      fontWeightAll:'',
-    })
+    // this.setData({
+    //   fontWeightAll:'',
+    // })
     this.selectComponent('#myMap').onload(option)
    
   },
