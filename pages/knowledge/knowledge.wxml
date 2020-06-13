@@ -2,9 +2,9 @@
 	<view style="width: 60px; display: inline-block;">
 		<scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;">
 			<view style="width: 48px; margin: 0 auto;">
-				<view style="padding: 20rpx 0; text-align: center;">
+				<!-- <view style="padding: 20rpx 0; text-align: center;">
 					<image bindtap="toggleSearchBar" src="/img/{{search}}" style="width: 24px;" mode="widthFix"></image>
-				</view>
+				</view> -->
 				<view class="searchBar {{searchBarDisplay}}">
 					<input style="width: 100%;"></input>
 				</view>

@@ -1,0 +1,54 @@
+<!--pages/my/my.wxml-->
+
+<view>
+	<!-- 用户信息 -->
+	<view class="userInfo" style="margin-top:2vh;">
+        
+		<view class="userAvatar">
+			<open-data mode='aspectFit' type="userAvatarUrl"></open-data>
+		</view>
+		<view>
+			<view class="userNickName">
+				<open-data type="userNickName" class="userNickName" lang="zh_CN"></open-data>
+			</view>
+
+		</view>
+
+		<view class="time">今天<text style="">是</text>你<text style="">来</text>到<text style="">猫</text>可<text style="">梦</text>的<text style="">第</text><text style="color:pink;font-weight:bold"> {{time}} </text>天</view>
+	</view>
+    
+</view>
+<view class="otherInfo">
+	<view bindtap="navigateMylike">
+		<image class="icon" src="/img/mylike.png" id="specialIcon" ></image>
+		<text class="chooseWord" style="position:relative;top:10rpx">我赞过的猫</text>
+        
+	</view>
+
+    <view class="border"> </view>
+    <view bindtap="navigateMyadd">
+		<image class="icon" src="/img/myadd.png" ></image>
+		<text class="chooseWord" style="line-height:50rpx;">我添加的猫</text>
+	</view>
+     <view class="border"> </view>
+
+
+    <view bindtap="navigateMycomment">
+		<image class="icon" src="/img/mycomment.png"></image>
+		<text class="chooseWord"  style="line-height:50rpx;">我评论的猫</text>
+	</view>
+
+        <view class="specialBorder"> 
+        <view class="specialBorderChild"></view>
+        </view>
+    <view bindtap="navigateAbout">
+		<image class="icon" src="/img/about.png"></image>
+		<text  class="chooseWord" style="line-height:50rpx;">关于我们</text>
+	</view>
+
+        <view class="border"> </view>
+    <view bindtap="navigateFeedback">
+		<image class="icon" src="/img/feedback.png"></image>
+		<text class="chooseWord"  style="line-height:50rpx;">反馈</text>
+	</view>
+</view>

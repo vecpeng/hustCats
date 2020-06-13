@@ -1,0 +1,8 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="feedbackGroup" bindtap="clip">
+<view class="feedbackWord">
+<text style="display:block">点击复制</text>
+<text >反馈qq群：<text >935623923</text></text>
+<text style="display:block">期待你的加入:D</text>
+</view>
+</view>

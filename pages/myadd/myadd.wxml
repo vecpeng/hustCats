@@ -1,0 +1,7 @@
+<!--pages/myadd/myadd.wxml-->
+<view style="width:94vw;margin:auto">
+<view class="cats" wx:for="{{cats}}" wx:item="item" wx:key="*this">
+<image class="catsImage" src="{{item.indexImg}}" mode="aspectFill"></image>
+<text class="catsName">{{item.name}}</text>
+</view>
+</view>

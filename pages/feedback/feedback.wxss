@@ -1,0 +1,20 @@
+/* pages/feedback/feedback.wxss */
+page{
+  background-color: #e0e0e0;
+}
+.feedbackGroup{
+  position: fixed;
+  top:20vh;
+  left:15rpx;
+  width:720rpx;
+  margin:auto;
+  background-color: #ffffff;
+  height:30vh;
+  text-align: center;
+  border-radius: 10rpx;
+  box-shadow: 5px 5px 2px #999999;
+}
+.feedbackWord{
+  margin-top:10vh
+
+}

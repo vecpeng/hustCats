@@ -28,7 +28,7 @@ Page({
     thumbupnum: 0,
     nowId: 0,
     searchInput: '',
-    a: 'none'
+    a: 'block'
 
   },
   onShareAppMessage: function () {
@@ -169,26 +169,26 @@ Page({
 
   },
   onLoad: function () {
-    wx.request({
-      url: "https://wxapi.ufatfat.com/hustcats/cat/getB",
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      data: {
-        tsvc: app.getCode(),
-        beta: beta,
-        openid: app.globalData.openid
-      },
-      success: res => {
-        let a = (res.data == 0 ? "none" : "block")
-        console.log(a)
-        this.setData({
-          a: a
-        })
+    // wx.request({
+    //   url: "https://wxapi.ufatfat.com/hustcats/cat/getB",
+    //   method: "POST",
+    //   header: {
+    //     'content-type': 'application/x-www-form-urlencoded'
+    //   },
+    //   data: {
+    //     tsvc: app.getCode(),
+    //     beta: beta,
+    //     openid: app.globalData.openid
+    //   },
+    //   success: res => {
+    //     let a = (res.data == 0 ? "none" : "block")
+    //     console.log(a)
+    //     this.setData({
+    //       a: a
+    //     })
 
-      }
-    })
+    //   }
+    // })
     let that = this
     that.getCatsInfo('', page, locationFilter, speciesFilter)
    

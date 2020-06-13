@@ -59,13 +59,14 @@ App({
       
       success: function(res) {
         console.log(that.globalData.openid)
-       
+        
         let jscode = res.code
+        console.log(jscode)
         if (res.code) {   
               //发起网络请求
               wx.request({
                 
-                url: 'https://wxapi.ufatfat.com/hustcats/user/getopenid',
+                url: 'https://wxapi.ufatfat.com/hustcats/user/getTestID',
                 method:"POST",
                 header:{
                   'content-type':'application/x-www-form-urlencoded'
@@ -125,11 +126,14 @@ App({
       key:"openid",
       
       success:function(res){
+        console.log("success")
         console.log(res.data)
       that.globalData.openid=res.data
       },
       fail:function(){
+        console.log("fail")
         that.getOpenid(that)
+        console.log(that.globalData.openid)
         
       }
     })

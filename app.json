@@ -5,10 +5,15 @@
    "pages/feature/feature",
    "pages/knowledge/knowledge",
     "pages/catinfo/catinfo",
+    "pages/my/my",
     "pages/about/about",
     "pages/random/random",
     "pages/identify/identify",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/feedback/feedback",
+    "pages/mylike/mylike",
+    "pages/myadd/myadd",
+    "pages/mycomment/mycomment"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,6 +24,7 @@
   },
   "tabBar": {
     "selectedColor": "#d81e06",
+    
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -32,10 +38,10 @@
         "iconPath": "img/feature.png",
         "selectedIconPath": "img/feature-active.png"
       } ,{
-        "pagePath": "pages/about/about",
+        "pagePath": "pages/my/my",
         "text": "",
-        "iconPath": "img/about.png",
-        "selectedIconPath": "img/about-active.png"
+        "iconPath": "img/my.png",
+        "selectedIconPath": "img/my-active.png"
       }
     ],
     

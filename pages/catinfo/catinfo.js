@@ -24,7 +24,7 @@ Page({
     commentChoose:"noChoose",
     albumDisplay:"",
     commentDisplay:"none",
-    a:'',
+    a:'block',
     newComment:'',
     test: "helloworld",
     catSwiperImgs: [],
@@ -131,26 +131,26 @@ Page({
       }
 
     })
-    wx.request({
-      url:"https://wxapi.ufatfat.com/hustcats/cat/getB",
-      method:"POST",
-      header:{
-        'content-type':'application/x-www-form-urlencoded'
-      },
-      data: {
+    // wx.request({
+    //   url:"https://wxapi.ufatfat.com/hustcats/cat/getB",
+    //   method:"POST",
+    //   header:{
+    //     'content-type':'application/x-www-form-urlencoded'
+    //   },
+    //   data: {
         
-        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
-      },
-      success:res=>{
-        console.log(res.data)
-        let a=(res.data==0?"none":"block")
-        console.log(a)
-        this.setData({
-          a:a
-        })
+    //     tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
+    //   },
+    //   success:res=>{
+    //     console.log(res.data)
+    //     let a=(res.data==0?"none":"block")
+    //     console.log(a)
+    //     this.setData({
+    //       a:a
+    //     })
        
-      }
-    })
+    //   }
+    // })
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatInfoById',
       method:"POST",
