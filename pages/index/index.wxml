@@ -4,9 +4,9 @@
 	<view class="container">
 	
 			<view class="searchOrAdd">
-				<image bindtap="toggleSearch" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-top:16rpx;" class="searchButton" src="/img/search.png"></image>
-				<!-- <view class="line"></view>
-			<image bindtap="jumpToAdd" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:4rpx;" class="add" src="/img/addCats.png"><button  class="getUserInfoButton" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button></image>  -->
+				<image bindtap="toggleSearch" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:3rpx;" class="searchButton" src="/img/search.png"></image>
+				<view class="line"></view>
+			<image bindtap="jumpToAdd" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:4rpx;" class="add" src="/img/addCats.png"><button  class="getUserInfoButton" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button></image> 
 			</view>
 			
 			<view class="searchBox" style="display:{{displaySearchBox}};opacity:1">

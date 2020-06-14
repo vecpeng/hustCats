@@ -35,7 +35,7 @@
 
     <view bindtap="navigateMycomment">
 		<image class="icon" src="/img/mycomment.png"></image>
-		<text class="chooseWord"  style="line-height:50rpx;">我评论的猫</text>
+		<text class="chooseWord"  style="line-height:50rpx;">我的评论</text>
 	</view>
 
         <view class="specialBorder"> 

@@ -52,7 +52,9 @@ Page({
     uploadBtn: 1,
     upload: 0,
     nickName: '',
-    avatarUrl: ''
+    avatarUrl: '',
+    newReply:'',
+    atNickname:0,
   },
 
 
@@ -278,8 +280,23 @@ Page({
     })
 
   },
+  chooseReply:function(e){
+    // let that = this
+    // let comments = that.data.comments
+    // console.log(e.target.dataset)
+    
+    // comments[e.target.dataset.index].userInfo.name = e.target.dataset.name
+    // that.setData({
+    //   comments:comments
+    // })
+    // console.log(that.data.comments)
+  },
   // 发送评论
   commentSubmit:function(e){
+    let that = this
+    console.log(e)
+    console.log(e.target.dataset)
+    
     if(e.detail.value.comment.replace(/\s+/g, "").length ==0)
     {
       wx.showToast({
@@ -297,8 +314,9 @@ Page({
           catid:id,
          
           content:e.detail.value.comment,
-          replyTo:0,
-          tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
+          replyTo:e.target.dataset.replyto?e.target.dataset.replyto:0,
+          tsvc: app.getCode(),beta:beta,openid:app.globalData.openid,
+          at:e.target.dataset.name?e.target.dataset.name:0
         },
         success:res=>{
           wx.showToast({
@@ -320,7 +338,8 @@ Page({
               console.log(res.data)
               this.setData({
                 comments:res.data,
-                newComment:''
+                newComment:'',
+                newReply:''
               })
             }
           })

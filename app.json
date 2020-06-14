@@ -13,7 +13,8 @@
     "pages/feedback/feedback",
     "pages/mylike/mylike",
     "pages/myadd/myadd",
-    "pages/mycomment/mycomment"
+    "pages/mycomment/mycomment",
+    "pages/addCats/addCats"
   ],
   "window": {
     "backgroundTextStyle": "light",

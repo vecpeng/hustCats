@@ -77,6 +77,11 @@ Page({
 
     }
   },
+  jumpToAdd:function(){
+      wx.navigateTo({
+        url: '/pages/addCats/addCats',
+      })
+  },
   speciesChosen: function () {
     if (!this.data.speciesChosen)
       this.setData({
@@ -290,47 +295,47 @@ Page({
   onShow() {
     var that = this
 
-    wx.getStorage({
-      key: 'thumbup',
-      success(res) {
-        var i = that.data.nowId - 1
+    // wx.getStorage({
+    //   key: 'thumbup',
+    //   success(res) {
+    //     var i = that.data.nowId - 1
 
-        if (i >= 0) {
-          var thumbupTemp = `catsInfo[${i}].thumbup`
+    //     if (i >= 0) {
+    //       var thumbupTemp = `catsInfo[${i}].thumbup`
 
 
-          that.setData({
-            [thumbupTemp]: res.data
-          })
+    //       that.setData({
+    //         [thumbupTemp]: res.data
+    //       })
 
-        }
-      }
-    })
-    wx.getStorage({
-      key: 'thumbupnum',
-      success(res) {
-        var i = that.data.nowId - 1
+    //     }
+    //   }
+    // })
+    // wx.getStorage({
+    //   key: 'thumbupnum',
+    //   success(res) {
+    //     var i = that.data.nowId - 1
 
-        if (i >= 0) {
-          var thumbupTempnum = `catsInfo[${i}].thumupnum`
+    //     if (i >= 0) {
+    //       var thumbupTempnum = `catsInfo[${i}].thumupnum`
 
-          that.setData({
-            [thumbupTempnum]: res.data
-          })
+    //       that.setData({
+    //         [thumbupTempnum]: res.data
+    //       })
 
-        }
-      }
-    })
-    wx.removeStorage({
-      key: 'thumbupnum',
-      success (res) {
-      }
-    })
-    wx.removeStorage({
-      key: 'thumbup',
-      success (res) {
-      }
-    })
+    //     }
+    //   }
+    // })
+    // wx.removeStorage({
+    //   key: 'thumbupnum',
+    //   success (res) {
+    //   }
+    // })
+    // wx.removeStorage({
+    //   key: 'thumbup',
+    //   success (res) {
+    //   }
+    // })
   },
 
   onReachBottom: function (e) {

@@ -1,0 +1,38 @@
+/* pages/success/success.wxss */
+.successRemind{
+  width:300rpx;
+  height:300rpx;
+  position:absolute;
+  left:225rpx;
+  top:300rpx;
+ 
+}
+
+.toIndex{
+  width:280rpx;
+  height:90rpx;
+  margin:auto;
+}
+
+.toIndexContainer{
+  position:absolute;
+ text-align: center;
+ width:100%;
+  bottom:300rpx;
+}
+
+/* .seeCats{
+  width:280rpx;
+  height:90rpx;
+ 
+} */
+
+/* .seeCatsContainer{
+  position:absolute;
+  right:80rpx;
+   bottom:300rpx;
+} */
+
+.hover{
+  opacity: 0.6;
+}

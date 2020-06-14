@@ -15,6 +15,7 @@ Page({
    */
   onLoad: function (options) {
     page = 1
+    let that = this
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/user/myThumbUpCats',
       method: "POST",
