@@ -33,6 +33,26 @@ Page({
       }
     })
   },
+  bindGetUserInfo(e) {
+ 
+    wx.request({
+      url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
+      method:"POST",
+      header:{
+        'content-type':'application/x-www-form-urlencoded'
+      },
+      data:{
+        avatar:e.detail.userInfo.avatarUrl,
+        nickname:e.detail.userInfo.nickName,
+        gender:e.detail.userInfo.gender,
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
+      },
+      success:res=>{
+       
+      }
+    })
+  
+  },
   navigateMylike: function () {
     wx.navigateTo({
       url: '/pages/mylike/mylike',

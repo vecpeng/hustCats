@@ -55,6 +55,8 @@ Page({
     avatarUrl: '',
     newReply:'',
     atNickname:0,
+    replyNickname:[],
+    replyNameid:[]
   },
 
 
@@ -290,13 +292,23 @@ Page({
     //   comments:comments
     // })
     // console.log(that.data.comments)
+    let that = this
+    console.log(e.target.dataset)
+    var replyNickname = that.data.replyNickname
+    var replyNameid = that.data.replyNameid
+    replyNameid[e.target.dataset.index] = e.target.dataset.nameid
+    replyNickname[e.target.dataset.index] = e.target.dataset.name
+    this.setData({
+      replyNickname:replyNickname,
+      replyNameid:replyNameid
+    })
   },
   // 发送评论
   commentSubmit:function(e){
     let that = this
     console.log(e)
     console.log(e.target.dataset)
-    
+   
     if(e.detail.value.comment.replace(/\s+/g, "").length ==0)
     {
       wx.showToast({
@@ -316,9 +328,10 @@ Page({
           content:e.detail.value.comment,
           replyTo:e.target.dataset.replyto?e.target.dataset.replyto:0,
           tsvc: app.getCode(),beta:beta,openid:app.globalData.openid,
-          at:e.target.dataset.name?e.target.dataset.name:0
+          at:e.target.dataset.nameid?e.target.dataset.nameid:0
         },
         success:res=>{
+          console.log(res.data)
           wx.showToast({
             title: '发送成功',
             icon:'success',

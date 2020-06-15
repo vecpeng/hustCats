@@ -1,6 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "华科猫可梦",
+  "navigationBarTitleText": "Introduction of HustCats",
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
   "navigationBarTextStyle": "black"

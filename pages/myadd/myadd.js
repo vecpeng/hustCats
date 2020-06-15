@@ -17,7 +17,7 @@ Page({
     page = 1
     let that = this
     wx.request({
-      url: 'https://wxapi.ufatfat.com/hustcats/user/myThumbUpCats',
+      url: 'https://wxapi.ufatfat.com/hustcats/user/myAddedCats',
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -77,7 +77,7 @@ Page({
     page++
     let that=this
     wx.request({
-      url: 'https://wxapi.ufatfat.com/hustcats/user/myThumbUpCats',
+      url: 'https://wxapi.ufatfat.com/hustcats/user/myAddedCats',
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded'

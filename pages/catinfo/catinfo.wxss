@@ -43,17 +43,20 @@
 }
 .replyCommentBtn{
   z-index:3;
-  position: absolute;
-  top:5rpx;
-  right:20rpx;
-  width:80rpx;
-  background-color: #E6E6E6;
-  border-radius: 18rpx;
-  height:30rpx;
-  line-height: 30rpx;
+  margin:10rpx;
+  width:100rpx;
+  background-color: #EDA2A2;
+  border-radius: 24rpx;
+  height:40rpx;
+  word-wrap: break-word;
+  word-break: normal;
+  line-height: 40rpx;
   font-size:0.6rem;
   padding:0;
   color:rgb(71, 69, 69);
+  display:inline-block;
+  vertical-align:middle;
+  border:none;
 }
 .commentContainer{
   margin-left:10rpx;
@@ -411,15 +414,19 @@ margin-top:0rpx;
   
 }
 .replyContentInput{
+
+  vertical-align:middle;
   position: relative;
-  width:80%;
+  width:70%;
   height: 40rpx;
   line-height: 40rpx;
   margin:0rpx auto;
+  margin-left:10rpx;
   padding-left:40rpx;
   background-color: #F2F2F2;
   border-radius: 30rpx;
   border:1rpx solid white;
+  display: inline-block;
 }
 .replyInput{
     width:100%;
@@ -439,8 +446,8 @@ margin-top:0rpx;
   display: inline-block;
 }
 .userAvatar{
-  width:120rpx;
-  height:120rpx;
+  width:90rpx;
+  height:90rpx;
   border-radius: 50%;
   overflow: hidden;
   margin-left:20rpx;

@@ -55,9 +55,11 @@ App({
   //   })
   // },
   getOpenid:function(that){
+    
     wx.login({
       
       success: function(res) {
+        console.log("a")
         console.log(that.globalData.openid)
         
         let jscode = res.code
@@ -118,9 +120,13 @@ App({
   },
   onLaunch: function () {
     // 展示本地存储能力
+    
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    // wx.setEnableDebug({
+    //   enableDebug: true,
+    // })
     let that=this
     wx.getStorage({
       key:"openid",
@@ -128,7 +134,13 @@ App({
       success:function(res){
         console.log("success")
         console.log(res.data)
-      that.globalData.openid=res.data
+        if(typeof(res.data)=="string")
+        that.globalData.openid=res.data
+        else{
+          console.log("fail")
+          that.getOpenid(that)
+          console.log(that.globalData.openid)
+        }
       },
       fail:function(){
         console.log("fail")

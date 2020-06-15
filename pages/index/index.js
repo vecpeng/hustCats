@@ -175,6 +175,7 @@ Page({
   },
   onLoad: function () {
     // wx.request({
+      
     //   url: "https://wxapi.ufatfat.com/hustcats/cat/getB",
     //   method: "POST",
     //   header: {
@@ -195,7 +196,38 @@ Page({
     //   }
     // })
     let that = this
-    that.getCatsInfo('', page, locationFilter, speciesFilter)
+    console.log("A")
+    console.log(app.globalData.openid)
+    if(typeof(app.globalData.openid)!="string"||!app.globalData.openid)
+    {
+      
+      wx.getStorage({
+        key:"openid",
+        
+        success:function(res){
+          console.log("success")
+          console.log(res.data)
+          if(typeof(res.data)=="string")
+         { app.globalData.openid=res.data
+          that.getCatsInfo('', page, locationFilter, speciesFilter)}
+          else{
+            console.log("fail")
+            that.getOpenid(app)
+           
+
+          }
+        },
+        fail:function(){
+          console.log("fail")
+          that.getOpenid(app)
+          console.log(app.globalData.openid)
+          
+        }
+      })
+    }else{ that.getCatsInfo('', page, locationFilter, speciesFilter)}
+    console.log(app.globalData.openid)
+   
+   
    
     // wx.login({
 
@@ -403,5 +435,71 @@ Page({
         }
       },
     })
-  }
+  },
+  getOpenid:function(that){
+    let _this=this
+    wx.login({
+      
+      success: function(res) {
+        console.log("a")
+        console.log(that.globalData.openid)
+        
+        let jscode = res.code
+        console.log(jscode)
+        if (res.code) {   
+              //发起网络请求
+              wx.request({
+                
+                url: 'https://wxapi.ufatfat.com/hustcats/user/getTestID',
+                method:"POST",
+                header:{
+                  'content-type':'application/x-www-form-urlencoded'
+                },
+                data: {
+                  jscode: jscode,
+                  beta:that.globalData.beta, tsvc: that.getCode(),openid:that.globalData.openid
+                },
+                success:(res)=>{
+              console.log(res.data)
+               that.globalData.openid = res.data
+
+               _this.getCatsInfo('', page, locationFilter, speciesFilter)
+               wx.setStorage({
+                key:"openid",
+                data:res.data
+              })
+                // wx.request({
+                //   url:"https://wxapi.ufatfat.com/hustcats/user/userInfo",
+                //   method:"POST",
+                //   header:{
+                //     'content-type':'application/x-www-form-urlencoded'
+                //   },
+                //   data:{
+                    
+                //     avatar:'',
+                //     nickname:'',
+                //     gender:'',
+                //     beta:that.globalData.beta, tsvc: that.getCode(),openid:that.globalData.openid
+                //   }
+                // })
+                },
+               fail:(res)=>{
+                
+                 
+                },
+              },
+              )
+           
+          
+          
+        
+    } else {
+             
+    }
+      
+    }
+    });
+  
+
+  },
 })

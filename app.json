@@ -14,7 +14,8 @@
     "pages/mylike/mylike",
     "pages/myadd/myadd",
     "pages/mycomment/mycomment",
-    "pages/addCats/addCats"
+    "pages/addCats/addCats",
+    "pages/success/success"
   ],
   "window": {
     "backgroundTextStyle": "light",

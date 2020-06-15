@@ -1,7 +1,7 @@
 <!--pages/addCats/addCats.wxml-->
 <view class='container'>
 	<!-- 输入信息 -->
-	<view style="color:#666666;margin:0 60rpx;font-weight:bold">*由于服务器负载有限，本页面仅作为猫猫信息收集，相关信息用户将不可见</view>
+	
 	<view class="newCatsInfo">
 		<form bindreset="resetNewCatsInfo" bindsubmit="submitNewCatsInfo">
 			<view bindtap="chooseImg">
@@ -34,6 +34,25 @@
 					<radio value="0" class="sex">猫妹妹</radio>
 					<radio value="1" class="sex">猫弟弟</radio>
 					<radio value="2" class="sex">未知</radio>
+				</radio-group>
+			</view>
+
+			<view class="section">
+				<view class="sectionTitle">是否绝育:</view>
+				<radio-group class="sexRadio" name="sterilize">
+					<radio value="0" class="sex">未绝育</radio>
+					<radio value="1" class="sex">已绝育</radio>
+					
+				</radio-group>
+			</view>
+
+
+			<view class="section">
+				<view class="sectionTitle">是否领养:</view>
+				<radio-group class="sexRadio" name="adopt">
+					<radio value="0" class="sex">未领养</radio>
+					<radio value="1" class="sex">已领养</radio>
+				
 				</radio-group>
 			</view>
 
@@ -96,6 +115,7 @@
 
 			
 			</view> -->
+			<view style="margin:0 auto;text-align:center">*预计审核时间3~7天，请您耐心等待</view>
       	<button form-type="submit" bindtap="submitBtn" class="submitBtn" hover-class="hover">
 					<image class="submitCatsIcon" src="/img/{{submitCats}}.png" ></image>
 				</button>

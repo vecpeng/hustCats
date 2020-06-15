@@ -14,41 +14,41 @@
 
 		</view>
 
-		<view class="time">今天<text style="">是</text>你<text style="">来</text>到<text style="">猫</text>可<text style="">梦</text>的<text style="">第</text><text style="color:pink;font-weight:bold"> {{time}} </text>天</view>
+		<view class="time">今天<text style="">是</text>你<text style="">来</text>到HustCat的<text style="">第</text><text style="color:pink;font-weight:bold"> {{time}} </text>天</view>
 	</view>
     
 </view>
 <view class="otherInfo">
-	<view bindtap="navigateMylike">
+	<view bindtap="navigateMylike" hover-class="wordHover">
 		<image class="icon" src="/img/mylike.png" id="specialIcon" ></image>
 		<text class="chooseWord" style="position:relative;top:10rpx">我赞过的猫</text>
         
 	</view>
 
     <view class="border"> </view>
-    <view bindtap="navigateMyadd">
+    <view bindtap="navigateMyadd" hover-class="wordHover">
 		<image class="icon" src="/img/myadd.png" ></image>
 		<text class="chooseWord" style="line-height:50rpx;">我添加的猫</text>
 	</view>
-     <view class="border"> </view>
+     <!-- <view class="border"> </view> -->
 
 
-    <view bindtap="navigateMycomment">
+    <!-- <view bindtap="navigateMycomment">
 		<image class="icon" src="/img/mycomment.png"></image>
 		<text class="chooseWord"  style="line-height:50rpx;">我的评论</text>
-	</view>
+	</view> -->
 
         <view class="specialBorder"> 
         <view class="specialBorderChild"></view>
         </view>
-    <view bindtap="navigateAbout">
+    <view bindtap="navigateAbout" hover-class="wordHover">
 		<image class="icon" src="/img/about.png"></image>
-		<text  class="chooseWord" style="line-height:50rpx;">关于我们</text>
+		<text  class="chooseWord" style="line-height:50rpx;" >关于我们</text>
 	</view>
 
         <view class="border"> </view>
-    <view bindtap="navigateFeedback">
+    <view bindtap="navigateFeedback" hover-class="wordHover">
 		<image class="icon" src="/img/feedback.png"></image>
-		<text class="chooseWord"  style="line-height:50rpx;">反馈</text>
+		<text class="chooseWord"  style="line-height:50rpx;" >反馈</text>
 	</view>
 </view>

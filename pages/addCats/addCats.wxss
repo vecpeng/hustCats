@@ -36,7 +36,7 @@ button::after{ border: none; }
 }
 .addIcon{
   position:absolute;
-  top:240rpx;
+  top:180rpx;
   left:325rpx;
   height:100rpx;
   width:100rpx;
@@ -44,7 +44,7 @@ button::after{ border: none; }
 
 .addWords{
   position:absolute;
-  top:360rpx;
+  top:300rpx;
   
  left:260rpx;
   color:#c7b299;

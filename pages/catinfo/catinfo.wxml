@@ -134,20 +134,21 @@
 								<view hover-class="replyHover" bindtap="chooseReply" data-name="{{item.userInfo.nickname}}" data-index="{{index}}" style="word-wrap:break-word;color:#333333;position:relative;width:60vw;margin-bottom:30rpx;" space="nbsp">{{item.content}}</view>
 							</view>
 
-							<view class="replyInfo" wx:for="{{item.replys}}" wx:for-item="reply">
-								<view class="replyInfoContainer" hover-class="replyHover" bindtap="chooseReply" data-name="{{reply.userInfo.nickname}}" data-index="{{index}}">
+							<view class="replyInfo" wx:for="{{item.replys}}" wx:for-item="reply" wx:for-index="replyIndex">
+								<view class="replyInfoContainer" hover-class="replyHover" bindtap="chooseReply" data-name="{{reply.userInfo.nickname}}" data-nameid="{{reply.userInfo.id}}" data-index="{{index}}">
 									<text style="color:#666666;float:left">{{reply.userInfo.nickname}}：</text>
-									<text wx:if="{{reply.replyAt}}" style="color:#66ADC6">回复@{{reply.replyAt}} </text>
+									<text wx:if="{{reply.replyAt}}" style="color:#66ADC6"><text style="color:#666666">回复</text>@{{reply.replyAt}} </text>
 									<text style="word-wrap:break-word;color:#666666;position:relative;vertical-align:top" space="nbsp">{{reply.content}}</text> 
 									<!-- <view style="color:#666666;display:inline-block;"></view> -->
 								</view>
 
 							</view>
 							<view class="replyInput">
-								<form bindsubmit="commentSubmit" data-replyto="{{item.id}}" data-name="{{item.userInfo.nickname}}" data-index="{{index}}">
-									<textarea name="comment" value="{{newReply}}" cursor-spacing='0' confirm-type="send" show-confirm-bar="{{false}}" class="replyContentInput" placeholder="回复@{{item.userInfo.nickname}}：">
-									<button  class="replyCommentBtn" hover-class="btnHover" form-type="submit" >发送</button>
+								<form bindsubmit="commentSubmit" data-replyto="{{item.id}}" data-nameid="{{replyNameid[index]?replyNameid[index]:0}}" data-index="{{index}}">
+									<textarea auto-height="true" name="comment" value="{{newReply}}" cursor-spacing='0' confirm-type="send" show-confirm-bar="{{false}}" class="replyContentInput" placeholder="回复@{{replyNickname[index]?replyNickname[index]:item.userInfo.nickname}}：">
+								
 								</textarea>
+									<button  class="replyCommentBtn" hover-class="btnHover" form-type="submit" >发送</button>
 								</form>
 							</view>
 						</view>

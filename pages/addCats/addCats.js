@@ -250,6 +250,10 @@ Page({
           desc: e.detail.value.desc,
           friends:'',
           tags:'',
+          adopt:e.detail.value.adopt,
+          sterilize:e.detail.value.sterilize,
+          locP:1,
+          nickname:app.globalData.userInfo.nickname
           
         
         },
