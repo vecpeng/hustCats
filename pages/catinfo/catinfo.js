@@ -34,6 +34,7 @@ Page({
     records: [],
     recordNum: 0,
     userInfo: null,
+    gender:'',
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     hasUserInfo: false,
     tab: 'album',
@@ -308,8 +309,14 @@ Page({
     let that = this
     console.log(e)
     console.log(e.target.dataset)
-   
-    if(e.detail.value.comment.replace(/\s+/g, "").length ==0)
+   if(!that.data.nickName){
+     console.log(that.data.hasUserInfo)
+    wx.showToast({
+      title: '用户信息未获取',
+      image:'/img/cross.png',
+    })
+   }
+  else  if(e.detail.value.comment.replace(/\s+/g, "").length ==0)
     {
       wx.showToast({
         title: '评论不能为空',
@@ -391,7 +398,10 @@ Page({
     })
   },
   bindGetUserInfo(e) {
- 
+ console.log('a')
+ let that = this
+ console.log(e.detail.userInfo)
+ if(e.detail.userInfo){
     wx.request({
       url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
       method:"POST",
@@ -402,13 +412,19 @@ Page({
         avatar:e.detail.userInfo.avatarUrl,
         nickname:e.detail.userInfo.nickName,
         gender:e.detail.userInfo.gender,
-        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
+        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid,
+       
       },
       success:res=>{
-       
+        that.setData({
+          avatarUrl:e.detail.userInfo.avatarUrl,
+          nickname:e.detail.userInfo.nickName,
+          gender:e.detail.userInfo.gender,
+        }
+        )
       }
     })
-  
+ }
   },
   closeSwiper: function () {
 

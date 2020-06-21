@@ -9,7 +9,7 @@
 		</view>
 		<view>
 			<view class="userNickName">
-				<open-data type="userNickName" class="userNickName" lang="zh_CN"></open-data>
+				<open-data  type="userNickName" class="userNickName" lang="zh_CN"></open-data>
 			</view>
 
 		</view>

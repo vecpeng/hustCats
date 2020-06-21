@@ -98,13 +98,11 @@
 			</view>
 		</view>
 
-<!-- <view style="display:{{a}};width:70%;height:250rpx;background-color:white;border:2rpx solid white; border-radius:10rpx;  box-shadow: 5px 5px 20px black;margin-bottom:30rpx;font-size:0.8rem;padding:40rpx 50rpx;color:#666666;text-align:center;">
+<view style="display:{{bottomDisplay}};width:70%;height:250rpx;background-color:white;border:2rpx solid white; border-radius:10rpx;  box-shadow: 5px 5px 20px black;margin-bottom:30rpx;font-size:0.8rem;padding:40rpx 50rpx;color:#666666;text-align:center;">
 		<view style="line-height:60rpx;">没有找到想要的猫猫？</view>
-		<view style="line-height:60rpx;">长按复制下列链接在浏览器中打开↓</view>
-
-		<text style="font-size:25rpx;height:60rpx;line-height:60rpx;display:inline-block" selectable='true'>wxapi.ufatfat.com/hustcats/admin/addCat</text>
+		<view style="line-height:60rpx;">点击右上角加号</view>
 				<view style="line-height:60rpx;">试试自己添加猫猫吧┏ (゜ω゜)=☞</view>
-	</view> -->
+	</view>
 
 	</view>
 

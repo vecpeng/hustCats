@@ -148,7 +148,7 @@
 									<textarea auto-height="true" name="comment" value="{{newReply}}" cursor-spacing='0' confirm-type="send" show-confirm-bar="{{false}}" class="replyContentInput" placeholder="回复@{{replyNickname[index]?replyNickname[index]:item.userInfo.nickname}}：">
 								
 								</textarea>
-									<button  class="replyCommentBtn" hover-class="btnHover" form-type="submit" >发送</button>
+									<button  class="replyCommentBtn" hover-class="btnHover" form-type="submit"  bindgetuserinfo=" bindGetUserInfo" open-type="getUserInfo">发送</button>
 								</form>
 							</view>
 						</view>
@@ -160,7 +160,7 @@
 						<form bindsubmit="commentSubmit">
 							<textarea cursor-spacing='100' name="comment" value="{{newComment}}" confirm-type="send" show-confirm-bar="{{false}}" style="padding:10rpx;width:430rpx;height:160rpx;background-color:#F2F2F2;display:inline-block;border-radius:10rpx;border:1rpx solid #999999"></textarea>
 
-							<button class="addCommentBtn" hover-class="btnHover" form-type="submit">发送</button>
+							<button class="addCommentBtn" hover-class="btnHover" form-type="submit"  bindgetuserinfo="bindGetUserInfo" open-type="getUserInfo">发送</button>
 						</form>
 					</view>
 

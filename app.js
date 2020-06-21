@@ -124,9 +124,9 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    // wx.setEnableDebug({
-    //   enableDebug: true,
-    // })
+    wx.setEnableDebug({
+      enableDebug: true,
+    })
     let that=this
     wx.getStorage({
       key:"openid",

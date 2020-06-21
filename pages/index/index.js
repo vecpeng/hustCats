@@ -28,7 +28,8 @@ Page({
     thumbupnum: 0,
     nowId: 0,
     searchInput: '',
-    a: 'block'
+    a: 'block',
+    bottomDisplay:'none'
 
   },
   onShareAppMessage: function () {
@@ -424,13 +425,17 @@ Page({
         console.log(cat)
         if (cat) {
           for (let i = 0; i < cat.length; i++) {
-
+           
             cat[i].indexImg = cat[i].indexImg.slice(0, 52) + 'compressed_' + cat[i].indexImg.slice(52)
           }
 
           that.setData({
             catsInfo: getCat ? that.data.catsInfo.concat(cat) : cat,
 
+          })
+        }else{
+          that.setData({
+            bottomDisplay:'block'
           })
         }
       },
