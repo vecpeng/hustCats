@@ -145,7 +145,7 @@
 							</view>
 							<view class="replyInput">
 								<form bindsubmit="commentSubmit" data-replyto="{{item.id}}" data-nameid="{{replyNameid[index]?replyNameid[index]:0}}" data-index="{{index}}">
-									<textarea auto-height="true" name="comment" value="{{newReply}}" cursor-spacing='0' confirm-type="send" show-confirm-bar="{{false}}" class="replyContentInput" placeholder="回复@{{replyNickname[index]?replyNickname[index]:item.userInfo.nickname}}：">
+									<textarea auto-height="true" name="comment" value="{{newReply}}" cursor-spacing='0' confirm-type="send" show-confirm-bar="{{false}}" class="replyContentInput" placeholder="回复@{{replyNickname[index]?replyNickname[index]:item.userInfo.nickname}}：" placeholder-style="margin:0;padding:10rpx 0">
 								
 								</textarea>
 									<button  class="replyCommentBtn" hover-class="btnHover" form-type="submit"  bindgetuserinfo=" bindGetUserInfo" open-type="getUserInfo">发送</button>

@@ -27,8 +27,9 @@ Page({
         openid: app.globalData.openid
       },
       success:function(res){
+        console.log(res.data)
         that.setData({
-          time:res.data.days
+          time:res.data.days>10000?1:res.data.days
         })
       }
     })

@@ -53,7 +53,7 @@
   line-height: 40rpx;
   font-size:0.6rem;
   padding:0;
-  color:rgb(71, 69, 69);
+  color:#ffffff;
   display:inline-block;
   vertical-align:middle;
   border:none;
@@ -416,10 +416,10 @@ margin-top:0rpx;
 .replyContentInput{
 
   vertical-align:middle;
-  position: relative;
+  
   width:70%;
   height: 40rpx;
-  line-height: 40rpx;
+  /* line-height: 40rpx; */
   margin:0rpx auto;
   margin-left:10rpx;
   padding-left:40rpx;
