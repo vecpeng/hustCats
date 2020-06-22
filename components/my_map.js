@@ -49,10 +49,10 @@ Component({
   },
   methods: {
     onload: function (option) {
-      console.log(option.id)
+     
       if (option) {
         id = option.id
-        console.log(id)
+       
 
       }
       let that = this

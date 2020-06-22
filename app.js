@@ -19,11 +19,11 @@ App({
     wx.login({
       
       success: function(res) {
-        console.log("a")
+        
         console.log(that.globalData.openid)
         
         let jscode = res.code
-        console.log(jscode)
+       
         if (res.code) {   
               //发起网络请求
               wx.request({
@@ -92,12 +92,12 @@ App({
       key:"openid",
       
       success:function(res){
-        console.log("success")
+       
         console.log(res.data)
         if(typeof(res.data)=="string")
         that.globalData.openid=res.data
         else{
-          console.log("fail")
+         
           that.getOpenid(that)
           console.log(that.globalData.openid)
         }

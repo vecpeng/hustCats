@@ -1,10 +1,10 @@
 <view class="imgContainer" bindtap="uploadImg">
-	<image class="uploadCatImg" src="{{uploadImg}}"></image>
+	<image class="uploadCatImg" src="{{uploadImg}}" mode="aspectFil"l></image>
 </view>
 
  <view style="display:{{resultDisplay}};" class="renewIdentify">
         <view >识别结束</view>
-        <view>点击任意处关闭</view>
+        <view>点击任意阴影处关闭</view>
     </view>
 
 

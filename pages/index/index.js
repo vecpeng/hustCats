@@ -197,8 +197,8 @@ Page({
     //   }
     // })
     let that = this
-    console.log("A")
-    console.log(app.globalData.openid)
+    // console.log("A")
+    // console.log(app.globalData.openid)
     if(typeof(app.globalData.openid)!="string"||!app.globalData.openid)
     {
       
@@ -206,27 +206,27 @@ Page({
         key:"openid",
         
         success:function(res){
-          console.log("success")
-          console.log(res.data)
+          // console.log("success")
+          // console.log(res.data)
           if(typeof(res.data)=="string")
          { app.globalData.openid=res.data
           that.getCatsInfo('', page, locationFilter, speciesFilter)}
           else{
-            console.log("fail")
+            // console.log("fail")
             that.getOpenid(app)
            
 
           }
         },
         fail:function(){
-          console.log("fail")
+          // console.log("fail")
           that.getOpenid(app)
-          console.log(app.globalData.openid)
+          // console.log(app.globalData.openid)
           
         }
       })
     }else{ that.getCatsInfo('', page, locationFilter, speciesFilter)}
-    console.log(app.globalData.openid)
+    // console.log(app.globalData.openid)
    
    
    
@@ -287,7 +287,7 @@ Page({
           locationFilters: res.data.locationFilters,
           speciesFilters: res.data.speciesFilters
         })
-        console.log(res.data)
+        // console.log(res.data)
       }
 
     })
@@ -374,7 +374,7 @@ Page({
   onReachBottom: function (e) {
     page++
 
-    console.log(name)
+    // console.log(name)
     this.getCatsInfo(name, page, name == '' ? locationFilter : '', name == '' ? speciesFilter : '', 1)
   },
 
@@ -407,7 +407,8 @@ Page({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
       method: "POST",
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cache-Control': 'max-age=60', //60秒
       },
       data: {
 
@@ -422,7 +423,7 @@ Page({
 
       success: res => {
         let cat = res.data
-        console.log(cat)
+        // console.log(cat)
         if (cat) {
           for (let i = 0; i < cat.length; i++) {
            
@@ -446,11 +447,11 @@ Page({
     wx.login({
       
       success: function(res) {
-        console.log("a")
-        console.log(that.globalData.openid)
+        // console.log("a")
+        // console.log(that.globalData.openid)
         
         let jscode = res.code
-        console.log(jscode)
+        // console.log(jscode)
         if (res.code) {   
               //发起网络请求
               wx.request({
@@ -465,7 +466,7 @@ Page({
                   beta:that.globalData.beta, tsvc: that.getCode(),openid:that.globalData.openid
                 },
                 success:(res)=>{
-              console.log(res.data)
+              // console.log(res.data)
                that.globalData.openid = res.data
 
                _this.getCatsInfo('', page, locationFilter, speciesFilter)

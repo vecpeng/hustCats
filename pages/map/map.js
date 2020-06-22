@@ -13,7 +13,7 @@ Page({
   //事件处理函数
  
   onLoad: function (option) {
-    console.log(option.id)
+    // console.log(option.id)
     // this.setData({
     //   fontWeightAll:'',
     // })

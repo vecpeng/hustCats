@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: 0
+    time: 0,
+    userInfoDisplay:""
   },
 
   /**
@@ -16,26 +17,77 @@ Page({
 
   onLoad: function (options) {
     let that = this
-    console.log(app.globalData.openid)
-    wx.request({
-      url: 'https://wxapi.ufatfat.com/hustcats/user/getDays',
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      data: {
-        openid: app.globalData.openid
-      },
-      success:function(res){
-        console.log(res.data)
-        that.setData({
-          time:res.data.days>10000?1:res.data.days
+    // console.log(app.globalData.openid)
+    
+        // 获取用户信息
+        wx.getSetting({
+          success: res => {
+         
+     
+            if (res.authSetting['scope.userInfo']) {
+              // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+              wx.getUserInfo({
+                success: res => {
+             that.setData({
+               userInfoDisplay:"block"
+             })
+                  // 可以将 res 发送给后台解码出 unionId
+                 app.globalData.userInfo = res.userInfo
+                //  console.log(res.userInfo)
+                  // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                  // 所以此处加入 callback 以防止这种情况
+                  if (that.userInfoReadyCallback) {
+                    that.userInfoReadyCallback(res)
+                  }
+            
+                  wx.request({
+                    url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
+                    method:'POST',
+                    header:{
+                      'content-type':'application/x-www-form-urlencoded'
+                    },
+                    data:{
+                      avatar:res.userInfo.avatarUrl,
+                      nickname:res.userInfo.nickName,
+                      gender:res.userInfo.gender,
+                     
+                      beta:app.globalData.beta, tsvc:app.getCode(),openid:app.globalData.openid
+                    },
+                    success:function(){
+                      wx.request({
+                        url: 'https://wxapi.ufatfat.com/hustcats/user/getDays',
+                        method: "POST",
+                        header: {
+                          'content-type': 'application/x-www-form-urlencoded'
+                        },
+                        data: {
+                          openid: app.globalData.openid
+                        },
+                        success:function(res){
+                          // console.log(res.data)
+                          that.setData({
+                            time:res.data.days
+                          })
+                        }
+                      })
+                    }
+                  })
+                }
+                
+           })
+          }else{
+            that.setData({
+              userInfoDisplay:"none"
+            })
+          }
+        }
+           
+          
         })
-      }
-    })
   },
   bindGetUserInfo(e) {
- 
+    let that = this
+  if(e.detail.userInfo){
     wx.request({
       url:'https://wxapi.ufatfat.com/hustcats/user/userInfo',
       method:"POST",
@@ -46,13 +98,31 @@ Page({
         avatar:e.detail.userInfo.avatarUrl,
         nickname:e.detail.userInfo.nickName,
         gender:e.detail.userInfo.gender,
-        tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
+        tsvc: app.getCode(),beta:app.globalData.beta,openid:app.globalData.openid
       },
       success:res=>{
-       
+       that.setData({
+         userInfoDisplay:"block"
+       })
+       wx.request({
+        url: 'https://wxapi.ufatfat.com/hustcats/user/getDays',
+        method: "POST",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          openid: app.globalData.openid
+        },
+        success:function(res){
+          // console.log(res.data)
+          that.setData({
+            time:res.data.days
+          })
+        }
+      })
       }
     })
-  
+  }
   },
   navigateMylike: function () {
     wx.navigateTo({

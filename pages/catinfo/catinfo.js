@@ -246,7 +246,8 @@ Page({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getIndexPhotoById',
       method: "POST",
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
+        
       },
       data: {
         catid: id,
@@ -257,7 +258,7 @@ Page({
       success: (res) => {
 
         this.setData({
-          indexPhoto: res.data.img,
+          indexPhoto:  res.data.img.slice(0, 52) + 'compressed_' + res.data.img.slice(52)
 
         })
 
@@ -300,11 +301,11 @@ Page({
     // })
     // console.log(that.data.comments)
     let that = this
-    console.log(e.target.dataset)
+    console.log(e.currentTarget.dataset)
     var replyNickname = that.data.replyNickname
     var replyNameid = that.data.replyNameid
-    replyNameid[e.target.dataset.index] = e.target.dataset.nameid
-    replyNickname[e.target.dataset.index] = e.target.dataset.name
+    replyNameid[e.currentTarget.dataset.index] = e.currentTarget.dataset.nameid
+    replyNickname[e.currentTarget.dataset.index] = e.currentTarget.dataset.name
     this.setData({
       replyNickname: replyNickname,
       replyNameid: replyNameid
@@ -340,9 +341,9 @@ Page({
                 },
                 success: res => {
                   that.setData({
-                    avatarUrl: e.detail.userInfo.avatarUrl,
-                    nickname: e.detail.userInfo.nickName,
-                    gender: e.detail.userInfo.gender,
+                    avatarUrl: res.userInfo.avatarUrl,
+                    nickname: res.userInfo.nickName,
+                    gender: res.userInfo.gender,
                   })
                 }
               })

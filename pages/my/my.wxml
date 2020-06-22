@@ -3,24 +3,24 @@
 <view>
 	<!-- 用户信息 -->
 	<view class="userInfo" style="margin-top:2vh;">
-        
-		<view class="userAvatar">
-			<open-data mode='aspectFit' type="userAvatarUrl"></open-data>
+        <button class="logButton" style="display:{{userInfoDisplay=='block'?'none':'block'}}"  bindgetuserinfo="bindGetUserInfo" open-type="getUserInfo">点击登录</button>
+		<view class="userAvatar" style="display:{{userInfoDisplay}}">
+			<open-data mode='aspectFit' type="userAvatarUrl" style="display:{{userInfoDisplay}}"></open-data>
 		</view>
 		<view>
 			<view class="userNickName">
-				<open-data  type="userNickName" class="userNickName" lang="zh_CN"></open-data>
+				<open-data  type="userNickName" class="userNickName" lang="zh_CN" style="display:{{userInfoDisplay}}"></open-data>
 			</view>
 
 		</view>
 
-		<view class="time">今天<text style="">是</text>你<text style="">来</text>到HustCat的<text style="">第</text><text style="color:pink;font-weight:bold"> {{time}} </text>天</view>
+		<view class="time" style="display:{{userInfoDisplay}}">今天<text style="">是</text>你<text style="">来</text>到HustCat的<text style="">第</text><text style="color:pink;font-weight:bold"> {{time}} </text>天</view>
 	</view>
     
 </view>
 <view class="otherInfo">
 	<view bindtap="navigateMylike" hover-class="wordHover">
-		<image class="icon" src="/img/mylike.png" id="specialIcon" ></image>
+		<image class="icon" src="/img/mylike.png" id="specialIcon" mode="aspectFill"></image>
 		<text class="chooseWord" style="position:relative;top:10rpx">我赞过的猫</text>
         
 	</view>

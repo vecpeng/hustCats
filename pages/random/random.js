@@ -11,7 +11,7 @@ Page({
    */
   data: {
    
-   
+   opacity:0,
     hide:0
   },
 
@@ -19,6 +19,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url:"https://wxapi.ufatfat.com/hustcats/random/randomCatPhoto",
       method:"POST",
@@ -29,11 +32,11 @@ Page({
          tsvc: app.getCode(),beta:beta
       },
       success:res=>{
-        
+        let ImgSrc = res.data.img.slice(0, 52) + 'compressed_' + res.data.img.slice(52)
          randomId=res.data.id,
          this.setData({
          
-           ImgSrc:res.data.img,
+           ImgSrc:ImgSrc,
            hide:"/img/hide.png",
          })
       }
@@ -89,6 +92,15 @@ Page({
 
   },
 
+  bindload:function(){
+    wx.hideLoading({
+      complete: (res) => {},
+    })
+      this.setData({
+        opacity:1
+      })
+     
+  },
   navigateToCat:function(){
    
     wx.navigateTo({
@@ -97,7 +109,9 @@ Page({
   },
 
   changeCatImg:function(){
-
+    wx.showLoading({
+      title: '加载中',
+    })
     if(this.data.hide==0)
     {
       this.setData({
@@ -125,17 +139,20 @@ Page({
           url:"https://wxapi.ufatfat.com/hustcats/random/randomCatPhoto",
           method:"POST",
           header:{
-            'content-type':'application/x-www-form-urlencoded'
+            'content-type':'application/x-www-form-urlencoded',
+            'Cache-Control': 'max-age=60', //60秒
           },
+         
           data:{
              tsvc: app.getCode(),beta:beta
           },
           success:res=>{
-             
+            //  console.log(res.data) 
+             let ImgSrc = res.data.img.slice(0, 52) + 'compressed_' + res.data.img.slice(52)
              randomId=res.data.id,
              this.setData({
              
-               ImgSrc:res.data.img
+               ImgSrc:ImgSrc
              })
           }
         })
@@ -156,7 +173,7 @@ Page({
         }
         if (res.authSetting['scope.writePhotosAlbum']) {
           wx.downloadFile({
-            url: "https://static.ufatfat.com/wxapi/cat/upload/2020/04/20200419184537133512.jpg",
+            url: that.data.ImgSrc,
             success: function (res) {
             
               //图片保存到本地

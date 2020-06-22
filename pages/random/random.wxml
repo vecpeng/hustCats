@@ -2,7 +2,7 @@
 
 <view class="container">
   <view class="catImgContainer">
-  <image src="{{ImgSrc}}" class="centerImg" bindtap="navigateToCat" mode="aspectFill"></image>
+  <image src="{{ImgSrc}}" class="centerImg" style="opacity:{{opacity}}" bindtap="navigateToCat" mode="aspectFill" bindload="bindload"></image>
   </view>
 <view class="circleContainer">
 <image wx:if="{{hide==0}}" class="hideImg" src="/img/hide.png"></image>

@@ -13,6 +13,20 @@ page{
 
 }
 
+.logButton{
+  margin:auto;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  width:240rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  background-color: #EDA2A2;
+  border-radius: 20rpx;
+  color:#ffffff
+
+}
 .wordHover{
   color:#ffe5b5;
 }

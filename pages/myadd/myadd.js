@@ -20,14 +20,16 @@ Page({
       url: 'https://wxapi.ufatfat.com/hustcats/user/myAddedCats',
       method: "POST",
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
+        'Cache-Control': 'max-age=60', //60秒
       },
       data: {
         page: page,
         openid: app.globalData.openid
       },
+     
       success: function (res) {
-        console.log(res.data)
+        // console.log(res.data)
         that.setData({
           cats:res.data
         })
@@ -87,7 +89,7 @@ Page({
         openid: app.globalData.openid
       },
       success: function (res) {
-        console.log(res.data)
+        // console.log(res.data)
         if(res.data)
         {
           that.setData({
