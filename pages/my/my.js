@@ -8,7 +8,7 @@ Page({
    */
   data: {
     time: 0,
-    userInfoDisplay:""
+    userInfoDisplay:"block"
   },
 
   /**

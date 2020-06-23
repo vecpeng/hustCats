@@ -78,7 +78,7 @@ Component({
             temp.id = res.data[i].id
 
             if (id == temp.id) {
-              console.log(id)
+              // console.log(id)
               that.setData({
                 latitude: res.data[i].latitude,
                 longitude: res.data[i].longitude,
@@ -128,7 +128,7 @@ Component({
 
     },
     mapTap: function (e) {
-      console.log(e.detail)
+      // console.log(e.detail)
       wx.navigateTo({
         url: '/pages/catinfo/catinfo?id=' + e.detail.markerId,
       })

@@ -158,10 +158,10 @@ Page({
     locationFilter = locationFilter[0] == ',' ? locationFilter.slice(1) : locationFilter,
       speciesFilter = speciesFilter[0] == ',' ? speciesFilter.slice(1) : speciesFilter,
 
-      console.log(locationFilter)
-    console.log(speciesFilter)
+    //   console.log(locationFilter)
+    // console.log(speciesFilter)
 
-    console.log(name)
+    // console.log(name)
     page = 1
     this.getCatsInfo(name, page, name == '' ? locationFilter : '', name == '' ? speciesFilter : '')
     this.setData({

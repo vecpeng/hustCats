@@ -103,7 +103,7 @@ App({
         }
       },
       fail:function(){
-        console.log("fail")
+     
         that.getOpenid(that)
         console.log(that.globalData.openid)
         
