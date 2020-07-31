@@ -122,19 +122,19 @@ Page({
         hide:0
       })
     }
-    const innerAudioContext = wx.createInnerAudioContext()
-    innerAudioContext.autoplay = true
-    if(save)
-   {innerAudioContext.src = 'https://static.ufatfat.com/wxapi/cat/src/happy.mp3'
-    save = false
-  }
-   else{innerAudioContext.src = 'http://static.ufatfat.com/wxapi/cat/src/poor.mp3'}
-    innerAudioContext.onPlay(() => {
+  //   const innerAudioContext = wx.createInnerAudioContext()
+  //   innerAudioContext.autoplay = true
+  //   if(save)
+  //  {innerAudioContext.src = 'https://static.ufatfat.com/wxapi/cat/src/happy.mp3'
+  //   save = false
+  // }
+  //  else{innerAudioContext.src = 'http://static.ufatfat.com/wxapi/cat/src/poor.mp3'}
+  //   innerAudioContext.onPlay(() => {
    
-    })
-    innerAudioContext.onError((res) => {
+  //   })
+  //   innerAudioContext.onError((res) => {
      
-    })
+  //   })
         wx.request({
           url:"https://wxapi.ufatfat.com/hustcats/random/randomCatPhoto",
           method:"POST",

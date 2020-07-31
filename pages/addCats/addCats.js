@@ -14,10 +14,10 @@ Page({
     submitCats: 'submitCats',
     submitIf:true,
     uploadImgUrl:'',
-   
-  
+   inputDisplay:'none',
+  childs:'',
     addCatsImgsdisplay:'block',
-    inputDisplay:'none',
+   
     speciesInputDisplay:'none',
     inputLocation:'',
     inputSpecies:'',
@@ -45,6 +45,10 @@ Page({
       data: {},
         success: (res) => {
          console.log(res.data)
+          let locationName=[]
+          for(let i=0;i<res.data.length;i++)
+          locationName[i]=res.data[i].locationName
+          console.log(locationName)
           this.setData({
            locationName: res.data,
           })
@@ -240,7 +244,7 @@ Page({
           openid: globalData.openid,
           name: e.detail.value.name,
           sex: e.detail.value.sex,
-          location:e.detail.value.location,
+          location:e.detail.value.childs,
           birthday: e.detail.value.birthday,
           species: e.detail.value.species,
           nature: e.detail.value.nature,
@@ -249,10 +253,10 @@ Page({
           guide: e.detail.value.guide,
           desc: e.detail.value.desc,
           friends:'',
-          tags:'',
+      
           adopt:e.detail.value.adopt,
           sterilize:e.detail.value.sterilize,
-          locP:1,
+          locP:e.detail.value.location,
           nickname:app.globalData.userInfo.nickname
           
         
@@ -328,6 +332,13 @@ otherLocation:function(){
       inputDisplay:'block'
     })
   }
+},
+locationDisplay:function(e){
+  console.log(e.target.dataset.id)
+  let id = e.target.dataset.id
+  this.setData({
+    childs:this.data.locationName[id].childs
+  })
 }
 
 

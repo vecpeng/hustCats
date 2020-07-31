@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: 0,
+    time: 1,
     userInfoDisplay:"block"
   },
 
@@ -64,7 +64,7 @@ Page({
                           openid: app.globalData.openid
                         },
                         success:function(res){
-                          // console.log(res.data)
+                          console.log(res.data)
                           that.setData({
                             time:res.data.days
                           })

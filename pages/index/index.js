@@ -423,7 +423,7 @@ Page({
 
       success: res => {
         let cat = res.data
-        // console.log(cat)
+        console.log(cat)
         if (cat) {
           for (let i = 0; i < cat.length; i++) {
            

@@ -1,4 +1,5 @@
 <!--pages/mylike/mylike.wxml-->
+<view class="middle" style="display:{{cats=='[]'?'inline-block':'none'}};">去点赞你的第一只猫猫吧(^-^)</view>
 <view style="width:94vw;margin:auto">
 <view class="cats" wx:for="{{cats}}" wx:item="item" wx:key="*this" data-id="{{item.catid}}" bindtap="navigateToCat">
 <image class="catsImage" src="{{item.indexImg}}" mode="aspectFill"></image>

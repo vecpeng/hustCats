@@ -224,8 +224,7 @@ Page({
       success(res) {
 
         let catImgs = res.data
-
-
+      console.log(res.data)
         for (let i = 0; i < res.data.length; i++) {
 
           catImgs[i].img = catImgs[i].img.slice(0, 52) + 'compressed_' + catImgs[i].img.slice(52)
@@ -324,6 +323,7 @@ Page({
           wx.getUserInfo({
             success: function (res) {
               console.log(res.userInfo)
+              let userInfo=res.userInfo
               wx.request({
                 url: 'https://wxapi.ufatfat.com/hustcats/user/userInfo',
                 method: "POST",
@@ -340,10 +340,11 @@ Page({
         
                 },
                 success: res => {
+                  
                   that.setData({
-                    avatarUrl: res.userInfo.avatarUrl,
-                    nickname: res.userInfo.nickName,
-                    gender: res.userInfo.gender,
+                    avatarUrl: userInfo.avatarUrl,
+                    nickname: userInfo.nickName,
+                    gender: userInfo.gender,
                   })
                 }
               })

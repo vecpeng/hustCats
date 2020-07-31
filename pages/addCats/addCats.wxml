@@ -1,11 +1,11 @@
 <!--pages/addCats/addCats.wxml-->
 <view class='container'>
 	<!-- 输入信息 -->
-	
+
 	<view class="newCatsInfo">
 		<form bindreset="resetNewCatsInfo" bindsubmit="submitNewCatsInfo">
 			<view bindtap="chooseImg">
-				<image class="chooseImg"  src="{{uploadImgUrl}}" mode="aspectFit"  >
+				<image class="chooseImg" src="{{uploadImgUrl}}" mode="aspectFit">
 
 				</image>
 				<image class="addIcon" src="/img/addIcon.png" style="display:{{addCatsImgsdisplay}}"></image>
@@ -14,19 +14,30 @@
 			</view>
 			<view class="section">
 				<view class="sectionTitle">昵称：</view>
-				<input class="sectionInput"  confirm-type="done" type="text" name="name"></input>
+				<input class="sectionInput" confirm-type="done" type="text" name="name"></input>
 			</view>
 			<view class="section">
 				<view class="sectionTitle">出没地点:</view>
-					<!-- <block wx:for="{{locationFilters}}">
+				<!-- <block wx:for="{{locationFilters}}">
 							<text class="filterOption {{locationFiltersChosen[index]}}" bindtap="toggleLocationFilter" data-id="{{item.id}}">{{item.locationName}}</text>
 						</block> -->
 				<radio-group class="locationRadio" name="location">
-					<radio class="location" wx:for="{{locationName}}" value="{{item.id}}" bindtap="inputDisplayNone" >{{item.locationName}}</radio>
-						<radio class="location otherLocation" value="{{inputLocation}}" bindtap="otherLocation">其他</radio>
-						<input style="display:{{inputDisplay}};margin-top:20rpx;" class="sectionInput" bindblur="locationConfirm"></input>
+					<radio class="location" wx:for="{{locationName}}" wx:for-index="index" value="{{index}}" bindtap="locationDisplay" data-id="{{index}}">{{item.locationName}}</radio>
+				
 				</radio-group>
-			
+
+
+					<radio-group style="display:{{locationChildsDisplay}};margin-top:50rpx;"  class="locationRadio" name="childs">
+					    
+							<radio class="location" wx:for="{{childs?childs:[]}}" wx:for-index="index" value="{{index}}" bindtap="inputDisplayNone" wx:for-item="childs">{{childs}}</radio>
+							<radio  wx:if="{{childs}}" class="location"  bindtap="otherLocation" >其他</radio>
+
+							<input style="display:{{inputDisplay}};margin-top:20rpx;" class="sectionInput" bindblur="locationConfirm" value="" name="childs"></input>
+
+					</radio-group>
+
+					
+
 			</view>
 			<view class="section">
 				<view class="sectionTitle">猫咪性别:</view>
@@ -42,7 +53,7 @@
 				<radio-group class="sexRadio" name="sterilize">
 					<radio value="0" class="sex">未绝育</radio>
 					<radio value="1" class="sex">已绝育</radio>
-					
+
 				</radio-group>
 			</view>
 
@@ -52,7 +63,7 @@
 				<radio-group class="sexRadio" name="adopt">
 					<radio value="0" class="sex">未领养</radio>
 					<radio value="1" class="sex">已领养</radio>
-				
+
 				</radio-group>
 			</view>
 
@@ -60,7 +71,7 @@
 				<view class="sectionTitle">出生年月：</view>
 				<view class="section inputSection">
 					<picker name="birthday" mode="date" value="{{date}}" fields="month" start="2010-09" end="2021-09" bindchange="bindDateChange">
-						<view class="picker sectionInput birthdayInput" >
+						<view class="picker sectionInput birthdayInput">
 							{{date}}
 						</view>
 					</picker>
@@ -69,14 +80,14 @@
 			<view class="section">
 				<view class="sectionTitle">毛色:</view>
 				<radio-group class="speciesRadio" name="species">
-					<radio class="species" value="橘色"  bindtap="speciesDisplayNone" >橘色</radio>
+					<radio class="species" value="橘色" bindtap="speciesDisplayNone">橘色</radio>
 					<radio class="species" value="白色" bindtap="speciesDisplayNone">白色</radio>
 					<radio class="species" value="黑色" bindtap="speciesDisplayNone">黑色</radio>
 					<radio class="species" value="混搭" bindtap="speciesDisplayNone">混搭</radio>
 					<radio class="species" value="三花" bindtap="speciesDisplayNone">三花</radio>
 					<radio class="species" value="狸花" bindtap="speciesDisplayNone">狸花</radio>
 					<radio class="species" value="玳瑁" bindtap="speciesDisplayNone">玳瑁</radio>
-					<radio class="species" value="{{inputSpecies}}"  bindtap="otherSpecies">其他</radio>
+					<radio class="species" value="{{inputSpecies}}" bindtap="otherSpecies">其他</radio>
 					<input style="display:{{speciesInputDisplay}};margin-top:20rpx;" class="sectionInput" bindblur="speciesConfirm"></input>
 				</radio-group>
 			</view>
@@ -88,12 +99,12 @@
 			</view> -->
 			<view class="section">
 				<view class="sectionTitle">性格:</view>
-				<input name="nature" class="sectionInput"  confirm-type="done" type="text"></input>
+				<input name="nature" class="sectionInput" confirm-type="done" type="text"></input>
 			</view>
 
 			<view class="section parents">
 				<view class="fatherTitle">爸爸:</view>
-				<input name="father" class=" father"  confirm-type="done" type="text"></input>
+				<input name="father" class=" father" confirm-type="done" type="text"></input>
 			</view>
 			<view class="section parents">
 				<view class="motherTitle">妈妈:</view>
@@ -101,12 +112,12 @@
 			</view>
 			<view class="section">
 				<view class="sectionTitle">描述:</view>
-				<textarea name="desc" class="sectionInput descInput"  confirm-type="done" type="text"></textarea>
+				<textarea name="desc" class="sectionInput descInput" confirm-type="done" type="text"></textarea>
 			</view>
 
 			<view class="section">
 				<view class="sectionTitle">撸猫指南:</view>
-				<textarea name="guide" class="sectionInput descInput"  confirm-type="done" type="text"></textarea>
+				<textarea name="guide" class="sectionInput descInput" confirm-type="done" type="text"></textarea>
 			</view>
 
 			<!-- <view class="section">
@@ -116,9 +127,9 @@
 			
 			</view> -->
 			<view style="margin:0 auto;text-align:center">*预计审核时间3~7天，请您耐心等待</view>
-      	<button form-type="submit" bindtap="submitBtn" class="submitBtn" hover-class="hover">
-					<image class="submitCatsIcon" src="/img/{{submitCats}}.png" ></image>
-				</button>
+			<button form-type="submit" bindtap="submitBtn" class="submitBtn" hover-class="hover">
+				<image class="submitCatsIcon" src="/img/{{submitCats}}.png"></image>
+			</button>
 
 			<!-- <view class="section">
 			 <view class="sectionTitle">猫咪照片</view>
