@@ -1,12 +1,12 @@
-//index.js
-//获取应用实例
-const app = getApp()
-let page = 1
-const globalData = app.globalData
-const beta = app.globalData.beta
-let locationFilter = ''
-let speciesFilter = '' //species的后端所需要的格式
-let name = ''
+// index.js
+// 获取应用实例
+const app = getApp();
+let page = 1;
+const { globalData } = app;
+const { beta } = app.globalData;
+let locationFilter = '';
+let speciesFilter = ''; // species的后端所需要的格式
+let name = '';
 Page({
   data: {
     catsInfo: {},
@@ -29,38 +29,35 @@ Page({
     nowId: 0,
     searchInput: '',
     a: 'block',
-    bottomDisplay:'none'
+    bottomDisplay: 'none',
 
   },
-  onShareAppMessage: function () {
+  onShareAppMessage() {
 
   },
-  searchSubmit: function (e) {
-
-    console.log(e.detail.value)
-    name = e.detail.value
+  searchSubmit(e) {
+    console.log(e.detail.value);
+    name = e.detail.value;
   },
-  jumpto: function (e) {
-
-    let id = e.currentTarget.dataset.id
-    let index = e.currentTarget.dataset.index
+  jumpto(e) {
+    const { id } = e.currentTarget.dataset;
+    const { index } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: '/pages/catinfo/catinfo?id=' + id,
+      url: `/pages/catinfo/catinfo?id=${id}`,
       events: {
-        toggleThumbUp: data => {
-          let catsInfo = this.data.catsInfo
+        toggleThumbUp: (data) => {
+          const { catsInfo } = this.data;
           catsInfo[index].thumbup = data.thumbUp,
-            catsInfo[index].thumbupnum = data.thumbUpNum
+          catsInfo[index].thumbupnum = data.thumbUpNum;
           this.setData({
-            catsInfo: catsInfo
-          })
-
-        }
-      }
-    })
+            catsInfo,
+          });
+        },
+      },
+    });
   },
 
-  locationChosen: function () {
+  locationChosen() {
     if (!this.data.locationChosen) {
       this.setData({
         locationChosen: 'chosen',
@@ -68,78 +65,72 @@ Page({
         locationDisplay: 'block',
         speciesDisplay: 'none',
 
-      })
+      });
     } else {
-
       this.setData({
         locationChosen: '',
         locationDisplay: 'none',
-      })
-
+      });
     }
   },
-  jumpToAdd:function(){
-      wx.navigateTo({
-        url: '/pages/addCats/addCats',
-      })
+  jumpToAdd() {
+    wx.navigateTo({
+      url: '/pages/addCats/addCats',
+    });
   },
-  speciesChosen: function () {
-    if (!this.data.speciesChosen)
+  speciesChosen() {
+    if (!this.data.speciesChosen) {
       this.setData({
         locationChosen: '',
         speciesChosen: 'chosen',
         locationDisplay: 'none',
         speciesDisplay: 'block',
 
-      })
-    else {
+      });
+    } else {
       this.setData({
         speciesChosen: '',
         speciesDisplay: 'none',
-      })
+      });
     }
   },
-  toggleSearch: function () {
+  toggleSearch() {
     this.setData({
-      displaySearchBox: this.data.displaySearchBox == "none" ? "block" : "none",
+      displaySearchBox: this.data.displaySearchBox == 'none' ? 'block' : 'none',
 
-    })
-    name = ''
+    });
+    name = '';
   },
-  toggleLocationFilter: function (e) {
-    let locationFiltersChosen = this.data.locationFiltersChosen //表示地点是否被选中得数组
-    var index = e.currentTarget.dataset.id; //被点击的地点的下标
-    let filters = this.data.locationFilter
-    locationFiltersChosen[index] = locationFiltersChosen[index] ? null : 'filterChosen'
+  toggleLocationFilter(e) {
+    const { locationFiltersChosen } = this.data; // 表示地点是否被选中得数组
+    const index = e.currentTarget.dataset.id; // 被点击的地点的下标
+    const filters = this.data.locationFilter;
+    locationFiltersChosen[index] = locationFiltersChosen[index] ? null : 'filterChosen';
 
-
-    console.log(index)
-    filters[index] = !filters[index] ? this.data.locationFilters[index].id : null
+    console.log(index);
+    filters[index] = !filters[index] ? this.data.locationFilters[index].id : null;
     this.setData({
       locationFilter: filters,
-      locationFiltersChosen: locationFiltersChosen
-    })
-
+      locationFiltersChosen,
+    });
   },
-  toggleSpeciesFilter: function (e) {
+  toggleSpeciesFilter(e) {
+    const locationFiltersChosen = this.data.speciesFiltersChosen;
+    const index = e.currentTarget.dataset.id; // 被点击的地点的下标
 
-    let locationFiltersChosen = this.data.speciesFiltersChosen
-    var index = e.currentTarget.dataset.id; //被点击的地点的下标
+    locationFiltersChosen[index] = locationFiltersChosen[index] ? null : 'filterChosen';
 
-    locationFiltersChosen[index] = locationFiltersChosen[index] ? null : 'filterChosen'
+    const filters = this.data.speciesFilter;
 
-    let filters = this.data.speciesFilter
-
-    filters[index] = !filters[index] ? this.data.speciesFilters[index].id : null
+    filters[index] = !filters[index] ? this.data.speciesFilters[index].id : null;
     this.setData({
       speciesFilter: filters,
-      speciesFiltersChosen: locationFiltersChosen
-    })
-
+      speciesFiltersChosen: locationFiltersChosen,
+    });
   },
 
-  btnReset: function () {
-    console.log(this.data.searchInput)
+  btnReset() {
+    console.log(this.data.searchInput);
     this.setData({
       locationFiltersChosen: [],
       speciesAll: 'filterChosen',
@@ -148,35 +139,33 @@ Page({
       speciesFilter: [],
       locationFiltersChosen: ['', '', '', ''],
       speciesFiltersChosen: [],
-      searchInput: ''
-    })
+      searchInput: '',
+    });
   },
-  btnDone: function () {
-
-    locationFilter = this.data.locationFilter ? this.data.locationFilter.join(',').replace(/,{2,}/g, ',') : ','
-    speciesFilter = this.data.speciesFilter ? this.data.speciesFilter.join(',').replace(/,{2,}/g, ',') : ','
+  btnDone() {
+    locationFilter = this.data.locationFilter ? this.data.locationFilter.join(',').replace(/,{2,}/g, ',') : ',';
+    speciesFilter = this.data.speciesFilter ? this.data.speciesFilter.join(',').replace(/,{2,}/g, ',') : ',';
     locationFilter = locationFilter[0] == ',' ? locationFilter.slice(1) : locationFilter,
-      speciesFilter = speciesFilter[0] == ',' ? speciesFilter.slice(1) : speciesFilter,
+    speciesFilter = speciesFilter[0] == ',' ? speciesFilter.slice(1) : speciesFilter,
 
     //   console.log(locationFilter)
     // console.log(speciesFilter)
 
     // console.log(name)
-    page = 1
-    this.getCatsInfo(name, page, name == '' ? locationFilter : '', name == '' ? speciesFilter : '')
+    page = 1;
+    this.getCatsInfo(name, page, name == '' ? locationFilter : '', name == '' ? speciesFilter : '');
     this.setData({
-      displaySearchBox: "none",
-      searchInput: ''
-    })
+      displaySearchBox: 'none',
+      searchInput: '',
+    });
     wx.pageScrollTo({
       scrollTop: 0,
-      duration: 100
-    })
-
+      duration: 100,
+    });
   },
-  onLoad: function () {
+  onLoad() {
     // wx.request({
-      
+
     //   url: "https://wxapi.ufatfat.com/hustcats/cat/getB",
     //   method: "POST",
     //   header: {
@@ -196,40 +185,33 @@ Page({
 
     //   }
     // })
-    let that = this
+    const that = this;
     // console.log("A")
     // console.log(app.globalData.openid)
-    if(typeof(app.globalData.openid)!="string"||!app.globalData.openid)
-    {
-      
+    if (typeof (app.globalData.openid) !== 'string' || !app.globalData.openid) {
       wx.getStorage({
-        key:"openid",
-        
-        success:function(res){
+        key: 'openid',
+
+        success(res) {
           // console.log("success")
           // console.log(res.data)
-          if(typeof(res.data)=="string")
-         { app.globalData.openid=res.data
-          that.getCatsInfo('', page, locationFilter, speciesFilter)}
-          else{
+          if (typeof (res.data) === 'string') {
+            app.globalData.openid = res.data;
+            that.getCatsInfo('', page, locationFilter, speciesFilter);
+          } else {
             // console.log("fail")
-            that.getOpenid(app)
-           
-
+            that.getOpenid(app);
           }
         },
-        fail:function(){
+        fail() {
           // console.log("fail")
-          that.getOpenid(app)
+          that.getOpenid(app);
           // console.log(app.globalData.openid)
-          
-        }
-      })
-    }else{ that.getCatsInfo('', page, locationFilter, speciesFilter)}
+        },
+      });
+    } else { that.getCatsInfo('', page, locationFilter, speciesFilter); }
     // console.log(app.globalData.openid)
-   
-   
-   
+
     // wx.login({
 
     //   success: function (res) {
@@ -254,12 +236,8 @@ Page({
 
     //             app.globalData.openid = res.data
 
-               
-
-
     //           },
     //           fail: (res) => {
-
 
     //           },
     //         }, )
@@ -270,27 +248,26 @@ Page({
     //   }
     // });
 
-
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getFilters',
-      method: "POST",
+      method: 'POST',
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
       },
       data: {
         tsvc: app.getCode(),
-        beta: beta,
-        openid: app.globalData.openid
+        beta,
+        openid: app.globalData.openid,
       },
-      success: res => {
+      success: (res) => {
         this.setData({
           locationFilters: res.data.locationFilters,
-          speciesFilters: res.data.speciesFilters
-        })
+          speciesFilters: res.data.speciesFilters,
+        });
         // console.log(res.data)
-      }
+      },
 
-    })
+    });
     // wx.getSetting({
     //   success(res) {
 
@@ -315,18 +292,17 @@ Page({
     //             }
     //           })
 
-
     //         }
 
     //       })
     //     }
     //   }
     // })
-    wx.stopPullDownRefresh()
+    wx.stopPullDownRefresh();
   },
 
   onShow() {
-    var that = this
+    const that = this;
 
     // wx.getStorage({
     //   key: 'thumbup',
@@ -335,7 +311,6 @@ Page({
 
     //     if (i >= 0) {
     //       var thumbupTemp = `catsInfo[${i}].thumbup`
-
 
     //       that.setData({
     //         [thumbupTemp]: res.data
@@ -371,44 +346,39 @@ Page({
     // })
   },
 
-  onReachBottom: function (e) {
-    page++
+  onReachBottom(e) {
+    page++;
 
     // console.log(name)
-    this.getCatsInfo(name, page, name == '' ? locationFilter : '', name == '' ? speciesFilter : '', 1)
+    this.getCatsInfo(name, page, name == '' ? locationFilter : '', name == '' ? speciesFilter : '', 1);
   },
 
-
-  onPullDownRefresh: function () {
-
-
-    this.onLoad(); //重新加载onLoad()
-    page = 1
+  onPullDownRefresh() {
+    this.onLoad(); // 重新加载onLoad()
+    page = 1;
   },
 
-  closeSearch: function () {
+  closeSearch() {
     this.setData({
-      displaySearchBox: 'none'
-    })
+      displaySearchBox: 'none',
+    });
   },
-  changeTab: function (e) {
-    let thatTab = e.currentTarget.dataset.tab
-    if (this.data.tab == thatTab)
-      return
+  changeTab(e) {
+    const thatTab = e.currentTarget.dataset.tab;
+    if (this.data.tab == thatTab) return;
     this.setData({
-      tab: thatTab
-    })
-
+      tab: thatTab,
+    });
   },
-  
-  getCatsInfo: function (getName, getPage, getLocationFilter, getSpeciesFilter, getCat) {
-    let that = this
+
+  getCatsInfo(getName, getPage, getLocationFilter, getSpeciesFilter, getCat) {
+    const that = this;
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/cat/getCatsInfo',
-      method: "POST",
+      method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'Cache-Control': 'max-age=60', //60秒
+        'Cache-Control': 'max-age=60', // 60秒
       },
       data: {
 
@@ -417,95 +387,87 @@ Page({
         locationFilter: getLocationFilter,
         speciesFilter: getSpeciesFilter,
         tsvc: app.getCode(),
-        beta: beta,
-        openid: app.globalData.openid
+        beta,
+        openid: app.globalData.openid,
       },
 
-      success: res => {
-        let cat = res.data
+      success: (res) => {
+        const cat = res.data;
         // console.log(cat)
         if (cat) {
           for (let i = 0; i < cat.length; i++) {
-           
-            cat[i].indexImg = cat[i].indexImg.slice(0, 52) + 'compressed_' + cat[i].indexImg.slice(52)
+            cat[i].indexImg = `${cat[i].indexImg.slice(0, 52)}compressed_${cat[i].indexImg.slice(52)}`;
           }
 
           that.setData({
             catsInfo: getCat ? that.data.catsInfo.concat(cat) : cat,
 
-          })
-        }else{
+          });
+        } else {
           that.setData({
-            bottomDisplay:'block'
-          })
+            bottomDisplay: 'block',
+          });
         }
       },
-    })
+    });
   },
-  getOpenid:function(that){
-    let _this=this
+  getOpenid(that) {
+    const _this = this;
     wx.login({
-      
-      success: function(res) {
+
+      success(res) {
         // console.log("a")
         // console.log(that.globalData.openid)
-        
-        let jscode = res.code
+
+        const jscode = res.code;
         // console.log(jscode)
-        if (res.code) {   
-              //发起网络请求
-              wx.request({
-                
-                url: 'https://wxapi.ufatfat.com/hustcats/user/getTestID',
-                method:"POST",
-                header:{
-                  'content-type':'application/x-www-form-urlencoded'
-                },
-                data: {
-                  jscode: jscode,
-                  beta:that.globalData.beta, tsvc: that.getCode(),openid:that.globalData.openid
-                },
-                success:(res)=>{
+        if (res.code) {
+          // 发起网络请求
+          wx.request({
+
+            url: 'https://wxapi.ufatfat.com/hustcats/user/getTestID',
+            method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+            },
+            data: {
+              jscode,
+              beta: that.globalData.beta,
+              tsvc: that.getCode(),
+              openid: that.globalData.openid,
+            },
+            success: (res) => {
               // console.log(res.data)
-               that.globalData.openid = res.data
+              that.globalData.openid = res.data;
 
-               _this.getCatsInfo('', page, locationFilter, speciesFilter)
-               wx.setStorage({
-                key:"openid",
-                data:res.data
-              })
-                // wx.request({
-                //   url:"https://wxapi.ufatfat.com/hustcats/user/userInfo",
-                //   method:"POST",
-                //   header:{
-                //     'content-type':'application/x-www-form-urlencoded'
-                //   },
-                //   data:{
-                    
-                //     avatar:'',
-                //     nickname:'',
-                //     gender:'',
-                //     beta:that.globalData.beta, tsvc: that.getCode(),openid:that.globalData.openid
-                //   }
-                // })
-                },
-               fail:(res)=>{
-                
-                 
-                },
-              },
-              )
-           
-          
-          
-        
-    } else {
-             
-    }
-      
-    }
+              _this.getCatsInfo('', page, locationFilter, speciesFilter);
+              wx.setStorage({
+                key: 'openid',
+                data: res.data,
+              });
+              // wx.request({
+              //   url:"https://wxapi.ufatfat.com/hustcats/user/userInfo",
+              //   method:"POST",
+              //   header:{
+              //     'content-type':'application/x-www-form-urlencoded'
+              //   },
+              //   data:{
+
+              //     avatar:'',
+              //     nickname:'',
+              //     gender:'',
+              //     beta:that.globalData.beta, tsvc: that.getCode(),openid:that.globalData.openid
+              //   }
+              // })
+            },
+            fail: (res) => {
+
+            },
+          });
+        } else {
+
+        }
+      },
     });
-  
-
   },
-})
+});

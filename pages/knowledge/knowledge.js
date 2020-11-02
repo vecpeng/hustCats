@@ -1,9 +1,9 @@
-const app = getApp()
-let foldA = true
-let foldB = true
-let foldC = true
-let foldD = true
-const beta = app.globalData.beta
+const app = getApp();
+let foldA = true;
+let foldB = true;
+let foldC = true;
+let foldD = true;
+const { beta } = app.globalData;
 Page({
   data: {
     height: 0,
@@ -16,374 +16,358 @@ Page({
     displayB: 'none',
     displayC: 'none',
     advanceDisplay: 'none',
-    proDisplay:'none',
+    proDisplay: 'none',
     contentDisplay: 'block',
-    displayD:"none"
+    displayD: 'none',
   },
-  onShareAppMessage: function () {
+  onShareAppMessage() {
 
   },
-  onLoad: function (options) {
-
-
-
+  onLoad(options) {
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/wiki/getContent',
-      method:"POST",
-      header:{
-        'content-type':'application/x-www-form-urlencoded'
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
       },
       data: {
         cid: 1,
-         tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
+        tsvc: app.getCode(),
+        beta,
+        openid: app.globalData.openid,
       },
       success: (res) => {
         this.setData({
-          content: res.data
-        })
-      }
-    })
-
+          content: res.data,
+        });
+      },
+    });
 
     wx.getSystemInfo({
       complete: (res) => {
         this.setData({
-          height: res.windowHeight
-        })
+          height: res.windowHeight,
+        });
       },
-    })
+    });
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/wiki/getCategory',
-      method:"POST",
-      header:{
-        'content-type':'application/x-www-form-urlencoded'
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
       },
-      data:{
-         tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
+      data: {
+        tsvc: app.getCode(), beta, openid: app.globalData.openid,
       },
       success: (res) => {
-        let data = res.data
+        const { data } = res;
         this.setData({
-          category: data
-        })
-      }
-    })
+          category: data,
+        });
+      },
+    });
   },
-  toggleSearchBar: function () {
-    if (this.data.searchBarDisplay == 'show')
+  toggleSearchBar() {
+    if (this.data.searchBarDisplay == 'show') {
       this.setData({
         searchBarDisplay: 'close',
         search: 'knowledgeSearch.png',
-      })
-    else
+      });
+    } else {
       this.setData({
         searchBarDisplay: 'show',
         search: 'knowledgeSearchActive.png',
-      })
+      });
+    }
   },
 
-
-
-
-  toggleFoldDisplayD: function () {
-   
+  toggleFoldDisplayD() {
     if (foldD) {
       this.setData({
-        displayD: 'block'
-      })
-      foldD = false
+        displayD: 'block',
+      });
+      foldD = false;
 
       this.animate('.foldD', [{
-          opacity: 1.0,
-          rotate: 0
-        },
+        opacity: 1.0,
+        rotate: 0,
+      },
 
-        {
-          opacity: 1.0,
-          rotate: 180
-        },
+      {
+        opacity: 1.0,
+        rotate: 180,
+      },
       ], 200, this.clearAnimation('.foldD', {
         opacity: true,
-        rotate: true
-      }), function () {
+        rotate: true,
+      }), () => {
 
-      }.bind(this))
+      });
     } else {
-      foldD = true
+      foldD = true;
       this.setData({
-        displayD: 'none'
-      })
+        displayD: 'none',
+      });
       this.animate('.foldD', [{
-          opacity: 1.0,
-          rotate: 180
-        },
+        opacity: 1.0,
+        rotate: 180,
+      },
 
-        {
-          opacity: 1.0,
-          rotate: 0
-        },
+      {
+        opacity: 1.0,
+        rotate: 0,
+      },
       ], 200, this.clearAnimation('.foldD', {
         opacity: true,
-        rotate: true
-      }), function () {
+        rotate: true,
+      }), () => {
 
-      }.bind(this))
+      });
     }
   },
 
-  toggleFoldDisplayB: function () {
-   
+  toggleFoldDisplayB() {
     if (foldB) {
-
-      foldB = false
+      foldB = false;
       this.setData({
-        displayB: 'block'
-      })
+        displayB: 'block',
+      });
       this.animate('.foldB', [{
-          opacity: 1.0,
-          rotate: 0
-        },
+        opacity: 1.0,
+        rotate: 0,
+      },
 
-        {
-          opacity: 1.0,
-          rotate: 180
-        },
+      {
+        opacity: 1.0,
+        rotate: 180,
+      },
       ], 200, this.clearAnimation('.foldB', {
         opacity: true,
-        rotate: true
-      }), function () {
+        rotate: true,
+      }), () => {
 
-      }.bind(this))
+      });
     } else {
-      foldB = true
+      foldB = true;
       this.setData({
-        displayB: 'none'
-      })
+        displayB: 'none',
+      });
       this.animate('.foldB', [{
-          opacity: 1.0,
-          rotate: 180
-        },
+        opacity: 1.0,
+        rotate: 180,
+      },
 
-        {
-          opacity: 1.0,
-          rotate: 0
-        },
+      {
+        opacity: 1.0,
+        rotate: 0,
+      },
       ], 200, this.clearAnimation('.foldB', {
         opacity: true,
-        rotate: true
-      }), function () {
+        rotate: true,
+      }), () => {
 
-      }.bind(this))
+      });
     }
   },
 
-
-
-
-  toggleFoldDisplayC: function () {
-   
+  toggleFoldDisplayC() {
     if (foldC) {
       this.setData({
-        displayC: 'block'
-      })
-      foldC = false
+        displayC: 'block',
+      });
+      foldC = false;
 
       this.animate('.foldC', [{
-          opacity: 1.0,
-          rotate: 0
-        },
+        opacity: 1.0,
+        rotate: 0,
+      },
 
-        {
-          opacity: 1.0,
-          rotate: 180
-        },
+      {
+        opacity: 1.0,
+        rotate: 180,
+      },
       ], 200, this.clearAnimation('.foldC', {
         opacity: true,
-        rotate: true
-      }), function () {
+        rotate: true,
+      }), () => {
 
-      }.bind(this))
+      });
     } else {
-      foldC = true
+      foldC = true;
       this.setData({
-        displayC: 'none'
-      })
+        displayC: 'none',
+      });
       this.animate('.foldC', [{
-          opacity: 1.0,
-          rotate: 180
-        },
+        opacity: 1.0,
+        rotate: 180,
+      },
 
-        {
-          opacity: 1.0,
-          rotate: 0
-        },
+      {
+        opacity: 1.0,
+        rotate: 0,
+      },
       ], 200, this.clearAnimation('.foldC', {
         opacity: true,
-        rotate: true
-      }), function () {
+        rotate: true,
+      }), () => {
 
-      }.bind(this))
+      });
     }
   },
 
-
-  toggleFoldDisplayA: function () {
-   
+  toggleFoldDisplayA() {
     if (foldA) {
-
-      foldA = false
+      foldA = false;
       this.setData({
-        displayA: 'block'
-      })
+        displayA: 'block',
+      });
 
       this.animate('.foldA', [{
-          opacity: 1.0,
-          rotate: 0
-        },
+        opacity: 1.0,
+        rotate: 0,
+      },
 
-        {
-          opacity: 1.0,
-          rotate: 180
-        },
+      {
+        opacity: 1.0,
+        rotate: 180,
+      },
       ], 200, this.clearAnimation('.foldA', {
         opacity: true,
-        rotate: true
-      }), function () {
+        rotate: true,
+      }), () => {
 
-      }.bind(this))
+      });
     } else {
-      foldA = true
+      foldA = true;
       this.setData({
-        displayA: 'none'
-      })
+        displayA: 'none',
+      });
       this.animate('.foldA', [{
-          opacity: 1.0,
-          rotate: 180
-        },
+        opacity: 1.0,
+        rotate: 180,
+      },
 
-        {
-          opacity: 1.0,
-          rotate: 0
-        },
+      {
+        opacity: 1.0,
+        rotate: 0,
+      },
       ], 200, this.clearAnimation('.foldA', {
         opacity: true,
-        rotate: true
-      }), function () {
+        rotate: true,
+      }), () => {
 
-      }.bind(this))
+      });
     }
   },
 
-  changeIndex: function (e) {
-    let index = e.currentTarget.dataset.index
-   
+  changeIndex(e) {
+    const { index } = e.currentTarget.dataset;
+
     if (index == 3) {
       this.setData({
         advanceDisplay: 'block',
         contentDisplay: 'none',
-        proDisplay:"none",
-      })
-    } else if(index==4){
+        proDisplay: 'none',
+      });
+    } else if (index == 4) {
       this.setData({
-       proDisplay: 'block',
+        proDisplay: 'block',
         contentDisplay: 'none',
         advanceDisplay: 'none',
-      })
-    }
-    else {
-
+      });
+    } else {
       this.setData({
-        proDisplay:"none",
+        proDisplay: 'none',
         advanceDisplay: 'none',
         displayA: 'none',
         displayB: 'none',
-        displayC: 'none'
-      })
+        displayC: 'none',
+      });
 
       if (!foldA) {
-        foldA = true
+        foldA = true;
         this.setData({
-          displayA: 'none'
-        })
+          displayA: 'none',
+        });
         this.animate('.foldA', [{
-            opacity: 1.0,
-            rotate: 180
-          },
+          opacity: 1.0,
+          rotate: 180,
+        },
 
-          {
-            opacity: 1.0,
-            rotate: 0
-          },
+        {
+          opacity: 1.0,
+          rotate: 0,
+        },
         ], 200, this.clearAnimation('.foldA', {
           opacity: true,
-          rotate: true
-        }), function () {
+          rotate: true,
+        }), () => {
 
-        }.bind(this))
-
+        });
       }
       if (!foldB) {
-        foldC = true
+        foldC = true;
         this.setData({
-          displayC: 'none'
-        })
+          displayC: 'none',
+        });
         this.animate('.foldC', [{
-            opacity: 1.0,
-            rotate: 180
-          },
+          opacity: 1.0,
+          rotate: 180,
+        },
 
-          {
-            opacity: 1.0,
-            rotate: 0
-          },
+        {
+          opacity: 1.0,
+          rotate: 0,
+        },
         ], 200, this.clearAnimation('.foldC', {
           opacity: true,
-          rotate: true
-        }), function () {
+          rotate: true,
+        }), () => {
 
-        }.bind(this))
+        });
       }
 
       if (!foldC) {
-        foldC = true
+        foldC = true;
         this.setData({
-          displayC: 'none'
-        })
+          displayC: 'none',
+        });
         this.animate('.foldC', [{
-            opacity: 1.0,
-            rotate: 180
-          },
+          opacity: 1.0,
+          rotate: 180,
+        },
 
-          {
-            opacity: 1.0,
-            rotate: 0
-          },
+        {
+          opacity: 1.0,
+          rotate: 0,
+        },
         ], 200, this.clearAnimation('.foldC', {
           opacity: true,
-          rotate: true
-        }), function () {
+          rotate: true,
+        }), () => {
 
-        }.bind(this))
+        });
       }
     }
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/wiki/getContent',
-      method:"POST",
-      header:{
-        'content-type':'application/x-www-form-urlencoded'
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
       },
       data: {
         cid: index + 1,
-         tsvc: app.getCode(),beta:beta,openid:app.globalData.openid
+        tsvc: app.getCode(),
+        beta,
+        openid: app.globalData.openid,
       },
       success: (res) => {
         this.setData({
           index: e.currentTarget.dataset.index,
           content: res.data,
-          
-        })
-      }
-    })
-   
-  }
-})
+
+        });
+      },
+    });
+  },
+});

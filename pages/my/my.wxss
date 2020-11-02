@@ -1,106 +1,103 @@
 /* pages/my/my.wxss */
-page{
+page {
   background-color: #e0e0e0;
 }
-.userAvatar{
-  width:150rpx;
-  height:150rpx;
+
+.userAvatar {
+  width: 150rpx;
+  height: 150rpx;
   border-radius: 50%;
   overflow: hidden;
-  margin:auto;
-  position:relative;
-  
-
+  margin: auto;
+  position: relative;
 }
 
-.logButton{
-  margin:auto;
-  top:0;
-  left:0;
-  bottom:0;
-  right:0;
-  width:240rpx;
-  height:80rpx;
+.logButton {
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 240rpx;
+  height: 80rpx;
   line-height: 80rpx;
   background-color: #EDA2A2;
   border-radius: 20rpx;
-  color:#ffffff
-
-}
-.wordHover{
-  color:#ffe5b5;
+  color: #ffffff
 }
 
-.userInfo{
-  
-  width:700rpx;
-  height:29vh;
-  margin:auto;
+.wordHover {
+  color: #ffe5b5;
+}
+
+.userInfo {
+  width: 700rpx;
+  height: 29vh;
+  margin: auto;
   border-radius: 18rpx;
   box-shadow: darkgrey 2px 2px 5px 2px;
   background-color: white;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  padding:2vh 0;
+  padding: 2vh 0;
 }
 
-.userNickName{
-  margin:auto;
-  position:relative;
- 
+.userNickName {
+  margin: auto;
+  position: relative;
   text-align: center;
 }
-.time{
-  margin:auto;
-  position:relative;
-  
+
+.time {
+  margin: auto;
+  position: relative;
   text-align: center;
-  
 }
-.otherInfo{
+
+.otherInfo {
   padding: 20rpx 0;
-  position:relative;
-  top:3vh;
+  position: relative;
+  top: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height:58vh;
-  width:700rpx;
-  margin:auto;
+  height: 58vh;
+  width: 700rpx;
+  margin: auto;
   border-radius: 18rpx;
   background-color: white;
   box-shadow: darkgrey 2px 2px 5px 2px;
 }
 
-.icon{
-  width:50rpx;
-  height:50rpx;
-  margin:0 50rpx;
+.icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 50rpx;
   vertical-align: top;
-  
 }
 
 
 
 
-.border{
-  
-  width:640rpx;
-  margin:10rpx auto;
-  height:2rpx;
-  background-image: linear-gradient(to right, white , #333333,#333333,white);
+.border {
+  width: 640rpx;
+  margin: 10rpx auto;
+  height: 2rpx;
+  background-image: linear-gradient(to right, white, #333333, #333333, white);
   transform: scaleY(0.5);
   opacity: 0.5;
 }
-.specialBorder{
-  width:620rpx;
- margin:0 auto;
-  height:6rpx;
+
+.specialBorder {
+  width: 620rpx;
+  margin: 0 auto;
+  height: 6rpx;
   background-color: #CCCCCC;
   display: inline-block;
   position: relative;
 }
+
 /* .specialBorderChild::after{
   content:"";
   width:12rpx;

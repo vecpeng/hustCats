@@ -1,46 +1,47 @@
 /**index.wxss**/
 
 /* tab Index*/
-.closeSearch{
+.closeSearch {
   width: 100vh;
-  height:140vw;
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:1;
-  float:left;
+  height: 140vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  float: left;
 }
-.container{
-  background-color:#333333;
+
+.container {
+  background-color: #333333;
   width: 100%;
-
-  margin:0;
-  padding:0rpx;
+  margin: 0;
+  padding: 0rpx;
 }
 
 
-Page{
-  background-color:#333333;
+Page {
+  background-color: #333333;
   width: 100%;
   height: 100%;
 }
 
 .body {
   margin-top: 10rpx;
-  color:#333333
-
+  color: #333333
 }
 
-.catsInfo{
+.catsInfo {
   margin: 40rpx 0;
   box-shadow: 5px 5px 20px black;
 }
-.catInfo{
+
+.catInfo {
   width: 80vw;
   margin: .5rem auto .5rem auto;
- 
+
 }
-.cat{
+
+.cat {
   width: 620rpx;
   margin: 0 auto 0 auto;
   border-radius: 3%;
@@ -49,147 +50,160 @@ Page{
   padding-bottom: 1px;
 }
 
-.catImg{
+.catImg {
   border-top-left-radius: 3%;
   border-top-right-radius: 3%;
- 
+
   width: 620rpx;
   height: 400rpx;
 }
-.catImgUploader{
+
+.catImgUploader {
   width: 100%;
   display: inline-block;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  background: rgba(0 , 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   color: rgba(255, 255, 255, 0.8);
   position: relative;
   top: -28px;
 }
-.name{
+
+.name {
   flex: 2.8;
   letter-spacing: .2rem;
 }
 
-.info{
+.info {
   font-size: 0.5rem;
 }
 
-.dead1{
+.dead1 {
   filter: grayscale(1);
 }
 
-.model{
+.model {
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 500;
   height: 100vh;
   width: 100vw;
   position: absolute;
 }
-.filter{
+
+.filter {
   background-color: #f9f5ef;
 }
-.filterNav{
-      text-align: center;
+
+.filterNav {
+  text-align: center;
 }
-.navOption{
+
+.navOption {
   display: inline-block;
-  margin:40rpx 60rpx;
-  padding:6rpx 20rpx;
+  margin: 40rpx 60rpx;
+  padding: 6rpx 20rpx;
   border-radius: 20rpx;
   background-color: #333333;
 }
-.chosen{
+
+.chosen {
   background-color: #f9ead2;
-  color:black;
+  color: black;
 }
 
-.filterList{
+.filterList {
   width: 75vw;
   display: inline-block;
   height: 25vh;
 }
 
-.speciesLine::before{
-  position:absolute;
-  left:220rpx;
-  width:1rpx;
-  top:16rpx;
-  opacity:0.5;
-  height:176rpx;
- content:'';
+.speciesLine::before {
+  position: absolute;
+  left: 220rpx;
+  width: 1rpx;
+  top: 16rpx;
+  opacity: 0.5;
+  height: 176rpx;
+  content: '';
   background-color: white;
 }
-.locationLine::before{
-  position:absolute;
-  left:220rpx;
-  width:1rpx;
-  top:15rpx;
-  opacity:0.5;
-  height:85rpx;
- content:'';
+
+.locationLine::before {
+  position: absolute;
+  left: 220rpx;
+  width: 1rpx;
+  top: 15rpx;
+  opacity: 0.5;
+  height: 85rpx;
+  content: '';
   background-color: white;
 }
-.filterOption{  
+
+.filterOption {
   display: inline-block;
-  width:48%;
-  margin:0;
-  padding:0;
+  width: 48%;
+  margin: 0;
+  padding: 0;
   text-align: center;
   border-radius: 1000000px;
   font-size: 32rpx;
   border: 2px solid transparent;
 }
-.filterChosen{
-  color:#333333;
+
+.filterChosen {
+  color: #333333;
   font-weight: bold;
 }
-.btns{
+
+.btns {
   text-align: center;
-  margin:50rpx 0;
-  margin-bottom:66rpx;
+  margin: 50rpx 0;
+  margin-bottom: 66rpx;
 }
-.btnReset{
-  display: inline-block;
-  width:100rpx;
-  text-align: center;
-  border: 1px solid gray;
-  margin-right:42rpx;
-  padding:10rpx 16rpx;
-  border-radius: 50rpx;
-  background-color: #ffe5b5;
-  color:black;
-}
-.btnDone{
+
+.btnReset {
   display: inline-block;
   width: 100rpx;
   text-align: center;
   border: 1px solid gray;
-  margin-left:45rpx;
-  padding:10rpx 16rpx;
+  margin-right: 42rpx;
+  padding: 10rpx 16rpx;
   border-radius: 50rpx;
   background-color: #ffe5b5;
-  color:black;
+  color: black;
+}
+
+.btnDone {
+  display: inline-block;
+  width: 100rpx;
+  text-align: center;
+  border: 1px solid gray;
+  margin-left: 45rpx;
+  padding: 10rpx 16rpx;
+  border-radius: 50rpx;
+  background-color: #ffe5b5;
+  color: black;
 }
 
 
-.tabItem{
+.tabItem {
   width: 33%;
   display: inline-block;
 }
 
-.info{
+.info {
   font-size: 0.5rem;
-  display:inline-block;
- 
+  display: inline-block;
+
 
 }
 
-.infoRow{
-  display:inline-block;
-  margin:12rpx;
+.infoRow {
+  display: inline-block;
+  margin: 12rpx;
 }
+
 /* .topbar{
   width:100%;
   margin:0;
@@ -199,24 +213,25 @@ Page{
   z-index: 1000;
 } */
 /* search */
-.searchLabel{
+.searchLabel {
   line-height: 50rpx;
   margin: 15rpx 30rpx 0 20rpx;
   height: 40rpx;
   width: 40rpx;
 }
 
-.searchInput{
+.searchInput {
   height: 54rpx;
   min-height: 50rpx;
   background-color: white;
-  width:360rpx;
-  margin:auto;
-  color:black;
+  width: 360rpx;
+  margin: auto;
+  color: black;
   border-radius: 10rpx;
-  padding-left:10px;
+  padding-left: 10px;
 }
-.searchPlaceholder{
+
+.searchPlaceholder {
   font-size: 10px;
 }
 
@@ -225,125 +240,128 @@ Page{
   padding-right:16rpx;
   border-right:1rpx solid #cdcdcd;
 } */
-.border{
-  margin-bottom:-4rpx;
-  margin-top:0rpx;
+.border {
+  margin-bottom: -4rpx;
+  margin-top: 0rpx;
   display: inline-block;
-  width:1rpx;
-  height:26rpx;
+  width: 1rpx;
+  height: 26rpx;
   background-color: #cdcdcd;
 }
 
-.icon{
-  position:relative;
-  top:6rpx;
-}
-.name{
-  font-weight:bold;
- 
+.icon {
+  position: relative;
+  top: 6rpx;
 }
 
-.like{
- position:relative;
- top:10rpx;
- float:right;
+.name {
+  font-weight: bold;
 }
-.likeNum{
-  display:inline-block;
-  color:#cdcdcd;
+
+.like {
+  position: relative;
+  top: 10rpx;
+  float: right;
+}
+
+.likeNum {
+  display: inline-block;
+  color: #cdcdcd;
 }
 
 
-.searchOrAdd{
-  position:fixed;
-  right:0rpx;
-  top:10rpx;
-  margin:0;
-  padding:0;
-  height:70rpx;
-  width:150rpx;
-  border-radius:80rpx 0 0 80rpx;
+.searchOrAdd {
+  position: fixed;
+  right: 0rpx;
+  top: 10rpx;
+  margin: 0;
+  padding: 0;
+  height: 70rpx;
+  width: 150rpx;
+  border-radius: 80rpx 0 0 80rpx;
   background-color: #877a66;
-  z-index:2;
+  z-index: 2;
   opacity: 0.6;
 }
 
 
-.line{
-  margin-left:16rpx;
-  margin-top:10rpx;
-  width:3rpx;
-  height:50rpx;
-  display:inline-block;
+.line {
+  margin-left: 16rpx;
+  margin-top: 10rpx;
+  width: 3rpx;
+  height: 50rpx;
+  display: inline-block;
   background-color: white;
 }
-.searchBox{
-    width:480rpx;
-    border-radius: 5%;
-    box-shadow: 0 0 20px #666666;
-    background-color:#666666;
-    position:fixed;
-    padding-bottom:100rpx;
-    padding:0;
-    right:8vw;
-    top:10px;
-    color:rgb(242, 233, 233);
-    font-size:32rpx;
-    z-index:1;
-    opacity:0.8
-}
-.searchCatsWords{
-   color:#fcf3e6;
-   font-size:36rpx;
-   margin:30rpx 60rpx;
+
+.searchBox {
+  width: 480rpx;
+  border-radius: 5%;
+  box-shadow: 0 0 20px #666666;
+  background-color: #666666;
+  position: fixed;
+  padding-bottom: 100rpx;
+  padding: 0;
+  right: 8vw;
+  top: 10px;
+  color: rgb(242, 233, 233);
+  font-size: 32rpx;
+  z-index: 1;
+  opacity: 0.8
 }
 
-.sortWayWords{
-  color:#fcf3e6;
-  font-size:36rpx;
-  margin:30rpx 0;
-  margin-right:216rpx;
-  padding-top:20rpx;
-
-}
-.catsFilterWords{
-  color:#fcf3e6;
-  font-size:36rpx;
-  margin-left:60rpx;
-  margin-top:30rpx;
+.searchCatsWords {
+  color: #fcf3e6;
+  font-size: 36rpx;
+  margin: 30rpx 60rpx;
 }
 
-.sortWay{
-  text-align:center;
+.sortWayWords {
+  color: #fcf3e6;
+  font-size: 36rpx;
+  margin: 30rpx 0;
+  margin-right: 216rpx;
+  padding-top: 20rpx;
+
 }
 
-.mostLike{
-  margin-right:34rpx;
-}
-.newestSubmit{
-  margin-left:34rpx;
-}
-.inlineBlock{
-  display:inline-block;
-}
-.lineInSearch{
-  width:1rpx;
-  height:30rpx;
-  background-color:#f9ead2;
-  margin-bottom:-6rpx;
+.catsFilterWords {
+  color: #fcf3e6;
+  font-size: 36rpx;
+  margin-left: 60rpx;
+  margin-top: 30rpx;
 }
 
-.getUserInfoButton{
-  position:fixed;
-  right:0rpx;
-  top:10rpx;
-  width:50rpx;
-  height:50rpx;
-  margin-left:16rpx;margin-top:14rpx;
+.sortWay {
+  text-align: center;
+}
+
+.mostLike {
+  margin-right: 34rpx;
+}
+
+.newestSubmit {
+  margin-left: 34rpx;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.lineInSearch {
+  width: 1rpx;
+  height: 30rpx;
+  background-color: #f9ead2;
+  margin-bottom: -6rpx;
+}
+
+.getUserInfoButton {
+  position: fixed;
+  right: 0rpx;
+  top: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 16rpx;
+  margin-top: 14rpx;
   opacity: 0;
 }
-/*tab Guide*/
-
-
-
-/*tab About*/

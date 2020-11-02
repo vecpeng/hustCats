@@ -1,87 +1,95 @@
 <view style="background-color:#e0e0e0;margin-bottom:50rpx">
 	<view style="width: 91vw; margin: 0 0 0 5.5vw;">
 		<view style="color:#4d4d4d; font-size: 1rem;margin: 60rpx 0 20rpx 1.0rem">开发者团队</view>
-		<image src="https://static.ufatfat.com/wxapi/cat/src/img/ufatfat.png" style="width: 100%; margin-bottom: 10rpx;box-shadow: 5px 5px 20px #999999;" mode="widthFix"></image>
-		<image src="https://static.ufatfat.com/wxapi/cat/src/img/tuzouzi.png" style="width: 100%; margin-bottom: 10rpx;box-shadow: 5px 5px 20px #999999;" mode="widthFix"></image>
-		<image src="https://static.ufatfat.com/wxapi/cat/src/img/yueyueniao.png" style="width: 100%; margin-bottom: 10rpx;box-shadow: 5px 5px 20px #999999;" mode="widthFix"></image>
+		<image
+		 src="https://static.ufatfat.com/wxapi/cat/src/img/ufatfat.png"
+		 style="width: 100%; margin-bottom: 10rpx;box-shadow: 5px 5px 20px #999999;"
+		 mode="widthFix"
+		/>
+		<image
+		 src="https://static.ufatfat.com/wxapi/cat/src/img/tuzouzi.png"
+		 style="width: 100%; margin-bottom: 10rpx;box-shadow: 5px 5px 20px #999999;"
+		 mode="widthFix"
+		/>
+		<image
+		 src="https://static.ufatfat.com/wxapi/cat/src/img/yueyueniao.png"
+		 style="width: 100%; margin-bottom: 10rpx;box-shadow: 5px 5px 20px #999999;"
+		 mode="widthFix"
+		/>
 	</view>
 	<view style="width: 90vw; margin: 0 5vw 0 5vw;">
 		<view style="color:#4d4d4d;  font-size: 1rem;margin: 60rpx 0 20rpx 1.0rem">更新记录</view>
 		<view style="border-radius: 20rpx; box-shadow: 5px 5px 20px #999999; padding: 50rpx; background-color: white;">
 
-		<view style="color: #808080; margin-bottom: 20rpx;">2020-06-15 V1.1.4</view>
+			<view style="color: #808080; margin-bottom: 20rpx;">2020-06-15 V1.1.4</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">评论功能大改版，显示用户头像及评论发布时间，新增回复功能</view>
-			
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
 
-				<view style="color: #808080; margin-bottom: 20rpx;">2020-06-13 V1.1.4</view>
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
+
+			<view style="color: #808080; margin-bottom: 20rpx;">2020-06-13 V1.1.4</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">1.新增查看我赞过的猫和我添加的猫</view>
-				<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">2.新增我的页，原关于页并入我的页</view>
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
+			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">2.新增我的页，原关于页并入我的页</view>
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 
-		<view style="color: #808080; margin-bottom: 20rpx;">2020-06-03 V1.1.4</view>
+			<view style="color: #808080; margin-bottom: 20rpx;">2020-06-03 V1.1.4</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">1.修复搜索界面显示错误的bug</view>
-				<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">2.地图页新增华中科技大学边界线</view>
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
+			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">2.地图页新增华中科技大学边界线</view>
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-05-30 V1.1.3</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">开启接口认证，防止小程序接口被滥用</view>
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
-
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-05-27 V1.1.2</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">同名qq小程序已上线(具备微信小程序大部分功能，但部分功能尚未完善，推荐优先使用微信小程序)</view>
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-05-26 V1.1.1</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">新增详情页可查看对应猫猫地图功能</view>
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
-
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-05-24 V1.1.10</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">更改了标签字体颜色</view>
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
-
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-05-21 V1.1.9</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">修复了生日显示塌陷的bug</view>
-			
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
 
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-05-20 V1.1.7</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">1.新增评论功能</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">2.新增猫猫标签（绝育/领养信息）</view>
 
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-05-17 V1.1.6</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">1.新增猫猫地图功能</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">2.猫猫百科并入奇怪的功能盒子</view>
 
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-05-12 V1.1.5</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">1.修复了一些奇怪的bug</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">2.优化奇怪的功能页样式</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">3.调整首页猫猫顺序（按上传时间倒序排列）</view>
 
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-04-29 V1.1.3</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">1.新增猫猫百科功能</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">2.新增随机猫图功能</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">3.新增添加猫猫后查看猫猫功能</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">4.新增首页下拉刷新功能</view>
-			<view style="width: 100%; height: 1px; opacity:0.5;background-color: #999999; margin-bottom: 20rpx;"></view>
+			<view style="width: 100%; height: 1px; opacity:0.5;background-color: #999999; margin-bottom: 20rpx;" />
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-04-24 V1.1.2</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">“华科猫猫”改名“HustCat”</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">1.UI大改</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">2.新增小程序端添加猫猫功能</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">3.新增小程序端上传图片功能</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">4.新增"关于”标签页</view>
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-04-20 V1.1.0</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">1.新增首页按过滤器显示猫猫</view>
-			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;"></view>
+			<view style="width: 100%; height: 1px;opacity:0.5; background-color: #999999; margin-bottom: 20rpx;" />
 			<view style="color: #808080; margin-bottom: 20rpx;">2020-04-19 V1.0.0</view>
 			<view style="margin-left: 1rem; margin-bottom: 20rpx;font-size: 0.9rem;color: #444444;">华科猫猫小程序正式上线啦！</view>
 		</view>
@@ -93,3 +101,5 @@
 		</view>
 	</view> -->
 </view>
+
+

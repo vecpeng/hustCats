@@ -1,67 +1,126 @@
 <!--index.wxml-->
-	<view class="closeSearch" bindtap="closeSearch" style="display:{{displaySearchBox}};opacity:1"></view>
+<view
+ class="closeSearch"
+ bindtap="closeSearch"
+ style="display:{{displaySearchBox}};opacity:1"
+/>
 <block wx:if="{{tab == 'index'}}">
 	<view class="container">
-	
-			<view class="searchOrAdd">
-				<image bindtap="toggleSearch" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:3rpx;" class="searchButton" src="/img/search.png"></image>
-				<view class="line"></view>
-			<image bindtap="jumpToAdd" style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:4rpx;" class="add" src="/img/addCats.png"><button  class="getUserInfoButton" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button></image> 
-			</view>
-			
-			<view class="searchBox" style="display:{{displaySearchBox}};opacity:1">
-				<view class="searchCatsWords">搜索猫猫</view>
-				<form>
-					<input value="{{searchInput}}" bindinput="searchSubmit" class="searchInput" name="searchName" type="text" placeholder-class="searchPlaceholder" placeholder="输入猫咪名字可搜索喵~o( =∩ω∩= )m" ></input>
+		<view class="searchOrAdd">
+			<image
+			 bindtap="toggleSearch"
+			 style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:3rpx;"
+			 class="searchButton"
+			 src="/img/search.png"
+			/>
+			<view class="line" />
+			<image
+			 bindtap="jumpToAdd"
+			 style="width:40rpx; height:40rpx;margin-left:20rpx;margin-bottom:4rpx;"
+			 class="add"
+			 src="/img/addCats.png"
+			>
+				<button
+				 class="getUserInfoButton"
+				 open-type="getUserInfo"
+				 bindgetuserinfo="bindGetUserInfo"
+				/>
+			</image>
+		</view>
+
+		<view
+		 class="searchBox"
+		 style="display:{{displaySearchBox}};opacity:1"
+		>
+			<view class="searchCatsWords">搜索猫猫</view>
+			<form>
+				<input value="{{searchInput}}" bindinput="searchSubmit" class="searchInput" name="searchName" type="text" placeholder-class="searchPlaceholder" placeholder="输入猫咪名字可搜索喵~o( =∩ω∩= )m" />
+
 				</form>
-				<!-- <view class="sortWay">
+			<!-- <view class="sortWay">
 					<view class="sortWayWords">排序方式(暂未开放）</view>
 					<view class="mostLike  inlineBlock">最多赞数</view>
 					<view class="lineInSearch inlineBlock"></view>
 					<view class="newestSubmit  inlineBlock">最新上传</view>
 				</view> -->
 
-				<view class="catsFilter">
-					<view class="catsFilterWords">猫猫筛选</view>
-					<scroll-view class="filterNav">
-						<text class="navOption {{locationChosen}}" bindtap="locationChosen">地点</text>
-						<text class="navOption {{speciesChosen}}" bindtap="speciesChosen">毛色</text>
-					</scroll-view>
-					<view style="display: {{locationDisplay}};margin-left:20rpx;margin-right:10rpx;position:relative" class="locationLine">
-						<block wx:for="{{locationFilters}}">
-							<text  class="filterOption {{locationFiltersChosen[index]}}" bindtap="toggleLocationFilter" data-id="{{index}}">{{item.locationName}}</text>
-						</block>
+			<view class="catsFilter">
+				<view class="catsFilterWords">猫猫筛选</view>
+				<scroll-view class="filterNav">
+					<text class="navOption {{locationChosen}}" bindtap="locationChosen">地点</text>
+					<text class="navOption {{speciesChosen}}" bindtap="speciesChosen">毛色</text>
+				</scroll-view>
+				<view
+				 style="display: {{locationDisplay}};margin-left:20rpx;margin-right:10rpx;position:relative"
+				 class="locationLine"
+				>
+					<block wx:for="{{locationFilters}}">
+						<text  class="filterOption {{locationFiltersChosen[index]}}" bindtap="toggleLocationFilter" data-id="{{index}}">{{item.locationName}}</text>
+					</block>
+				</view>
+				<view
+				 style="display: {{speciesDisplay}};margin-left:20rpx;margin-right:10rpx;position:relative"
+				 class="speciesLine"
+				>
+
+					<block wx:for="{{speciesFilters}}">
+						<text class="filterOption {{speciesFiltersChosen[index]}}" bindtap="toggleSpeciesFilter" data-id="{{index}}">{{item.speciesName}}</text>
+					</block>
+				</view>
+				<view class="btns">
+					<view
+					 class="btnReset"
+					 bindtap="btnReset"
+					>重置
 					</view>
-					<view style="display: {{speciesDisplay}};margin-left:20rpx;margin-right:10rpx;position:relative"  class="speciesLine">
-					
-						<block wx:for="{{speciesFilters}}">
-							<text class="filterOption {{speciesFiltersChosen[index]}}" bindtap="toggleSpeciesFilter" data-id="{{index}}">{{item.speciesName}}</text>
-						</block>
-					</view>
-					<view class="btns">
-						<view class="btnReset" bindtap="btnReset">重置</view>
-						<view class="btnDone" bindtap="btnDone">搜索</view>
+					<view
+					 class="btnDone"
+					 bindtap="btnDone"
+					>搜索
 					</view>
 				</view>
-
-
-		
-
-
+			</view>
 
 		</view>
 		<view class="body">
-			<view wx:for="{{catsInfo}}" wx:for-index="i" class="catsInfo" wx:key="*this">
-				<view class="cat" data-index="{{i}}" data-id="{{item.id}}" bindtap="jumpto">
-					<image class="catImg dead{{item.dead}}" src="{{item.indexImg}}" lazy-load="true" mode="aspectFill"></image>
+			<view
+			 wx:for="{{catsInfo}}"
+			 wx:for-index="i"
+			 class="catsInfo"
+			 wx:key="*this"
+			>
+				<view
+				 class="cat"
+				 data-index="{{i}}"
+				 data-id="{{item.id}}"
+				 bindtap="jumpto"
+				>
+					<image
+					 class="catImg dead{{item.dead}}"
+					 src="{{item.indexImg}}"
+					 lazy-load="true"
+					 mode="aspectFill"
+					/>
 					<!--<text class="catImgUploader">uploaded by: ufatfat</text>-->
 					<view class="catInfo">
 						<view class="infoRow">
 							<view class="name">
 								<text>{{item.name}}</text>
-								<image wx:if="{{item.sex == 0}}" class="icon" src="/img/female-icon.png"></image>
-								<image wx:elif="{{item.sex == 1}}" class="icon" src="/img/male-icon.png"></image>
-								<image wx:else class="icon" src="/img/unknown.png"></image>
+								<image
+								 wx:if="{{item.sex == 0}}"
+								 class="icon"
+								 src="/img/female-icon.png"
+								/>
+								<image
+								 wx:elif="{{item.sex == 1}}"
+								 class="icon"
+								 src="/img/male-icon.png"
+								/>
+								<image
+								 wx:else
+								 class="icon"
+								 src="/img/unknown.png"
+								/>
 								<text wx:if="{{item.dead == 1}}" class="deadLabel">返回喵星</text>
 							</view>
 							<!--<view class="fish">
@@ -77,7 +136,7 @@
 							<!-- <image class="icon infoIcon" src="/img/cat.png"></image> -->
 							<text class="info" style="position:relative;bottom:3rpx">{{item.species}}</text>
 						</view>
-						<view class="border"></view>
+						<view class="border" />
 
 						<!-- <view class="infoRow">
             <image class="icon infoIcon" src="/img/heart.png"></image>
@@ -88,9 +147,17 @@
 							<text class="info" style="position:relative;bottom:3rpx">{{item.location==''||item.location==null?"未知":item.location}}</text>
 						</view>
 						<view class="like">
-							<image class="icon" wx:if="{{item.thumbup==1}}" src="/img/areadyLike.png"></image>
-					<image class="icon" wx:else src="/img/like.png"></image>
-						
+							<image
+							 class="icon"
+							 wx:if="{{item.thumbup==1}}"
+							 src="/img/areadyLike.png"
+							/>
+							<image
+							 class="icon"
+							 wx:else
+							 src="/img/like.png"
+							/>
+
 							<view class="likeNum icon">{{item.thumbupnum}}</view>
 						</view>
 					</view>
@@ -98,13 +165,14 @@
 			</view>
 		</view>
 
-<view style="display:{{bottomDisplay}};width:70%;height:250rpx;background-color:white;border:2rpx solid white; border-radius:10rpx;  box-shadow: 5px 5px 20px black;margin-bottom:30rpx;font-size:0.8rem;padding:40rpx 50rpx;color:#666666;text-align:center;">
-		<view style="line-height:60rpx;">没有找到想要的猫猫？</view>
-		<view style="line-height:60rpx;">点击右上角加号</view>
-				<view style="line-height:60rpx;">试试自己添加猫猫吧┏ (゜ω゜)=☞</view>
-	</view>
+		<view style="display:{{bottomDisplay}};width:70%;height:250rpx;background-color:white;border:2rpx solid white; border-radius:10rpx;  box-shadow: 5px 5px 20px black;margin-bottom:30rpx;font-size:0.8rem;padding:40rpx 50rpx;color:#666666;text-align:center;">
+			<view style="line-height:60rpx;">没有找到想要的猫猫？</view>
+			<view style="line-height:60rpx;">点击右上角加号</view>
+			<view style="line-height:60rpx;">试试自己添加猫猫吧┏ (゜ω゜)=☞</view>
+		</view>
 
 	</view>
 
-	
 </block>
+
+

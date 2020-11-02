@@ -1,22 +1,46 @@
 <!--pages/feature/feature.wxml-->
 <view class="header">
-	<view class="random" bindtap="randomTap" hover-class="random-hover">
-		<view class="randomIcon" hover-class="randomHover"></view>
-
+	<view
+	 class="random"
+	 bindtap="randomTap"
+	 hover-class="random-hover"
+	>
+		<view
+		 class="randomIcon"
+		 hover-class="randomHover"
+		/>
 	</view>
 
-	<view class="identify" bindtap="identifyTap" hover-class="identify-hover">
-		<view class="identifyIcon" hover-class="identifyHover"></view>
-
+	<view
+	 class="identify"
+	 bindtap="identifyTap"
+	 hover-class="identify-hover"
+	>
+		<view
+		 class="identifyIcon"
+		 hover-class="identifyHover"
+		/>
 	</view>
 
-	<view class="map" bindtap="mapTap" hover-class="map-hover">
-		<view class="mapIcon" hover-class="mapHover"></view>
-
+	<view
+	 class="map"
+	 bindtap="mapTap"
+	 hover-class="map-hover"
+	>
+		<view
+		 class="mapIcon"
+		 hover-class="mapHover"
+		/>
 	</view>
 
-	<view class="knowledge" bindtap="knowledgeTap" hover-class="knowledge-hover">
-		<view class="knowledgeIcon" hover-class="knowledgeHover"></view>
-
+	<view
+	 class="knowledge"
+	 bindtap="knowledgeTap"
+	 hover-class="knowledge-hover"
+	>
+		<view
+		 class="knowledgeIcon"
+		 hover-class="knowledgeHover"
+		/>
 	</view>
 </view>

@@ -1,17 +1,44 @@
 <!--pages/random/random.wxml-->
 
 <view class="container">
-  <view class="catImgContainer">
-  <image src="{{ImgSrc}}" class="centerImg" style="opacity:{{opacity}}" bindtap="navigateToCat" mode="aspectFill" bindload="bindload"></image>
-  </view>
-<view class="circleContainer">
-<image wx:if="{{hide==0}}" class="hideImg" src="/img/hide.png"></image>
-<image wx:else class="noHideImg" src="/img/noHide.png"></image>
-<view class="circle">
-<view hover-class="hoverImg">
-<image class="saveImg" src="/img/saveImg.png" bindtap="saveImg" ></image></view>
-<view hover-class="hoverImg">
-<image class="changeCatImg" src="/img/changeCatImg.png" bindtap="changeCatImg" ></image></view>
+	<view class="catImgContainer">
+		<image
+		 src="{{ImgSrc}}"
+		 class="centerImg"
+		 style="opacity:{{opacity}}"
+		 bindtap="navigateToCat"
+		 mode="aspectFill"
+		 bindload="bindload"
+		/>
+	</view>
+	<view class="circleContainer">
+		<image
+		 wx:if="{{hide==0}}"
+		 class="hideImg"
+		 src="/img/hide.png"
+		/>
+		<image
+		 wx:else
+		 class="noHideImg"
+		 src="/img/noHide.png"
+		/>
+		<view class="circle">
+			<view hover-class="hoverImg">
+				<image
+				 class="saveImg"
+				 src="/img/saveImg.png"
+				 bindtap="saveImg"
+				/>
+			</view>
+			<view hover-class="hoverImg">
+				<image
+				 class="changeCatImg"
+				 src="/img/changeCatImg.png"
+				 bindtap="changeCatImg"
+				/>
+			</view>
+		</view>
+	</view>
 </view>
-</view>
-</view>
+
+

@@ -1,10 +1,6 @@
 {
-  
-    "usingComponents": {
-    
-    },
+    "usingComponents": {},
     "navigationBarTitleText": "添加猫猫",
     "navigationBarBackgroundColor": "#f9f5ef",
     "navigationBarTextStyle": "black"
-  
 }

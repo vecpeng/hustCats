@@ -6,7 +6,6 @@
 		<form bindreset="resetNewCatsInfo" bindsubmit="submitNewCatsInfo">
 			<view bindtap="chooseImg">
 				<image class="chooseImg"  src="{{uploadImgUrl}}" mode="aspectFit"  >
-
 				</image>
 				<image class="addIcon" src="/img/addIcon.png" style="display:{{addCatsImgsdisplay}}"></image>
 				<view class="addWords" style="display:{{addCatsImgsdisplay}}"> <text>上传猫猫首页图</text></view>

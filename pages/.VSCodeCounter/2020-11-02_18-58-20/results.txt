@@ -1,0 +1,102 @@
+Date : 2020-11-02 18:58:20
+Directory : /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages
+Total : 60 files,  5048 codes, 1080 comments, 871 blanks, all 6999 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         15 |      2,200 |        707 |        362 |      3,269 |
+| CSS        |         15 |      1,484 |        101 |        274 |      1,859 |
+| wxml       |         15 |      1,295 |        272 |        234 |      1,801 |
+| JSON       |         15 |         69 |          0 |          1 |         70 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                    | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                       |         60 |      5,048 |      1,080 |        871 |      6,999 |
+| about                                                                                   |          4 |        101 |         35 |         27 |        163 |
+| addCats                                                                                 |          4 |        467 |         86 |         74 |        627 |
+| catinfo                                                                                 |          4 |      1,405 |        277 |        178 |      1,860 |
+| feature                                                                                 |          4 |        219 |         31 |         41 |        291 |
+| feedback                                                                                |          4 |         68 |         30 |         25 |        123 |
+| identify                                                                                |          4 |        223 |         29 |         49 |        301 |
+| index                                                                                   |          4 |        722 |        179 |        126 |      1,027 |
+| knowledge                                                                               |          4 |        860 |        120 |        155 |      1,135 |
+| map                                                                                     |          4 |        103 |         43 |         11 |        157 |
+| my                                                                                      |          4 |        326 |         67 |         46 |        439 |
+| myadd                                                                                   |          4 |        103 |         32 |         23 |        158 |
+| mycomment                                                                               |          4 |         24 |         30 |         20 |         74 |
+| mylike                                                                                  |          4 |        111 |         33 |         25 |        169 |
+| random                                                                                  |          4 |        248 |         32 |         42 |        322 |
+| success                                                                                 |          4 |         68 |         56 |         29 |        153 |
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/about/about.js           | JavaScript |         11 |         28 |          9 |         48 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/about/about.json         | JSON       |          5 |          0 |          0 |          5 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/about/about.wxml         | wxml       |         82 |          6 |         18 |        106 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/about/about.wxss         | CSS        |          3 |          1 |          0 |          4 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/addCats/addCats.js       | JavaScript |        218 |         49 |         22 |        289 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/addCats/addCats.json     | JSON       |          6 |          0 |          0 |          6 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/addCats/addCats.wxml     | wxml       |         94 |         20 |         13 |        127 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/addCats/addCats.wxss     | CSS        |        149 |         17 |         39 |        205 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/catinfo/catinfo.js       | JavaScript |        679 |        199 |         45 |        923 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/catinfo/catinfo.json     | JSON       |          5 |          0 |          1 |          6 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/catinfo/catinfo.wxml     | wxml       |        195 |         52 |         32 |        279 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/catinfo/catinfo.wxss     | CSS        |        526 |         26 |        100 |        652 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/feature/feature.js       | JavaScript |         40 |         29 |         19 |         88 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/feature/feature.json     | JSON       |          4 |          0 |          0 |          4 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/feature/feature.wxml     | wxml       |         42 |          1 |          4 |         47 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/feature/feature.wxss     | CSS        |        133 |          1 |         18 |        152 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/feedback/feedback.js     | JavaScript |         35 |         28 |         20 |         83 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/feedback/feedback.json   | JSON       |          4 |          0 |          0 |          4 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/feedback/feedback.wxml   | wxml       |         11 |          1 |          3 |         15 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/feedback/feedback.wxss   | CSS        |         18 |          1 |          2 |         21 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/identify/identify.js     | JavaScript |         66 |         28 |         23 |        117 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/identify/identify.json   | JSON       |          4 |          0 |          0 |          4 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/identify/identify.wxml   | wxml       |         60 |          0 |         10 |         70 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/identify/identify.wxss   | CSS        |         93 |          1 |         16 |        110 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/index/index.js           | JavaScript |        277 |        142 |         55 |        474 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/index/index.json         | JSON       |          7 |          0 |          0 |          7 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/index/index.wxml         | wxml       |        144 |         22 |         13 |        179 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/index/index.wxss         | CSS        |        294 |         15 |         58 |        367 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/knowledge/knowledge.js   | JavaScript |        337 |          0 |         37 |        374 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/knowledge/knowledge.json | JSON       |          5 |          0 |          0 |          5 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/knowledge/knowledge.wxml | wxml       |        473 |        120 |        112 |        705 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/knowledge/knowledge.wxss | CSS        |         45 |          0 |          6 |         51 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/map/map.js               | JavaScript |         78 |          7 |          5 |         90 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/map/map.json             | JSON       |          6 |          0 |          0 |          6 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/map/map.wxml             | wxml       |          8 |         35 |          6 |         49 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/map/map.wxss             | CSS        |         11 |          1 |          0 |         12 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/my/my.js                 | JavaScript |        142 |         37 |         23 |        202 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/my/my.json               | JSON       |          4 |          0 |          0 |          4 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/my/my.wxml               | wxml       |         95 |          7 |          9 |        111 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/my/my.wxss               | CSS        |         85 |         23 |         14 |        122 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/myadd/myadd.js           | JavaScript |         62 |         30 |         17 |        109 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/myadd/myadd.json         | JSON       |          4 |          0 |          0 |          4 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/myadd/myadd.wxml         | wxml       |         15 |          1 |          3 |         19 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/myadd/myadd.wxss         | CSS        |         22 |          1 |          3 |         26 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/mycomment/mycomment.js   | JavaScript |         20 |         28 |         19 |         67 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/mycomment/mycomment.json | JSON       |          3 |          0 |          0 |          3 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/mycomment/mycomment.wxml | wxml       |          1 |          1 |          1 |          3 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/mycomment/mycomment.wxss | CSS        |          0 |          1 |          0 |          1 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/mylike/mylike.js         | JavaScript |         68 |         31 |         19 |        118 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/mylike/mylike.json       | JSON       |          4 |          0 |          0 |          4 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/mylike/mylike.wxml       | wxml       |         17 |          1 |          3 |         21 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/mylike/mylike.wxss       | CSS        |         22 |          1 |          3 |         26 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/random/random.js         | JavaScript |        141 |         30 |         28 |        199 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/random/random.json       | JSON       |          5 |          0 |          0 |          5 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/random/random.wxml       | wxml       |         40 |          1 |          4 |         45 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/random/random.wxss       | CSS        |         62 |          1 |         10 |         73 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/success/success.js       | JavaScript |         26 |         41 |         21 |         88 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/success/success.json     | JSON       |          3 |          0 |          0 |          3 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/success/success.wxml     | wxml       |         18 |          4 |          3 |         25 |
+| /Users/vecpeng/Documents/code/frontend/hustcats/hustCats/pages/success/success.wxss     | CSS        |         21 |         11 |          5 |         37 |
+| Total                                                                                   |            |      5,048 |      1,080 |        871 |      6,999 |
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

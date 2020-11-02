@@ -1,171 +1,152 @@
 /* pages/feature/feature.wxss */
-page{
+page {
   background-color: #333333;
 }
 
-.random{
-  float:left;
-  margin-top:20vh;
-  margin-left:12vw;
-  height:28vh;
-  width:34vw;
+.random {
+  float: left;
+  margin-top: 20vh;
+  margin-left: 12vw;
+  height: 28vh;
+  width: 34vw;
   background-color: #4d4d4d;
-  border-radius:3%;
-  box-shadow: 5px 5px 15px #111111 ;
-
+  border-radius: 3%;
+  box-shadow: 5px 5px 15px #111111;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.randomIcon{
-  width:34vw;
-  height:28vh;
+.randomIcon {
+  width: 34vw;
+  height: 28vh;
   background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/randCatPhoto_selected.png");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
- 
+
 }
 
-.random-hover{
+.random-hover {
   background-color: #f9f5ef;
 }
-.randomHover{
 
+.randomHover {
   background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/randCatPhoto.png");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
-  border-radius:3%;
-  box-shadow: 5px 5px 15px #111111 ;
-
- 
+  border-radius: 3%;
+  box-shadow: 5px 5px 15px #111111;
 }
 
-.identify{
-  float:right;
-  margin-top:20vh;
-  margin-right:12vw;
-  height:28vh;
-  width:34vw;
+.identify {
+  float: right;
+  margin-top: 20vh;
+  margin-right: 12vw;
+  height: 28vh;
+  width: 34vw;
   background-color: #4d4d4d;
-  border-radius:3%;
-  box-shadow: 5px 5px 15px #111111 ;
-
+  border-radius: 3%;
+  box-shadow: 5px 5px 15px #111111;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.identify-hover{
+.identify-hover {
   background-color: #f9f5ef;
- 
 }
-.identifyIcon{
-  width:34vw;
-  height:28vh;
 
-  background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/catIdentify.png") ;
+.identifyIcon {
+  width: 34vw;
+  height: 28vh;
+  background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/catIdentify.png");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
 }
 
-.identifyHover{
+.identifyHover {
   background-color: #f9f5ef;
   background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/catIdentify_selected.png");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
-  border-radius:3%;
-  box-shadow: 5px 5px 15px #111111 ;
-
-  
+  border-radius: 3%;
+  box-shadow: 5px 5px 15px #111111;
 }
 
 
-.map{
-  float:left;
-  margin-top:6vh;
-  margin-left:12vw;
-  height:28vh;
-  width:34vw;
+.map {
+  float: left;
+  margin-top: 6vh;
+  margin-left: 12vw;
+  height: 28vh;
+  width: 34vw;
   background-color: #4d4d4d;
-  border-radius:3%;
-  box-shadow: 5px 5px 15px #111111 ;
-
+  border-radius: 3%;
+  box-shadow: 5px 5px 15px #111111;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.mapIcon{
-  width:34vw;
-  height:28vh;
+.mapIcon {
+  width: 34vw;
+  height: 28vh;
   background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/catMap.png");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
- 
 }
 
-.map-hover{
+.map-hover {
   background-color: #f9f5ef;
 }
-.mapHover{
 
+.mapHover {
   background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/catMap_selected.png");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
-  border-radius:3%;
-  box-shadow: 5px 5px 15px #111111 ;
-
- 
+  border-radius: 3%;
+  box-shadow: 5px 5px 15px #111111;
 }
 
-
-
-
-
-.knowledge{
-  float:right;
-  margin-top:6vh;
-  margin-right:12vw;
-  height:28vh;
-  width:34vw;
+.knowledge {
+  float: right;
+  margin-top: 6vh;
+  margin-right: 12vw;
+  height: 28vh;
+  width: 34vw;
   background-color: #4d4d4d;
-  border-radius:3%;
-  box-shadow: 5px 5px 15px #111111 ;
-
+  border-radius: 3%;
+  box-shadow: 5px 5px 15px #111111;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.knowledge-hover{
+.knowledge-hover {
   background-color: #f9f5ef;
- 
 }
-.knowledgeIcon{
-  width:34vw;
-  height:28vh;
 
-  background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/catWiki.png") ;
+.knowledgeIcon {
+  width: 34vw;
+  height: 28vh;
+  background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/catWiki.png");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
 }
 
-.knowledgeHover{
+.knowledgeHover {
   background-color: #f9f5ef;
   background-image: url("https://static.ufatfat.com/wxapi/cat/src/img/catWiki_selected.png");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
-  border-radius:3%;
-  box-shadow: 5px 5px 15px #111111 ;
-
-  
+  border-radius: 3%;
+  box-shadow: 5px 5px 15px #111111;
 }

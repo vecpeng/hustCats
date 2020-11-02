@@ -1,109 +1,108 @@
 // pages/myadd/myadd.js
-const app = getApp()
-let page = 0
+const app = getApp();
+let page = 0;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      cats:''
+    cats: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    page = 1
-    let that = this
+  onLoad(options) {
+    page = 1;
+    const that = this;
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/user/myAddedCats',
-      method: "POST",
+      method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'Cache-Control': 'max-age=60', //60秒
+        'Cache-Control': 'max-age=60', // 60秒
       },
       data: {
-        page: page,
-        openid: app.globalData.openid
+        page,
+        openid: app.globalData.openid,
       },
-     
-      success: function (res) {
+
+      success(res) {
         // console.log(res.data)
         that.setData({
-          cats:res.data
-        })
-      }
-    })
+          cats: res.data,
+        });
+      },
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    page++
-    let that=this
+  onReachBottom() {
+    page++;
+    const that = this;
     wx.request({
       url: 'https://wxapi.ufatfat.com/hustcats/user/myAddedCats',
-      method: "POST",
+      method: 'POST',
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
       },
       data: {
-        page: page,
-        openid: app.globalData.openid
+        page,
+        openid: app.globalData.openid,
       },
-      success: function (res) {
+      success(res) {
         // console.log(res.data)
-        if(res.data)
-        {
+        if (res.data) {
           that.setData({
-            cats:that.data.cats.concat(res.data)
-          })
+            cats: that.data.cats.concat(res.data),
+          });
         }
-      }
-    })
+      },
+    });
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage() {
 
-  }
-})
+  },
+});

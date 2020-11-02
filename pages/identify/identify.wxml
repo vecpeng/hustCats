@@ -1,21 +1,44 @@
-<view class="imgContainer" bindtap="uploadImg">
-	<image class="uploadCatImg" src="{{uploadImg}}" mode="aspectFil"l></image>
+<view
+ class="imgContainer"
+ bindtap="uploadImg"
+>
+	<image
+	 class="uploadCatImg"
+	 src="{{uploadImg}}"
+	 mode="aspectFil"
+	 l
+	></image>
 </view>
 
- <view style="display:{{resultDisplay}};" class="renewIdentify">
-        <view >识别结束</view>
-        <view>点击任意阴影处关闭</view>
-    </view>
+<view
+ style="display:{{resultDisplay}};"
+ class="renewIdentify"
+>
+	<view>识别结束</view>
+	<view>点击任意阴影处关闭</view>
+</view>
 
+<view
+ class="shadow"
+ style="display:{{resultDisplay}}"
+ bindtap="closeImg"
+/>
 
-<view class="shadow" style="display:{{resultDisplay}}" bindtap="closeImg"></view>
+<image
+ src="/img/close.png"
+ class="close"
+ style="display:{{resultDisplay}}"
+ bindtap="closeImg"
+/>
 
-
-<image src="/img/close.png" class="close" style="display:{{resultDisplay}}"  bindtap="closeImg"></image>
-
-
-<view class="result" style="display:{{resultDisplay}}">
-	<view  wx:for="{{identifyResult}}" wx:key="*this">
+<view
+ class="result"
+ style="display:{{resultDisplay}}"
+>
+	<view
+	 wx:for="{{identifyResult}}"
+	 wx:key="*this"
+	>
 		<view style="display:inline-block;width:200rpx">{{item.name}}</view>
 		<view style="display:inline-block;position:relative;bottom:10rpx;margin:0 20rpx"> ......</view>
 		<view style="display:inline-block;width:150rpx"> {{item.score}}%</view>
@@ -23,14 +46,24 @@
 </view>
 
 <view class="circle">
-<view hover-class="hover">
-	<image class="uploadImg" src="/img/identifyIcon.png" bindtap="identify" hover-class="hover"></image>
-</view>
+	<view hover-class="hover">
+		<image
+		 class="uploadImg"
+		 src="/img/identifyIcon.png"
+		 bindtap="identify"
+		 hover-class="hover"
+		/>
+	</view>
 </view>
 
-<view class="identifyWord" style="font-size: .9rem;color:#999999 ">点击上方空白处上传猫猫图片</view>
-
+<view
+ class="identifyWord"
+ style="font-size: .9rem;color:#999999 "
+>点击上方空白处上传猫猫图片
+</view>
 
 <view class="circleBackgroundContainer">
-	<view class="circleBackground"></view>
+	<view class="circleBackground" />
 </view>
+
+

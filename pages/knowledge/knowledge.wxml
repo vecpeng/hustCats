@@ -1,25 +1,41 @@
 <view style="display:flex">
 	<view style="width: 60px; display: inline-block;">
-		<scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;">
+		<scroll-view
+		 scroll-y
+		 style="width: 100%; height: {{height - 5}}px;"
+		>
 			<view style="width: 48px; margin: 0 auto;">
 				<!-- <view style="padding: 20rpx 0; text-align: center;">
 					<image bindtap="toggleSearchBar" src="/img/{{search}}" style="width: 24px;" mode="widthFix"></image>
 				</view> -->
 				<view class="searchBar {{searchBarDisplay}}">
-					<input style="width: 100%;"></input>
+					<input style="width: 100%;"/>
+
 				</view>
-				<view style="height: 1px; background-color: #f2f2f2;"></view>
-				<block wx:for="{{category}}" wx:for-index='i' wx:key="id">
+				<view style="height: 1px; background-color: #f2f2f2;" />
+				<block
+				 wx:for="{{category}}"
+				 wx:for-index='i'
+				 wx:key="id"
+				>
 					<view style="padding: 20rpx 0; text-align: center;">
-						<view data-index="{{i}}" bindtap="changeIndex" style="padding: 20rpx 0;{{i==index?'color: #EDA2A2;':'color: #808080;'}}">{{item.categoryName}}</view>
+						<view
+						 data-index="{{i}}"
+						 bindtap="changeIndex"
+						 style="padding: 20rpx 0;{{i==index?'color: #EDA2A2;':'color: #808080;'}}"
+						>{{item.categoryName}}
+						</view>
 					</view>
-					<view style="height: 1px; background-color: #f2f2f2;"></view>
+					<view style="height: 1px; background-color: #f2f2f2;" />
 				</block>
 			</view>
 		</scroll-view>
 	</view>
 	<view style="display: inline-block; width: calc(100vw - 60px); background-color: rgb(51,51,51);">
-		<scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;{{proDisplay=='none'?'display:block':'display:none'}}">
+		<scroll-view
+		 scroll-y
+		 style="width: 100%; height: {{height - 5}}px;{{proDisplay=='none'?'display:block':'display:none'}}"
+		>
 			<view style="padding: 20rpx 0;">
 				<!--<view style="width: 90%; padding: 20rpx 0; margin: 0 auto; background-color: white; border-radius: 10px; {{index==1?'display: block;':'display: none;'}}">
       <view style="margin: 0 5%;">
@@ -66,10 +82,6 @@
         </view>
       </view>
     </view>-->
-
-
-
-
 
 				<!-- <scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;">
   <view style="padding-top:20rpx ;">
@@ -132,33 +144,39 @@
 </scroll-view> -->
 
 				<!-- 进阶 -->
-				<view bindtap="toggleFoldDisplayA" style="margin-bottom:20rpx;display:{{advanceDisplay}}">
+				<view
+				 bindtap="toggleFoldDisplayA"
+				 style="margin-bottom:20rpx;display:{{advanceDisplay}}"
+				>
 					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
 
 						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem;"> 撸猫的注意事项</view>
-						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldA"></image>
+						<image
+						 src="/img/fold.png"
+						 style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;"
+						 class="foldA"
+						/>
 					</view>
 				</view>
 				<!-- 注意事项 -->
 				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayA}}">
 					<view style="width:80%;padding-left:10%;padding-top:20rpx;">
 						<view style="border-bottom:0.5rpx solid #666666">
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">野猫</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-								<view style="display:inline-block;margin-bottom:40rpx;">遇到流浪猫不要想当然的以为猫咪都是可爱的，要循序渐进，消除敌意，不要一开始就上去喂养或者抚摸，城市的流浪猫基本上都是家猫，敌意一般情况下很容易消除，但不可操之过急。 <view style="color:#4d4d4d;font-weight:bold;display:inline-block">野猫有风险，撸猫需谨慎！！</view>
+								<view style="display:inline-block;margin-bottom:40rpx;">遇到流浪猫不要想当然的以为猫咪都是可爱的，要循序渐进，消除敌意，不要一开始就上去喂养或者抚摸，城市的流浪猫基本上都是家猫，敌意一般情况下很容易消除，但不可操之过急。
+									<view style="color:#4d4d4d;font-weight:bold;display:inline-block">野猫有风险，撸猫需谨慎！！</view>
 								</view>
 
 							</view>
 						</view>
 					</view>
 
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">过度的撸猫</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -170,12 +188,9 @@
 						</view>
 					</view>
 
-
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">打扰猫猫睡觉</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -185,14 +200,9 @@
 						</view>
 					</view>
 
-
-
-
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">身上有异味</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -201,11 +211,9 @@
 						</view>
 					</view>
 
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">全身乱抚摸</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -215,26 +223,30 @@
 						</view>
 					</view>
 
-
 				</view>
 				<!-- 注意事项 -->
 
-				<view bindtap="toggleFoldDisplayB" style="margin-bottom:20rpx;margin-top:40rpx;display:{{advanceDisplay}}">
+				<view
+				 bindtap="toggleFoldDisplayB"
+				 style="margin-bottom:20rpx;margin-top:40rpx;display:{{advanceDisplay}}"
+				>
 					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
 
 						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem;"> 猫猫的叫声（仅供参考）</view>
-						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldB"></image>
+						<image
+						 src="/img/fold.png"
+						 style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;"
+						 class="foldB"
+						/>
 					</view>
 
 				</view>
 				<!-- 猫猫叫声 -->
 				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayB}}">
 
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">突然叫了一声</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -245,12 +257,9 @@
 						</view>
 					</view>
 
-
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">咕噜咕噜叫</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -260,14 +269,9 @@
 						</view>
 					</view>
 
-
-
-
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">低沉而温柔的叫</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -276,11 +280,9 @@
 						</view>
 					</view>
 
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">老吴~</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -291,7 +293,7 @@
 
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">又急又快的叫声</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -300,10 +302,9 @@
 						</view>
 					</view>
 
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">惨烈、像婴儿哭的声音</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -312,32 +313,32 @@
 						</view>
 					</view>
 
-
 				</view>
-
 
 				<!-- 猫猫叫声 -->
 
-
-
-
-
-				<view bindtap="toggleFoldDisplayC" style="margin-bottom:20rpx;margin-top:40rpx;display:{{advanceDisplay}}">
+				<view
+				 bindtap="toggleFoldDisplayC"
+				 style="margin-bottom:20rpx;margin-top:40rpx;display:{{advanceDisplay}}"
+				>
 					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
 
 						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem;">猫猫的智商</view>
-						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldC"></image>
+						<image
+						 src="/img/fold.png"
+						 style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;"
+						 class="foldC"
+						/>
 					</view>
 
 				</view>
 				<!-- 猫猫智商 -->
 				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayC}}">
 
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view style="font-size: .8rem; color: #808080;line-height:1.8rem">猫的智商一般相当于人在2~3岁时的智商。</view>
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">有的猫可以理解复杂的条件</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -348,10 +349,9 @@
 						</view>
 					</view>
 
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">猫咪的脑部结构和人类相同</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -360,10 +360,9 @@
 						</view>
 					</view>
 
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">猫咪身体会一直成长</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -375,35 +374,36 @@
 					</view>
 				</view>
 
-
 				<!-- 进阶 -->
 
-
-
-
-
-
-
-
-
-				<block wx:for="{{content}}" wx:key="id" style="display:{{contentDisplay}}">
-					<rich-text nodes="{{item.content}}"></rich-text>
+				<block
+				 wx:for="{{content}}"
+				 wx:key="id"
+				 style="display:{{contentDisplay}}"
+				>
+					<rich-text nodes="{{item.content}}" />
 				</block>
 			</view>
 		</scroll-view>
 
-
-
-
-
 		<!-- 专家 -->
-		<scroll-view scroll-y style="width: 100%; height: {{height - 5}}px;display:{{proDisplay}}">
+		<scroll-view
+		 scroll-y
+		 style="width: 100%; height: {{height - 5}}px;display:{{proDisplay}}"
+		>
 			<view style="padding: 20rpx 0;">
-				<view bindtap="toggleFoldDisplayA" style="margin-bottom:20rpx;display:{{proDisplay}}">
+				<view
+				 bindtap="toggleFoldDisplayA"
+				 style="margin-bottom:20rpx;display:{{proDisplay}}"
+				>
 					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:17rpx;color:#666666;display:flex;justify-content:space-between">
 
 						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem"> 猫猫的疫苗</view>
-						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldA"></image>
+						<image
+						 src="/img/fold.png"
+						 style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;"
+						 class="foldA"
+						/>
 					</view>
 				</view>
 				<!-- 注意事项 -->
@@ -416,22 +416,28 @@
 
 						<view style="width:90%;padding-left:5%;padding-top:20rpx">
 							<view>
-								<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+								<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 								<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">猫三联</view>
 								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-									<view style="display:inline-block"><text style="color:#c7b299">预防:</text>猫瘟、猫鼻气管炎、猫卡里西病
+									<view style="display:inline-block">
+										<text style="color:#c7b299">预防:</text>
+										猫瘟、猫鼻气管炎、猫卡里西病
 									</view>
 
 								</view>
 
 								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-									<view style="display:inline-block"><text style="color:#c7b299">注射时间:</text>首注射2~3针;以后每年需要再注射1针 </view>
+									<view style="display:inline-block">
+										<text style="color:#c7b299">注射时间:</text>
+										首注射2~3针;以后每年需要再注射1针
+									</view>
 								</view>
 								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-									<view style="display:inline-block"><text style="color:#c7b299">注意事项:  </text>
+									<view style="display:inline-block">
+										<text style="color:#c7b299">注意事项:  </text>
 
 										<view>猫咪要在健康的时候打疫苗，如果猫咪有拉稀、呕吐、打喷嚏等症状，要等猫咪恢复后再去打疫苗。疫苗前一周不要洗澡。</view>
 										<view>疫苗后敬遵医嘱，- 周内不要洗澡，不要出门。</view>
@@ -442,34 +448,34 @@
 							</view>
 						</view>
 
-
-
-
-
-
 						<view style="width:90%;padding-left:5%;padding-top:20rpx">
 							<view>
-								<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
-								<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">狂犬疫苗 <text style="color:#444444;font-weight:normal">此种疫苗争议较大</text></view>
+								<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
+								<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">狂犬疫苗
+									<text style="color:#444444;font-weight:normal">此种疫苗争议较大</text>
+								</view>
 								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-									<view style="display:inline-block"><text style="color:#c7b299">预防:</text>狂犬病
+									<view style="display:inline-block">
+										<text style="color:#c7b299">预防:</text>
+										狂犬病
 									</view>
 
 								</view>
 
-
 								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-									<view style="display:inline-block"><text style="color:#c7b299">注射时间:</text>每年同一时间注射
+									<view style="display:inline-block">
+										<text style="color:#c7b299">注射时间:</text>
+										每年同一时间注射
 									</view>
 
 								</view>
 
-
 								<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-									<view style="display:inline-block"><text style="color:#c7b299">注意事项:  </text>
+									<view style="display:inline-block">
+										<text style="color:#c7b299">注意事项:  </text>
 
 										<view>狂犬疫苗有副作用，注射需铲屎官斟酌。</view>
 										<view style="padding-bottom:50rpx;">若是担心猫抓自己后有感染的可能性，建议注射。</view>
@@ -479,33 +485,31 @@
 							</view>
 						</view>
 
-
-
-
-
-
 					</view>
 
 				</view>
 
-
-
-				<view bindtap="toggleFoldDisplayB" style="margin-bottom:20rpx;margin-top:40rpx;display:{{proDisplay}}">
+				<view
+				 bindtap="toggleFoldDisplayB"
+				 style="margin-bottom:20rpx;margin-top:40rpx;display:{{proDisplay}}"
+				>
 					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
 
 						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem"> 养猫必备物品</view>
-						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldB"></image>
+						<image
+						 src="/img/fold.png"
+						 style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;"
+						 class="foldB"
+						/>
 					</view>
 
 				</view>
 				<!-- 猫猫叫声 -->
 				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayB}}">
 
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">生活用品</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -516,29 +520,24 @@
 						</view>
 					</view>
 
-
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">饮食</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
 								<view style="display:inline-block">猫粮、猫罐头、猫零食等</view>
-								<view style="display:inline-block"><text style="color:pink">*</text>作为铲屎官一定要看成分认真选择猫猫的食物!</view>
+								<view style="display:inline-block">
+									<text style="color:pink">*</text>
+									作为铲屎官一定要看成分认真选择猫猫的食物!
+								</view>
 							</view>
 						</view>
 					</view>
 
-
-
-
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">健康</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -547,11 +546,9 @@
 						</view>
 					</view>
 
-
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">玩耍</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -560,34 +557,32 @@
 						</view>
 					</view>
 
-
-
-
 				</view>
-
 
 				<!-- 猫猫叫声 -->
 
-
-
-
-
-				<view bindtap="toggleFoldDisplayC" style="margin-top:40rpx;display:{{proDisplay}}">
+				<view
+				 bindtap="toggleFoldDisplayC"
+				 style="margin-top:40rpx;display:{{proDisplay}}"
+				>
 					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
 
 						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem">猫猫的清洁</view>
-						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldC"></image>
+						<image
+						 src="/img/fold.png"
+						 style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;"
+						 class="foldC"
+						/>
 					</view>
 
 				</view>
 				<!-- 猫猫智商 -->
 				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:20rpx;margin:auto;display:{{displayC}}">
 
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view style="font-size: .8rem; color: #808080;line-height:1.8rem">猫猫是很爱干净的动物，它们平时会通过舔毛来进行自我清洁，但有时也需要铲屎官帮忙。</view>
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">剪指甲</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -600,10 +595,9 @@
 						</view>
 					</view>
 
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">驱虫</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -612,10 +606,9 @@
 						</view>
 					</view>
 
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">刷牙</view>
 							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
@@ -628,90 +621,71 @@
 						</view>
 					</view>
 
-
-
-
-			
-
 					<view style="width:80%;padding-left:10%;padding-top:20rpx">
 						<view>
-							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
 							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">查耳朵</view>
 							<view style="font-size:.8rem; color: #808080;line-height:1.8rem">
 
 								<view style="display:inline-block">由于猫猫自己无法清洁到耳朵，作为铲屎官需要定期查看有无耳螨或发炎情况。</view>
-								<view >如果猫猫很频繁地抓耳朵，或有臭味等不健康的情况，需要去医院检查。</view>
+								<view>如果猫猫很频繁地抓耳朵，或有臭味等不健康的情况，需要去医院检查。</view>
 							</view>
 						</view>
 					</view>
 
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">梳毛</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
 
-
-						<view style="width:80%;padding-left:10%;padding-top:20rpx">
-					<view>
-						<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
-						<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">梳毛</view>
-						<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-							<view style="display:inline-block">定期梳毛可以减少猫猫掉在环境中的毛，也可以增减感情~</view>
-						</view>
-					</view>
-				</view>
-
-
-
-				<view style="width:80%;padding-left:10%;padding-top:20rpx">
-					<view>
-						<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
-						<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">摸下巴</view>
-						<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-							<view style="display:inline-block">要定期检查猫猫有没有黑下巴噢</view>
-						</view>
-					</view>
-				</view>
-
-
-
-				<view style="width:80%;padding-left:10%;padding-top:20rpx">
-					<view>
-						<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block"></view>
-						<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">洗澡</view>
-						<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
-
-							<view style="display:inline-block">猫猫不太脏的话不用经常洗澡，双方都累。</view>
-							<view style="display:inline-block;padding-bottom:50rpx;">如果猫不是脏到想丢的话，半年左右洗一次可以了，如果自己没有把握的话可以带去宠物店。
-
+								<view style="display:inline-block">定期梳毛可以减少猫猫掉在环境中的毛，也可以增减感情~</view>
 							</view>
 						</view>
 					</view>
-				</view>
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">摸下巴</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">要定期检查猫猫有没有黑下巴噢</view>
+							</view>
+						</view>
+					</view>
+
+					<view style="width:80%;padding-left:10%;padding-top:20rpx">
+						<view>
+							<view style="width:14rpx;height:14rpx;margin-right:10rpx;border-radius:50%;position:relative;bottom:5rpx;background-color:#eda2a2;display:inline-block" />
+							<view style="display:inline-block;color:#4d4d4d;font-weight:bold;font-size: .9rem">洗澡</view>
+							<view style="font-size: .8rem; color: #808080;line-height:1.8rem">
+
+								<view style="display:inline-block">猫猫不太脏的话不用经常洗澡，双方都累。</view>
+								<view style="display:inline-block;padding-bottom:50rpx;">如果猫不是脏到想丢的话，半年左右洗一次可以了，如果自己没有把握的话可以带去宠物店。
+
+								</view>
+							</view>
+						</view>
+					</view>
 
 				</view>
 
-
-
-
-
-			
-
-
-
-
-
-
-
-				<view bindtap="toggleFoldDisplayD" style="margin-bottom:20rpx;margin-top:40rpx;display:{{proDisplay}}">
+				<view
+				 bindtap="toggleFoldDisplayD"
+				 style="margin-bottom:20rpx;margin-top:40rpx;display:{{proDisplay}}"
+				>
 					<view style="width: 90%; height:70rpx;padding-left:20rpx;line-height:70rpx;margin: 0 auto; background-color: white;border-radius:18rpx;color:#666666;display:flex;justify-content:space-between">
 
 						<view style=" padding-left:20rpx;line-height:70rpx;color:#666666;display:inline-block;font-size: .9rem">环境的清洁</view>
-						<image src="/img/fold.png" style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;" class="foldD"></image>
+						<image
+						 src="/img/fold.png"
+						 style="width:40rpx;height:20rpx;margin-top:25rpx;margin-right:20rpx;"
+						 class="foldD"
+						/>
 					</view>
 
 				</view>
-
-
-
 
 				<view style="background-color:#f7f7f7;width:93%;border-radius:0 0 20rpx 20rpx;;position:relative;bottom:32rpx;margin:auto;display:{{displayD}}">
 					<view style="padding-top:50rpx;margin-left:50rpx;padding-bottom:10rpx;color: #808080;font-size: .8rem">1.经常清洁地板卫生、家具表面、卫生死角。</view>
@@ -726,3 +700,5 @@
 		</scroll-view>
 	</view>
 </view>
+
+
